@@ -4,12 +4,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.5.93
-Release:	2
+Version:	2.5.95
+Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	2886ac0bd345f1525121c5f8c840fd8b
+# Source0-md5:	635d74899b81b85d1495718f52c6df8c
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -27,10 +27,11 @@ BuildRequires:	libselinux-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
-Obsoletes:	shadow
-Obsoletes:	shadow-extras 
 Provides:	shadow = 2:%{version}-%{release}
 Provides:	shadow-extras = 2:%{version}-%{release}
+Obsoletes:	shadow
+Obsoletes:	shadow-extras 
+Conflicts:	util-linux < 2.12-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -158,6 +159,7 @@ fi
 %attr(4755,root,root) %{_bindir}/chsh
 %attr(4755,root,root) %{_bindir}/expiry
 %attr(4755,root,root) %{_bindir}/gpasswd
+%attr(755,root,root) %{_bindir}/newgrp
 %attr(4755,root,root) %{_bindir}/passwd
 %attr(755,root,root) %{_bindir}/rpasswd
 %attr(755,root,root) %{_sbindir}/chpasswd
@@ -178,7 +180,6 @@ fi
 %attr(755,root,root) %{_sbindir}/vipw
 %{_mandir}/man?/*
 %exclude %{_mandir}/man8/rpasswdd*
-%exclude %{_mandir}/man1/newgrp*
 
 %files -n rpasswdd
 %defattr(644,root,root,755)
