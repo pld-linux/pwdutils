@@ -28,7 +28,7 @@ LDAP. PAM is used for user authentication and changing the pasword. It
 contains passwd, chage, chfn, chsh, and a daemon for changing the
 password on a remote machine over a secure SSL connection. The daemon
 also uses PAM so that it can change passwords independent of where
-they are stored. 
+they are stored.
 
 %description -l pl
 pwdutils to zestaw narzêdzi do zarz±dzania informacjami o
