@@ -26,7 +26,7 @@ BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 BuildRequires:	libselinux-devel
-%{?with_ldap:	BuildRequires:	openldap-devel}
+%{?with_ldap:BuildRequires: openldap-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
