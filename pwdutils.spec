@@ -6,12 +6,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.6.92
-Release:	0.2
+Version:	2.6.94
+Release:	0.1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	59c677ac55d2d8406224eb9b2470a3c0
+# Source0-md5:	e28822a9c81c381aceb47879694a6a99
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -28,7 +28,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
-BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
 %{?with_ldap:BuildRequires:	openldap-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
