@@ -1,23 +1,31 @@
 # TODO:
-# - finish it
-# - use the same *.pam files as in shadow.spec
+# - finish and test it
 # - subpackage with rpasswd daemon
 #
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.3.90
+Version:	2.3.94
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-userbuild.patch
+Source1:	%{name}.useradd
+Source2:	%{name}.rpasswdd.init
+Source3:	%{name}.login.defs
+Source4:	chage.pamd
+Source5:	chfn.pamd
+Source6:	chsh.pamd
+Source7:	passwd.pamd
+Source8:	useradd.pamd
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
+Obsoletes:	shadow
+Obsoletes:	shadow-extras
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,7 +50,6 @@ has³a niezale¿nie od tego, gdzie s± przechowywane.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gettextize}
@@ -55,9 +62,21 @@ has³a niezale¿nie od tego, gdzie s± przechowywane.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d/,pwdutils,skel}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_sbindir}/*.local $RPM_BUILD_ROOT/etc/pwdutils/
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/default/useradd
+install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/rpasswdd
+install %{SOURCE3} $RPM_BUILD_ROOT/etc/login.defs
+
+install %{SOURCE4} $RPM_BUILD_ROOT/etc/pam.d/chage
+install %{SOURCE5} $RPM_BUILD_ROOT/etc/pam.d/chfn
+install %{SOURCE6} $RPM_BUILD_ROOT/etc/pam.d/chsh
+install %{SOURCE7} $RPM_BUILD_ROOT/etc/pam.d/passwd
+install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 
 %find_lang %{name}
 
@@ -65,29 +84,39 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%{?_without_static:/sbin/ldconfig}
+/sbin/ldconfig
 if [ ! -f /etc/shadow ]; then
 	%{_sbindir}/pwconv
 fi
 
-%{!?_without_static:%postun -p /sbin/ldconfig}
+%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc NEWS README THANKS TODO
 %attr(750,root,root) %dir %{_sysconfdir}/default
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/default/*
+%attr(750,root,root) %dir %{_sysconfdir}/%{name}
+%attr(750,root,root) %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/%{name}/*.local
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/chage
+%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/chfn
+%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/chsh
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/passwd
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/shadow
+%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/rpasswd
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/useradd
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/login.defs
-%attr(600,root,root) %ghost %{_sysconfdir}/shadow
 %dir /etc/skel
-%{?_without_static:%attr(755,root,root) %{_libdir}/lib*}
-%attr(755,root,root) %{_sbindir}/chpasswd
-%attr(755,root,root) %{_sbindir}/group*
-%attr(755,root,root) %{_sbindir}/grpck
-%attr(755,root,root) %{_sbindir}/pwck
-%attr(755,root,root) %{_sbindir}/*conv
+%attr(755,root,root) %{_bindir}/chage
+%attr(4755,root,root) %{_bindir}/chfn
+%attr(4755,root,root) %{_bindir}/chsh
+%attr(4755,root,root) %{_bindir}/expiry
 %attr(4755,root,root) %{_bindir}/passwd
+%attr(755,root,root) %{_bindir}/rpasswd
+%attr(755,root,root) %{_sbindir}/chpasswd
+%attr(755,root,root) %{_sbindir}/groupadd
+%attr(755,root,root) %{_sbindir}/groupdel
+%attr(755,root,root) %{_sbindir}/rpasswdd
+%attr(755,root,root) %{_sbindir}/useradd
+%attr(755,root,root) %{_sbindir}/userdel
+%{_mandir}/man?/*.gz
+%attr(754,root,root) /etc/rc.d/init.d/rpasswdd
