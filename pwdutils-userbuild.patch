@@ -1,0 +1,10 @@
+diff -urN pwdutils-2.3.90.org/src/Makefile.am pwdutils-2.3.90/src/Makefile.am
+--- pwdutils-2.3.90.org/src/Makefile.am	2003-07-17 01:25:21.057274424 +0200
++++ pwdutils-2.3.90/src/Makefile.am	2003-07-17 01:26:10.845705432 +0200
+@@ -60,5 +60,5 @@
+ install-exec-hook:
+ 	$(LN_F) $(DESTDIR)$(bindir)/passwd $(DESTDIR)$(bindir)/chsh
+ 	$(LN_F) $(DESTDIR)$(bindir)/passwd $(DESTDIR)$(bindir)/chfn
+-	chgrp shadow $(DESTDIR)$(bindir)/expiry
++	-chgrp shadow $(DESTDIR)$(bindir)/expiry
+ 	chmod g+s $(DESTDIR)$(bindir)/expiry
