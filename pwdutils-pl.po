@@ -1,0 +1,2939 @@
+# Polish translation for pwdutils.
+# This file is distributed under the same license as the pwdutils package.
+# Jakub Bogusz <qboosh@pld-linux.org>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pwdutils 2.6.92\n"
+"Report-Msgid-Bugs-To: kukuk@suse.de\n"
+"POT-Creation-Date: 2004-11-29 18:06+0100\n"
+"PO-Revision-Date: 2004-12-05 23:25+0100\n"
+"Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/authentication.c:52 src/passwd.c:528
+#, c-format
+msgid "%s: PAM Failure, aborting: %s\n"
+msgstr "%s: Niepowodzenie PAM, zakoñczenie: %s\n"
+
+#: lib/authentication.c:103
+#, c-format
+msgid "Enter login(%s) password:"
+msgstr "Has³o logowania(%s):"
+
+#: lib/call_script.c:73 src/vipw.c:97
+#, c-format
+msgid "Cannot fork: %s\n"
+msgstr "Nie mo¿na wykonaæ fork: %s\n"
+
+#: lib/call_script.c:81
+#, c-format
+msgid "waitpid (%d) failed: %s\n"
+msgstr "waitpid (%d) nie powiod³o siê: %s\n"
+
+#: lib/check_name.c:75
+#, c-format
+msgid "Can't compile regular expression: %s\n"
+msgstr "Nie mo¿na skompilowaæ wyra¿enia regularnego: %s\n"
+
+#: lib/chown_dir_rec.c:61
+#, c-format
+msgid "Cannot change owner/group for `%s': %s\n"
+msgstr "Nie mo¿na zmieniæ w³a¶ciciela/grupy pliku `%s': %s\n"
+
+#: lib/copy_dir_rec.c:84
+#, c-format
+msgid "Cannot create special file `%s': %s\n"
+msgstr "Nie mo¿na utworzyæ pliku specjalnego `%s': %s\n"
+
+#: lib/copy_dir_rec.c:106
+#, c-format
+msgid "Cannot create directory `%s': %s\n"
+msgstr "Nie mo¿na utworzyæ katalogu `%s': %s\n"
+
+#: lib/copy_dir_rec.c:120 lib/copy_dir_rec.c:153 lib/copy_dir_rec.c:204
+#, c-format
+msgid "Cannot set permissions for `%s': %s\n"
+msgstr "Nie mo¿na ustawiæ uprawnieñ pliku `%s': %s\n"
+
+#: lib/copy_dir_rec.c:145
+#, c-format
+msgid "Cannot create symlink `%s': %s\n"
+msgstr "Nie mo¿na utworzyæ dowi±zania symbolicznego `%s': %s\n"
+
+#: lib/copy_dir_rec.c:190 src/vipw.c:231 src/vipw.c:239
+#, c-format
+msgid "Cannot copy `%s': %s\n"
+msgstr "Nie mo¿na skopiowaæ `%s': %s\n"
+
+#: lib/copy_xattr.c:58 lib/copy_xattr.c:76
+#, c-format
+msgid "Cannot get attributes for `%s': %m\n"
+msgstr "Nie mo¿na odczytaæ atrybutów pliku `%s': %m\n"
+
+#: lib/copy_xattr.c:100 lib/copy_xattr.c:120
+#, c-format
+msgid "Cannot get attribute %s of `%s': %m\n"
+msgstr "Nie mo¿na odczytaæ atrybutu %s pliku `%s': %m\n"
+
+#: lib/copy_xattr.c:134
+#, c-format
+msgid "SELinux not enabled, ignore attribute %s for `%s'.\n"
+msgstr "SELinux nieaktywny, zignorowano atrybut %s pliku `%s'.\n"
+
+#: lib/copy_xattr.c:140
+#, c-format
+msgid "Cannot set attribute %s for `%s': %m\n"
+msgstr "Nie mo¿na ustawiæ atrybutu %s pliku `%s': %m\n"
+
+#: lib/copy_xattr.c:161
+#, c-format
+msgid "%s: Can't get context for %s"
+msgstr "%s: Nie mo¿na odczytaæ kontekstu pliku %s"
+
+#: lib/copy_xattr.c:168
+#, c-format
+msgid "%s: Can't set context for %s"
+msgstr "%s: Nie mo¿na ustawiæ kontekstu pliku %s"
+
+#: lib/get_ldap_password.c:43 src/chpasswd.c:225 src/chsh.c:521
+#: src/passwd.c:563
+#, c-format
+msgid "Enter LDAP Password:"
+msgstr "Has³o LDAP:"
+
+#: lib/group.c:312 src/groupadd.c:483 src/groupdel.c:371
+msgid "Cannot lock group file: already locked.\n"
+msgstr "Nie mo¿na zablokowaæ pliku grup: ju¿ zablokowany.\n"
+
+#: lib/group.c:341 lib/group.c:389 lib/group.c:536 lib/group.c:583
+#: lib/user.c:447 lib/user.c:494 lib/user.c:651 lib/user.c:698 src/grpck.c:235
+#: src/grpck.c:278 src/grpck.c:578 src/grpck.c:626 src/pwck.c:242
+#: src/pwck.c:285 src/pwck.c:524 src/pwck.c:809 src/pwck.c:857
+#: src/useradd.c:520
+#, c-format
+msgid "Can't open %s: %m\n"
+msgstr "Nie mo¿na otworzyæ %s: %m\n"
+
+#: lib/group.c:347 lib/group.c:542 lib/user.c:453 lib/user.c:657
+#: src/grpck.c:241 src/grpck.c:584 src/grpunconv.c:230 src/pwck.c:248
+#: src/pwck.c:487 src/pwck.c:815 src/pwconv.c:212 src/pwunconv.c:178
+#: src/useradd.c:494
+#, c-format
+msgid "Can't stat %s: %m\n"
+msgstr "Nie mo¿na wykonaæ stat na %s: %m\n"
+
+#: lib/group.c:369 lib/group.c:564 lib/user.c:475 lib/user.c:679
+#: src/grpck.c:261 src/grpck.c:606 src/pwck.c:268 src/pwck.c:507
+#: src/pwck.c:837
+#, c-format
+msgid "Can't create %s temp file: %m\n"
+msgstr "Nie mo¿na utworzyæ tymczasowego pliku %s: %m\n"
+
+#: lib/group.c:415 lib/group.c:457 lib/group.c:470 src/grpck.c:655
+#, c-format
+msgid "Error while writing temporary group file: %m\n"
+msgstr "B³±d podczas zapisu tymczasowego pliku grup: %m\n"
+
+#: lib/group.c:480
+#, c-format
+msgid "Group not found (and not deleted): %s\n"
+msgstr "Grupa nie znaleziona (i nie usuniêta): %s\n"
+
+#: lib/group.c:488 src/grpck.c:666
+#, c-format
+msgid "Error while closing old group file: %m\n"
+msgstr "B³±d podczas zamykania starego pliku grup: %m\n"
+
+#: lib/group.c:496 src/grpck.c:674
+#, c-format
+msgid "Error while closing temporary group file: %m\n"
+msgstr "B³±d podczas zamykania tymczasowego pliku grup: %m\n"
+
+#: lib/group.c:606 lib/group.c:648 lib/group.c:662
+#, c-format
+msgid "Error while writing temporary gshadow file: %m\n"
+msgstr "B³±d podczas zapisu tymczasowego pliku gshadow: %m\n"
+
+#: lib/group.c:672
+#, c-format
+msgid "Error while closing old gshadow file: %m\n"
+msgstr "B³±d podczas zamykania starego pliku gshadow: %m\n"
+
+#: lib/group.c:679
+#, c-format
+msgid "Error while closing temporary gshadow file: %m\n"
+msgstr "B³±d podczas zamykania tymczasowego pliku gshadow: %m\n"
+
+#: lib/group.c:817 lib/user.c:984
+#, c-format
+msgid "LDAP information update failed: %s\n"
+msgstr "Uaktualnienie informacji w bazie LDAP nie powiod³o siê: %s\n"
+
+#: lib/group.c:826
+#, c-format
+msgid "Cannot modify/add NIS group entries\n"
+msgstr "Nie mo¿na zmodyfikowaæ/dodaæ wpisu group w NIS\n"
+
+#: lib/group.c:831 lib/user.c:993
+#, c-format
+msgid "Unknown service %d\n"
+msgstr "Nieznana us³uga: %d\n"
+
+#: lib/libldap.c:1356 lib/libldap.c:1421 lib/libldap.c:1476 lib/libldap.c:1537
+#: lib/libldap.c:1679 lib/libldap.c:1909
+#, c-format
+msgid "Authentication failure.\n"
+msgstr "B³±d uwierzytelnienia.\n"
+
+#: lib/libldap.c:1687
+#, c-format
+msgid "Cannot find base ou for new users.\n"
+msgstr "Nie znaleziono podstawowej ou dla nowych u¿ytkowników.\n"
+
+#: lib/libldap.c:1690
+#, c-format
+msgid "Base DN for user account `%s' is \"%s\".\n"
+msgstr "Podstawowa DN dla konta u¿ytkownika `%s' to \"%s\".\n"
+
+#: lib/libldap.c:1917
+#, c-format
+msgid "Cannot find base ou for new groups.\n"
+msgstr "Nie znaleziono podstawowej ou dla nowych grup.\n"
+
+#: lib/libldap.c:1920
+#, c-format
+msgid "Base DN for group `%s' is \"%s\".\n"
+msgstr "Podstawowa DN dla grupy `%s' to \"%s\".\n"
+
+#: lib/parse_crypt_arg.c:92
+#, c-format
+msgid "Can't open %s for reading: %s\n"
+msgstr "Nie mo¿na otworzyæ %s do odczytu: %s\n"
+
+#: lib/parse_crypt_arg.c:100
+#, c-format
+msgid "Unable to obtain entropy from %s\n"
+msgstr "Nie mo¿na uzyskaæ entropii z %s\n"
+
+#: lib/parse_crypt_arg.c:115
+#, c-format
+msgid "Unable to generate a salt, check your crypt settings.\n"
+msgstr "Nie mo¿na wygenerowaæ zarodka, proszê sprawdziæ ustawienia crypt.\n"
+
+#: lib/parse_crypt_arg.c:149 src/gpasswd.c:345
+#, c-format
+msgid "No support for blowfish compiled in. Using MD5\n"
+msgstr "Nie wkompilowano obs³ugi blowfish. U¿yto MD5.\n"
+
+#: lib/parse_crypt_arg.c:154
+#, c-format
+msgid "No support for %s available, using DES.\n"
+msgstr "Brak obs³ugi %s, u¿yto DES.\n"
+
+#: lib/passwd_nisplus.c:313
+#, c-format
+msgid "Could not determine hostname!\n"
+msgstr "Nie mo¿na okre¶liæ nazwy hosta!\n"
+
+#: lib/passwd_nisplus.c:329
+#, c-format
+msgid "Can't find %s's secret key\n"
+msgstr "Nie znaleziono klucza tajnego %s\n"
+
+#: lib/passwd_nisplus.c:345 lib/passwd_nisplus.c:366
+#, c-format
+msgid "Could not get public key for %s!\n"
+msgstr "Nie mo¿na pobraæ klucza publicznego %s!\n"
+
+#: lib/passwd_nisplus.c:355
+#, c-format
+msgid "Could not determine the NIS+ root server!\n"
+msgstr "Nie mo¿na okre¶liæ g³ównego serwera NIS+!\n"
+
+#: lib/passwd_nisplus.c:373
+#, c-format
+msgid "Could not create conversion key!\n"
+msgstr "Nie mo¿na utworzyæ klucza konwersji!\n"
+
+#: lib/passwd_nisplus.c:385
+#, c-format
+msgid "DES encryption failure\n"
+msgstr "Niepowodzenie szyfrowania DES\n"
+
+#: lib/passwd_nisplus.c:397
+#, c-format
+msgid "rpc.nispasswd not running on %s?\n"
+msgstr "rpc.nispasswd nie dzia³a na %s?\n"
+
+#: lib/passwd_nisplus.c:418
+#, c-format
+msgid "ERROR: password incorrect, try again\n"
+msgstr "B£¡D: has³o niepoprawne, proszê spróbowaæ ponownie\n"
+
+#: lib/passwd_nisplus.c:420 lib/passwd_nisplus.c:488
+#, c-format
+msgid ""
+"ERROR: %s\n"
+"       password not changed\n"
+msgstr ""
+"B£¡D: %s\n"
+"       has³o nie zmienione\n"
+
+#: lib/passwd_nisplus.c:436 lib/passwd_nisplus.c:463
+#, c-format
+msgid "DES decryption failure!\n"
+msgstr "Niepowodzenie deszyfrowania DES!\n"
+
+#: lib/passwd_nisplus.c:521
+#, c-format
+msgid "ERROR: Unknown error, don't know what happend\n"
+msgstr "B£¡D: Nieznany b³±d, nie wiadomo co siê sta³o\n"
+
+#: lib/passwd_nisplus.c:526
+#, c-format
+msgid "NIS+ password information changed for %s\n"
+msgstr "Zmieniono informacje o ha¶le w NIS+ dla %s\n"
+
+#: lib/passwd_nisplus.c:528
+#, c-format
+msgid "NIS+ credential information changed for %s\n"
+msgstr "Zmieniono informacje uwierzytelniaj±ce w NIS+ dla %s\n"
+
+#: lib/passwd_nisplus.c:597
+#, c-format
+msgid "NIS+ passwd table not found: %s\n"
+msgstr "Nie znaleziono tablicy passwd w NIS+: %s\n"
+
+#: lib/passwd_nisplus.c:613
+#, c-format
+msgid "User not found in NIS+ table.\n"
+msgstr "Nie znaleziono u¿ytkownika w tabeli NIS+.\n"
+
+#: lib/print_error.c:35 src/rpasswd.c:127 src/rpasswdd.c:146
+#, c-format
+msgid "Try `%s --help' or `%s --usage' for more information.\n"
+msgstr "`%s --help' lub `%s --usage' poda wiêcej informacji.\n"
+
+#: lib/print_version.c:32 src/rpasswd.c:80 src/rpasswdd.c:97
+#, c-format
+msgid ""
+"Copyright (C) %s Thorsten Kukuk.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"Copyright (C) %s Thorsten Kukuk.\n"
+"To oprogramowanie jest darmowe; warunki kopiowania s± opisane w ¼ród³ach.\n"
+"Autorzy nie daj± ¯ADNYCH gwarancji, w tym równie¿ gwarancji PRZYDATNO¦CI\n"
+"DO SPRZEDA¯Y LUB DO KONKRETNYCH CELÓW.\n"
+
+#: lib/remove_dir_rec.c:81
+#, c-format
+msgid "Cannot remove file `%s': %s\n"
+msgstr "Nie mo¿na usun±æ pliku `%s': %s\n"
+
+#: lib/remove_dir_rec.c:90
+#, c-format
+msgid "Cannot remove directory `%s': %s\n"
+msgstr "Nie mo¿na usun±æ katalogu `%s': %s\n"
+
+#: lib/selinux_utils.c:87
+#, c-format
+msgid "couldn't get security context `%s': %s"
+msgstr "nie mo¿na odczytaæ kontekstu bezpieczeñstwa `%s': %s"
+
+#: lib/selinux_utils.c:95
+#, c-format
+msgid "couldn't get default security context: %s"
+msgstr "nie mo¿na odczytaæ domy¶lnego kontekstu bezpieczeñstwa: %s"
+
+#: lib/selinux_utils.c:104
+#, c-format
+msgid "couldn't set default security context to `%s': %s"
+msgstr "nie mo¿na ustawiæ domy¶lnego kontekstu bezpieczeñstwa na `%s': %s"
+
+#: lib/selinux_utils.c:123
+#, c-format
+msgid "couldn't reset default security context to `%s': %s"
+msgstr "nie mo¿na ustawiæ domy¶lnego kontekstu bezpieczeñstwa z powrotem na `%s': %s"
+
+#: lib/user.c:88
+#, c-format
+msgid "can't find the master ypserver: %s\n"
+msgstr "nie znaleziono g³ównego serwera yp: %s\n"
+
+#: lib/user.c:95
+#, c-format
+msgid "yppasswdd not running on NIS master %s\n"
+msgstr "yppasswdd nie dzia³a na g³ównym serwerze NIS %s\n"
+
+#: lib/user.c:101
+#, c-format
+msgid "yppasswd daemon running on illegal port on NIS master %s.\n"
+msgstr "Demon yppasswd dzia³a na nielegalnym porcie g³ównego serwera NIS %s.\n"
+
+#: lib/user.c:418 src/groupmod.c:465 src/useradd.c:1361 src/userdel.c:600
+#: src/usermod.c:1267
+msgid "Cannot lock password file: already locked.\n"
+msgstr "Nie mo¿na zablokowaæ pliku hase³: ju¿ zablokowany.\n"
+
+#: lib/user.c:520 lib/user.c:570 lib/user.c:584
+#, c-format
+msgid "Error while writing temporary password file: %m\n"
+msgstr "B³±d podczas zapisu tymczasowego pliku hase³: %m\n"
+
+#: lib/user.c:594
+#, c-format
+msgid "User not found (and not deleted): %s\n"
+msgstr "U¿ytkownik nie znaleziony (i nie usuniêty): %s\n"
+
+#: lib/user.c:602
+#, c-format
+msgid "Error while closing old password file: %m\n"
+msgstr "B³±d podczas zamykania starego pliku hase³: %m\n"
+
+#: lib/user.c:610
+#, c-format
+msgid "Error while closing temporary password file: %m\n"
+msgstr "B³±d podczas zamykania tymczasowego pliku hase³: %m\n"
+
+#: lib/user.c:723 lib/user.c:778 lib/user.c:793
+#, c-format
+msgid "Error while writing temporary shadow file: %m\n"
+msgstr "B³±d podczas zapisu tymczasowego pliku shadow: %m\n"
+
+#: lib/user.c:803
+#, c-format
+msgid "Error while closing old shadow file: %m\n"
+msgstr "B³±d podczas zamykania starego pliku shadow: %m\n"
+
+#: lib/user.c:810
+#, c-format
+msgid "Error while closing temporary shadow file: %m\n"
+msgstr "B³±d podczas zamykania tymczasowego pliku shadow: %m\n"
+
+#: lib/user.c:872
+#, c-format
+msgid "Error while changing the NIS data.\n"
+msgstr "B³±d podczas zmiany danych w NIS.\n"
+
+#: lib/user.c:881
+#, c-format
+msgid "Error while changing the NIS+ data.\n"
+msgstr "B³±d podczas zmiany danych w NIS+.\n"
+
+#: src/chage.c:65
+#, c-format
+msgid ""
+"Usage: %s [-D binddn][-P path][-m mindays][-M maxdays][-d lastday][-I "
+"inactive][-E expiredate][-W warndays] user\n"
+msgstr ""
+"Sk³adnia: %s [-D binddn][-P ¶cie¿ka][-m mindni][-M maksdni][-d ostdzieñ][-I nieakt][-E datawa¿no¶ci][-W dniostrze¿] u¿ytkownik\n"
+
+#: src/chage.c:67
+#, c-format
+msgid "       %s -l user\n"
+msgstr "       %s -l u¿ytkownik\n"
+
+#: src/chage.c:75
+#, c-format
+msgid ""
+"%s - change user password expiry information\n"
+"\n"
+msgstr ""
+"%s - zmiana informacji o wygasaniu has³a u¿ytkownika\n"
+"\n"
+
+#: src/chage.c:79 src/chfn.c:115 src/chpasswd.c:73 src/chsh.c:72
+#: src/gpasswd.c:75 src/groupadd.c:71 src/groupdel.c:72 src/groupmod.c:71
+#: src/passwd.c:163 src/useradd.c:74 src/userdel.c:75 src/usermod.c:73
+msgid "  -D binddn      Use dn \"binddn\" to bind to the LDAP directory\n"
+msgstr "  -D binddn      U¿ycie dn \"binddn\" do pod³±czenia do katalogu LDAP\n"
+
+#: src/chage.c:82 src/chfn.c:118 src/chpasswd.c:76 src/chsh.c:75
+#: src/passwd.c:165 src/pwconv.c:61 src/pwunconv.c:61
+msgid "  -P path        Search passwd and shadow file in \"path\"\n"
+msgstr "  -P ¶cie¿ka     Szukanie plików passwd i shadow w \"¶cie¿ce\"\n"
+
+#: src/chage.c:85 src/chfn.c:126 src/chpasswd.c:82 src/chsh.c:81
+#: src/groupmod.c:85 src/passwd.c:162 src/usermod.c:99
+msgid "  -r service     Use nameservice 'service'\n"
+msgstr "  -r us³uga      U¿ycie us³ugi nazw 'us³uga'\n"
+
+#: src/chage.c:86 src/chfn.c:89 src/chfn.c:127 src/chsh.c:82
+msgid "  -q, --quiet    Don't be verbose\n"
+msgstr "  -q, --quiet    Zmniejszenie liczby komunikatów\n"
+
+#: src/chage.c:87 src/chfn.c:92 src/chfn.c:128 src/chpasswd.c:83 src/chsh.c:83
+#: src/expiry.c:59 src/groupadd.c:81 src/groupdel.c:78 src/groupmod.c:86
+#: src/grpck.c:76 src/grpconv.c:48 src/grpunconv.c:69 src/newgrp.c:74
+#: src/pwck.c:76 src/pwconv.c:63 src/pwunconv.c:63 src/useradd.c:97
+#: src/userdel.c:81 src/usermod.c:104 src/vipw.c:80
+msgid "      --help     Give this help list\n"
+msgstr "      --help     Wy¶wietlenie tego opisu\n"
+
+#: src/chage.c:88 src/chfn.c:93 src/chfn.c:129 src/chpasswd.c:84 src/chsh.c:84
+#: src/expiry.c:60 src/groupdel.c:79 src/grpck.c:77 src/grpconv.c:49
+#: src/grpunconv.c:70 src/newgrp.c:75 src/pwck.c:77 src/pwconv.c:64
+#: src/pwunconv.c:64 src/userdel.c:82 src/vipw.c:81
+msgid "  -u, --usage    Give a short usage message\n"
+msgstr "  -u, --usage    Wy¶wietlenie krótkiej informacji o sk³adni\n"
+
+#: src/chage.c:89 src/chfn.c:94 src/chfn.c:130 src/chpasswd.c:85 src/chsh.c:85
+#: src/expiry.c:61 src/groupadd.c:83 src/groupdel.c:80 src/groupmod.c:88
+#: src/grpck.c:78 src/grpconv.c:50 src/grpunconv.c:71 src/newgrp.c:76
+#: src/pwck.c:78 src/pwconv.c:65 src/pwunconv.c:65 src/useradd.c:99
+#: src/userdel.c:83 src/usermod.c:106 src/vipw.c:82
+msgid "  -v, --version  Print program version\n"
+msgstr "  -v, --version  Wypisanie wersji programu\n"
+
+#: src/chage.c:90 src/chfn.c:97 src/chfn.c:133 src/chpasswd.c:86
+#: src/gpasswd.c:82 src/passwd.c:170
+msgid "Valid services for -r are: files, nis, nisplus, ldap\n"
+msgstr "Poprawne us³ugi dla -r to: files, nis, nisplus, ldap\n"
+
+#: src/chage.c:118
+#, c-format
+msgid "Minimum:\t%ld\n"
+msgstr "Minimum:\t%ld\n"
+
+#: src/chage.c:119
+#, c-format
+msgid "Maximum:\t%ld\n"
+msgstr "Maksimum:\t%ld\n"
+
+#: src/chage.c:120
+#, c-format
+msgid "Warning:\t%ld\n"
+msgstr "Ostrze¿enie:\t%ld\n"
+
+#: src/chage.c:121
+#, c-format
+msgid "Inactive:\t%ld\n"
+msgstr "Nieaktywno¶æ:\t%ld\n"
+
+#: src/chage.c:122
+#, c-format
+msgid "Last Change:\t\t"
+msgstr "Ostatnia zmiana:\t\t"
+
+#: src/chage.c:124
+#, c-format
+msgid "Unknown, password is forced to change at next login\n"
+msgstr "Nieznana, wymuszenie zmiany has³a przy nastêpnym logowaniu\n"
+
+#: src/chage.c:126 src/chage.c:132 src/chage.c:138 src/chage.c:144
+#, c-format
+msgid "Never\n"
+msgstr "Nigdy\n"
+
+#: src/chage.c:129
+#, c-format
+msgid "Password Expires:\t"
+msgstr "Has³o wygasa:\t"
+
+#: src/chage.c:135
+#, c-format
+msgid "Password Inactive:\t"
+msgstr "Has³o nieaktywne:\t"
+
+#: src/chage.c:142
+#, c-format
+msgid "Account Expires:\t"
+msgstr "Konto wygasa:\t"
+
+#: src/chage.c:155
+msgid "Minimum Password Age"
+msgstr "Minimalny wiek has³a"
+
+#: src/chage.c:162 src/chage.c:177 src/chage.c:192
+#, c-format
+msgid "Input is no integer value\n"
+msgstr "Wej¶cie nie jest warto¶ci± ca³kowit±\n"
+
+#: src/chage.c:164 src/chage.c:179 src/chage.c:194
+#, c-format
+msgid "Negative numbers are not allowed as input (except -1)\n"
+msgstr "Liczby ujemne nie s± dopuszczalne na wej¶ciu (z wyj±tkiem -1)\n"
+
+#: src/chage.c:170
+msgid "Maximum Password Age"
+msgstr "Maksymalny wiek has³a"
+
+#: src/chage.c:185
+msgid "Password Expiration Warning"
+msgstr "Ostrze¿enie o wygasaniu has³a"
+
+#: src/chage.c:200
+msgid "Password Inactive"
+msgstr "Has³o nieaktywne"
+
+#: src/chage.c:208
+msgid "Last Password Change (YYYY-MM-DD)"
+msgstr "Ostatnia zmiana has³a (RRRR-MM-DD)"
+
+#: src/chage.c:222 src/chage.c:242
+#, c-format
+msgid "Invalid date\n"
+msgstr "Nieprawid³owa data\n"
+
+#: src/chage.c:228
+msgid "Account Expiration Date (YYYY-MM-DD)"
+msgstr "Data wyga¶niêcia has³a (RRRR-MM-DD)"
+
+#: src/chage.c:344 src/chfn.c:482 src/chsh.c:342
+#, c-format
+msgid "Only root is allowed to specify another path\n"
+msgstr "Tylko root mo¿e podaæ inn± ¶cie¿kê\n"
+
+#: src/chage.c:371 src/groupadd.c:369 src/groupdel.c:230 src/passwd.c:280
+#: src/useradd.c:1167 src/usermod.c:955
+#, c-format
+msgid "Service `%s' not supported\n"
+msgstr "Us³uga `%s' nie jest obs³ugiwana\n"
+
+#: src/chage.c:399 src/chpasswd.c:209 src/expiry.c:252 src/grpck.c:753
+#: src/grpconv.c:103 src/grpunconv.c:202 src/newgrp.c:163 src/passwd.c:338
+#: src/pwck.c:984 src/pwconv.c:175 src/pwunconv.c:150 src/rpasswd.c:496
+#: src/rpasswdd.c:1300 src/vipw.c:395
+#, c-format
+msgid "%s: Too many arguments\n"
+msgstr "%s: Zbyt du¿o argumentów\n"
+
+#: src/chage.c:406
+#, c-format
+msgid "%s: do not include \"l\" with other flags\n"
+msgstr "%s: nie mo¿na ³±czyæ \"l\" z innymi flagami\n"
+
+#: src/chage.c:431 src/chfn.c:535 src/chsh.c:402 src/expiry.c:272
+#: src/gpasswd.c:224 src/groupadd.c:431 src/groupdel.c:284 src/groupmod.c:393
+#: src/passwd.c:393 src/useradd.c:1288 src/userdel.c:538 src/usermod.c:1013
+#, c-format
+msgid "%s: Cannot determine your user name.\n"
+msgstr "%s: Nie mo¿na okre¶liæ nazwy u¿ytkownika.\n"
+
+#: src/chage.c:450 src/chfn.c:570 src/chsh.c:436 src/userdel.c:558
+#, c-format
+msgid "%s: User `%s' is not known to service `%s'.\n"
+msgstr "%s: U¿ytkownik `%s' nie jest znany us³udze `%s'.\n"
+
+#: src/chage.c:453 src/chfn.c:559 src/chfn.c:573 src/chsh.c:426 src/chsh.c:439
+#: src/passwd.c:412 src/passwd.c:429 src/userdel.c:561
+#, c-format
+msgid "%s: Unknown user `%s'.\n"
+msgstr "%s: Nieznany u¿ytkownik `%s'.\n"
+
+#: src/chage.c:471
+#, c-format
+msgid "Only an administrator is allowed to change aging information.\n"
+msgstr "Tylko administrator mo¿e zmieniaæ informacje o przedawnianiu.\n"
+
+#: src/chage.c:487
+#, c-format
+msgid "This system does not support shadow accounts.\n"
+msgstr "Ten system nie obs³uguje kont shadow.\n"
+
+#: src/chage.c:493
+#, c-format
+msgid "This account does not have a shadow entry.\n"
+msgstr "To konto nie ma wpisu shadow.\n"
+
+#: src/chage.c:539
+#, c-format
+msgid "You can only list your own aging information.\n"
+msgstr "U¿ytkownik mo¿e wypisywaæ tylko w³asne informacje o przedawnianiu.\n"
+
+#: src/chage.c:547 src/expiry.c:312
+#, c-format
+msgid "%s: failed to drop privileges: %s\n"
+msgstr "%s: nie uda³o siê porzuciæ uprawnieñ: %s\n"
+
+#: src/chage.c:559
+#, c-format
+msgid "No aging information available for %s.\n"
+msgstr "Brak informacji o przedawnianiu dla %s.\n"
+
+#: src/chage.c:579
+#, c-format
+msgid "Changing aging information for %s.\n"
+msgstr "Zmiana informacji o przedawnianiu dla %s.\n"
+
+#: src/chage.c:585 src/chage.c:672
+#, c-format
+msgid "Aging information not changed.\n"
+msgstr "Informacje o przedawnianiu nie zmienione.\n"
+
+#: src/chage.c:628
+#, c-format
+msgid "Lastday is no date and no integer value >= -1\n"
+msgstr "Ostatni dzieñ nie jest dat± ani warto¶ci± ca³kowit± >= -1\n"
+
+#: src/chage.c:648
+#, c-format
+msgid "Expiredate is no date and no integer value >= -1\n"
+msgstr "Data wa¿no¶ci nie jest dat± ani warto¶ci± ca³kowit± >= -1\n"
+
+#: src/chage.c:657
+#, c-format
+msgid "Error while parsing options.\n"
+msgstr "B³±d podczas przetwarzania opcji.\n"
+
+#: src/chage.c:703
+#, c-format
+msgid "Error while converting to shadow account.\n"
+msgstr "B³±d podczas konwersji na konto shadow.\n"
+
+#: src/chage.c:721
+#, c-format
+msgid "Error while changing aging information.\n"
+msgstr "B³±d podczas zmiany informacji o przedawnianiu.\n"
+
+#: src/chage.c:731
+#, c-format
+msgid "Aging information changed.\n"
+msgstr "Informacje o przedawnianiu zmienione.\n"
+
+#: src/chfn.c:74
+#, c-format
+msgid ""
+"Usage: %s [-f name] [-r room] [-w work_phone]\n"
+"       [-h home_phone] [-o other] [-q] [-u] [-v] [user]\n"
+msgstr ""
+"Sk³adnia: %s [-f personalia] [-r pokój] [-w telefon_s³u¿bowy]\n"
+"       [-h telefon_domowy] [-o inne] [-q] [-u] [-v] [u¿ytkownik]\n"
+
+#: src/chfn.c:82 src/chfn.c:112
+#, c-format
+msgid ""
+"%s - change user name and information\n"
+"\n"
+msgstr ""
+"%s - zmiana personaliów i informacji o u¿ytkowniku\n"
+"\n"
+
+#: src/chfn.c:84 src/chfn.c:120
+msgid "  -f full-name   Change your real name\n"
+msgstr "  -f personalia  Zmiana imienia i nazwiska\n"
+
+#: src/chfn.c:85
+msgid "  -r room        Change your office room number\n"
+msgstr "  -r pokój       Zmiana numeru pokoju w biurze\n"
+
+#: src/chfn.c:86
+msgid "  -w work_phone  Change your office phone number\n"
+msgstr "  -w tel_s³u¿b   Zmiana numeru telefonu w biurze\n"
+
+#: src/chfn.c:87
+msgid "  -h home_phone  Change your home phone number\n"
+msgstr "  -h tel_domowy  Zmiana numeru telefonu domowego\n"
+
+#: src/chfn.c:88
+msgid "  -o other       Change the undefined portions of the GCOS field\n"
+msgstr "  -o inne        Zmiana niezdefiniowanych czê¶ci pola GECOS\n"
+
+#: src/chfn.c:91
+msgid "  --service srv  Use nameservice 'srv'\n"
+msgstr "  --service us³  U¿ycie us³ugi nazw 'us³'\n"
+
+#: src/chfn.c:104
+#, c-format
+msgid ""
+"Usage: %s [-D binddn] [-P path] [-f name] [-o office] [-p office-phone]\n"
+"       [-h home-phone][-m other] [-q] [-u] [-v] [user]\n"
+msgstr ""
+"Sk³adnia: %s [-D binddn] [-P ¶cie¿ka] [-f personalia] [-o pokój]\n"
+"          [-p telefon_s³u¿bowy] [-h telefon_domowy] [-m inne] [-q] [-u] [-v]\n"
+"          u¿ytkownik\n"
+
+#: src/chfn.c:121
+msgid "  -o office      Change your office room number\n"
+msgstr "  -o pokój       Zmiana numeru pokoju w biurze\n"
+
+#: src/chfn.c:122
+msgid "  -p phone       Change your office phone number\n"
+msgstr "  -p telefon     Zmiana numeru telefonu w biurze\n"
+
+#: src/chfn.c:123
+msgid "  -h home-phone  Change your home phone number\n"
+msgstr "  -h tel_domowy  Zmiana numeru telefonu domowego\n"
+
+#: src/chfn.c:124
+msgid "  -m other       Change the undefined portions of the GCOS field\n"
+msgstr "  -m inne        Zmiana niezdefiniowanyh czê¶ci pola GECOS\n"
+
+#: src/chfn.c:168
+#, c-format
+msgid "Enter the new value, or press ENTER for the default\n"
+msgstr "Proszê wpisaæ now± warto¶æ lub nacisn±æ ENTER dla domy¶lnej\n"
+
+#: src/chfn.c:174
+msgid "Full Name"
+msgstr "Imiê i nazwisko"
+
+#: src/chfn.c:176
+#, c-format
+msgid "\tFull Name: %s\n"
+msgstr "\tImiê i nazwisko: %s\n"
+
+#: src/chfn.c:179
+msgid "Room Number"
+msgstr "Numer pokoju"
+
+#: src/chfn.c:181
+#, c-format
+msgid "\tRoom Number: %s\n"
+msgstr "\tNumer pokoju: %s\n"
+
+#: src/chfn.c:184
+msgid "Work Phone"
+msgstr "Telefon s³u¿bowy"
+
+#: src/chfn.c:186
+#, c-format
+msgid "\tWork Phone: %s\n"
+msgstr "\tTelefon s³u¿bowy: %s\n"
+
+#: src/chfn.c:189
+msgid "Home Phone"
+msgstr "Telefon domowy"
+
+#: src/chfn.c:191
+#, c-format
+msgid "\tHome Phone: %s\n"
+msgstr "\tTelefon domowy: %s\n"
+
+#: src/chfn.c:194
+msgid "Other"
+msgstr "Inne"
+
+#: src/chfn.c:196
+#, c-format
+msgid "\tOther: %s\n"
+msgstr "\tInne: %s\n"
+
+#: src/chfn.c:258
+#, c-format
+msgid "%s: The characters '%s\"' are not allowed.\n"
+msgstr "%s: Znaki '%s\"' nie s± dopuszczalne.\n"
+
+#: src/chfn.c:264 src/chsh.c:211
+#, c-format
+msgid "%s: Control characters are not allowed.\n"
+msgstr "%s: Znaki steruj±ce nie s± dopuszczalne.\n"
+
+#: src/chfn.c:332 src/chsh.c:262
+#, c-format
+msgid "%s: Don't know what I should do.\n"
+msgstr "%s: Nie wiem co robiæ.\n"
+
+#: src/chfn.c:378 src/chfn.c:397 src/chfn.c:409 src/chfn.c:455 src/chfn.c:464
+#: src/gpasswd.c:255 src/passwd.c:363
+#, c-format
+msgid "%s: Permission denied.\n"
+msgstr "%s: Brak uprawnieñ.\n"
+
+#: src/chfn.c:442 src/chsh.c:325 src/gpasswd.c:164
+#, c-format
+msgid "Service `%s' not supported.\n"
+msgstr "Us³uga `%s' nie jest obs³ugiwana.\n"
+
+#: src/chfn.c:514 src/chsh.c:368 src/chsh.c:375 src/gpasswd.c:194
+#: src/groupadd.c:394 src/groupdel.c:255 src/groupmod.c:364 src/useradd.c:1254
+#: src/userdel.c:510 src/usermod.c:980
+#, c-format
+msgid "%s: Too many arguments.\n"
+msgstr "%s: Zbyt du¿o argumentów.\n"
+
+#: src/chfn.c:590 src/chsh.c:456 src/passwd.c:444
+msgid "Unknown user context"
+msgstr "Nieznany kontekst u¿ytkownika"
+
+#: src/chfn.c:592
+#, c-format
+msgid "%s: %s is not authorized to change the finger information for %s.\n"
+msgstr "%s: %s nie jest autoryzowany by zmieniaæ informacje o u¿ytkowniku %s.\n"
+
+#: src/chfn.c:605
+#, c-format
+msgid "SELinux is in permissive mode, continuing.\n"
+msgstr "SELinux jest w trybie przyzwalaj±cym, kontynuacja.\n"
+
+#: src/chfn.c:623
+#, c-format
+msgid "You cannot change the finger information for `%s'.\n"
+msgstr "Brak uprawnieñ do zmiany informacji o u¿ytkowniku `%s'.\n"
+
+#: src/chfn.c:630
+#, c-format
+msgid "Changing finger information for %s.\n"
+msgstr "Zmiana informacji o u¿ytkowniku %s.\n"
+
+#: src/chfn.c:662
+#, c-format
+msgid "%s: Invalid name: `%s'\n"
+msgstr "%s: Nieprawid³owe personalia: `%s'\n"
+
+#: src/chfn.c:670
+#, c-format
+msgid "%s: Invalid room number: `%s'\n"
+msgstr "%s: Nieprawid³owy numer pokoju: `%s'\n"
+
+#: src/chfn.c:678
+#, c-format
+msgid "%s: Invalid work phone: `%s'\n"
+msgstr "%s: Nieprawid³owy telefon s³u¿bowy: `%s'\n"
+
+#: src/chfn.c:686
+#, c-format
+msgid "%s: Invalid home phone: `%s'\n"
+msgstr "%s: Nieprawid³owy telefon domowy: `%s'\n"
+
+#: src/chfn.c:694
+#, c-format
+msgid "%s: `%s' contains illegal characters.\n"
+msgstr "%s: `%s' zawiera nielegalne znaki.\n"
+
+#: src/chfn.c:720
+#, c-format
+msgid "Finger information not changed.\n"
+msgstr "Informacje o u¿ytkowniku nie zmienione.\n"
+
+#: src/chfn.c:728
+#, c-format
+msgid "Error while changing finger information.\n"
+msgstr "B³±d podczas zmiany informacji o u¿ytkowniku.\n"
+
+#: src/chfn.c:738
+#, c-format
+msgid "Finger information changed.\n"
+msgstr "Informacje o u¿ytkowniku zmienione.\n"
+
+#: src/chpasswd.c:62
+#, c-format
+msgid "Usage: %s [-D binddn] [-P path] [-e] [-c des|md5|blowfish] [file]\n"
+msgstr "Sk³adnia: %s [-D binddn] [-P ¶cie¿ka] [-e] [-c des|md5|blowfish] [plik]\n"
+
+#: src/chpasswd.c:70
+#, c-format
+msgid ""
+"%s - update password entries in batch\n"
+"\n"
+msgstr ""
+"%s - zmiana wpisów o has³ach w trybie wsadowym\n"
+"\n"
+
+#: src/chpasswd.c:78
+msgid ""
+"  -c, --crypt    Password should be encrypted with DES, MD5 or blowfish\n"
+msgstr ""
+"  -c, --crypt    Kodowanie has³a algorytmem DES, MD5 lub blowfish\n"
+
+#: src/chpasswd.c:80
+msgid "  -e, --encrypted The passwords are in encrypted form\n"
+msgstr "  -e, --encrypted Has³a s± w postaci zaszyfrowanej\n"
+
+#: src/chpasswd.c:172 src/groupmod.c:331 src/userdel.c:485
+#, c-format
+msgid "Service \"%s\" not supported\n"
+msgstr "Us³uga \"%s\" nie jest obs³ugiwana\n"
+
+#: src/chpasswd.c:279
+#, c-format
+msgid "%s: line %ld: missing new password\n"
+msgstr "%s: linia %ld: brak nowego has³a\n"
+
+#: src/chpasswd.c:288
+#, c-format
+msgid "%s: line %ld: unknown user %s\n"
+msgstr "%s: linia %ld: nieznany u¿ytkownik %s\n"
+
+#: src/chpasswd.c:319 src/gpasswd.c:323
+#, c-format
+msgid "Cannot create salt for standard crypt"
+msgstr "Nie mo¿na utworzyæ zarodka dla zwyk³ego crypta"
+
+#: src/chpasswd.c:335 src/gpasswd.c:356
+#, c-format
+msgid "Cannot create salt for MD5 crypt"
+msgstr "Nie mo¿na utworzyæ zarodka dla szyfru MD5"
+
+#: src/chpasswd.c:351 src/gpasswd.c:338
+#, c-format
+msgid "Cannot create salt for blowfish crypt"
+msgstr "Nie mo¿na utworzyæ zarodka dla szyfru blowfish"
+
+#: src/chpasswd.c:381
+#, c-format
+msgid "%s: line %ld: cannot update password entry\n"
+msgstr "%s: linia %ld: nie mo¿na uaktualniæ wpisu o ha¶le\n"
+
+#: src/chpasswd.c:396
+#, c-format
+msgid "%s: errors occured, %ld passwords not updated\n"
+msgstr "%s: wyst±pi³y b³êdy, %ld hase³ nie zosta³o zmienionych\n"
+
+#: src/chsh.c:61
+#, c-format
+msgid ""
+"Usage: %s [-D binddn] [-P path] [-s shell] [-l] [-q]\n"
+"            [--help] [--usage] [--version] [user]\n"
+msgstr ""
+"Sk³adnia: %s [-D binddn] [-P ¶cie¿ka] [-s pow³oka] [-l] [-q]\n"
+"             [--help] [--usage] [--version] [u¿ytkownik]\n"
+
+#: src/chsh.c:69
+#, c-format
+msgid ""
+"%s - change login shell\n"
+"\n"
+msgstr ""
+"%s - zmiana pow³oki logowania\n"
+"\n"
+
+#: src/chsh.c:77
+msgid "  -l             List allowed shells from /etc/shells\n"
+msgstr "  -l             Wypisanie dopuszczalnych pow³ok z /etc/shells\n"
+
+#: src/chsh.c:79
+msgid "  -s shell       Use 'shell' as new login shell\n"
+msgstr "  -s pow³oka     U¿ycie 'pow³oki' jako nowej pow³oki logowania\n"
+
+#: src/chsh.c:88
+msgid "Valid services for -r are: files, ldap, nis, nisplus\n"
+msgstr "Poprawne us³ugi dla -r to: files, ldap, nis, nisplus\n"
+
+#: src/chsh.c:116
+#, c-format
+msgid "No known shells.\n"
+msgstr "Brak znanych pow³ok.\n"
+
+#: src/chsh.c:184
+#, c-format
+msgid "%s: Shell must be a full path name.\n"
+msgstr "%s: Pow³oka musi byæ pe³n± ¶cie¿k±.\n"
+
+#: src/chsh.c:190
+#, c-format
+msgid "%s: `%s' does not exist.\n"
+msgstr "%s: `%s' nie istnieje.\n"
+
+#: src/chsh.c:196
+#, c-format
+msgid "%s: `%s' is not executable.\n"
+msgstr "%s: `%s' nie jest wykonywalny.\n"
+
+#: src/chsh.c:206
+#, c-format
+msgid "%s: '%c' is not allowed.\n"
+msgstr "%s: '%c' nie jest dopuszczalny.\n"
+
+#: src/chsh.c:219
+#, c-format
+msgid "Warning: \"%s\" is not listed in /etc/shells.\n"
+msgstr "Uwaga: \"%s\" nie jest wymieniony w /etc/shells.\n"
+
+#: src/chsh.c:222
+#, c-format
+msgid "%s: \"%s\" is not listed in /etc/shells.\n"
+msgstr "%s: \"%s\" nie jest wymieniony w /etc/shells.\n"
+
+#: src/chsh.c:224
+#, c-format
+msgid "%s: Use -l option to see list.\n"
+msgstr "%s: Opcja -l wy¶wietli listê.\n"
+
+#: src/chsh.c:458
+#, c-format
+msgid "%s: %s is not authorized to change the shell of `%s'.\n"
+msgstr "%s: %s nie jest autoryzowany do zmiany pow³oki `%s'.\n"
+
+#: src/chsh.c:463
+#, c-format
+msgid "%s is not authorized to change the shell of `%s'."
+msgstr "%s nie jest autoryzowany do zmiany pow³oki `%s'."
+
+#: src/chsh.c:471 src/passwd.c:460
+#, c-format
+msgid "SELinux is in permissive mode, continuing\n"
+msgstr "SELinux jest w trybie przyzwalaj±cym, kontynuacja\n"
+
+#: src/chsh.c:489
+#, c-format
+msgid "You cannot change the shell for %s.\n"
+msgstr "Brak uprawnieñ do zmiany pow³oki u¿ytkownika %s.\n"
+
+#: src/chsh.c:500
+#, c-format
+msgid "You cannot change a restricted shell.\n"
+msgstr "Nie mo¿na zmieniæ pow³oki restrykcyjnej.\n"
+
+#: src/chsh.c:506
+#, c-format
+msgid "Changing login shell for %s.\n"
+msgstr "Zmiana pow³oki logowania dla %s.\n"
+
+#: src/chsh.c:550
+#, c-format
+msgid "Enter the new value, or press return for the default.\n"
+msgstr "Proszê wpisaæ now± warto¶æ lub nacisn±æ Enter dla domy¶lnej.\n"
+
+#: src/chsh.c:551
+msgid "Login Shell"
+msgstr "Pow³oka logowania"
+
+#: src/chsh.c:559
+#, c-format
+msgid "Shell not changed.\n"
+msgstr "Pow³oka nie zmieniona.\n"
+
+#: src/chsh.c:573
+#, c-format
+msgid "Error while changing login shell.\n"
+msgstr "B³±d podczas zmiany pow³oki logowania.\n"
+
+#: src/chsh.c:583
+#, c-format
+msgid "Shell changed.\n"
+msgstr "Pow³oka zmieniona.\n"
+
+#: src/expiry.c:47
+#, c-format
+msgid "Usage: %s [-f]\n"
+msgstr "Sk³adnia: %s [-f]\n"
+
+#: src/expiry.c:55
+#, c-format
+msgid ""
+"%s - check password expiration and enforce password change\n"
+"\n"
+msgstr ""
+"%s - sprawdzenie przeterminowania has³a i wymuszenie zmiany has³a\n"
+"\n"
+
+#: src/expiry.c:57
+msgid "  -f, --force    The caller is forced to change the password\n"
+msgstr "  -f, --force    Wywo³uj±cy bêdzie zmuszony do zmiany has³a\n"
+
+#: src/expiry.c:107
+#, c-format
+msgid "Age field for %s is wrong"
+msgstr "Pole wieku has³a %s jest b³êdne"
+
+#: src/expiry.c:128
+#, c-format
+msgid "Your password has expired. Choose a new password."
+msgstr "Has³o wygas³o. Nale¿y wybraæ nowe has³o."
+
+#: src/expiry.c:146
+#, c-format
+msgid "Your login has expired. Contact the system administrator.\n"
+msgstr "Konto wygas³o. Nale¿y skontaktowaæ siê z administratorem systemu.\n"
+
+#: src/expiry.c:154
+#, c-format
+msgid "Password changing requested. Choose a new password.\n"
+msgstr "Za¿±dano zmiany has³a. Nale¿y wybraæ nowe has³o.\n"
+
+#: src/expiry.c:164
+#, c-format
+msgid "Your password is inactive. Contact the system administrator.\n"
+msgstr "Has³o jest nieaktywne. Nale¿y skontaktowaæ siê z administratorem systemu.\n"
+
+#: src/expiry.c:169
+#, c-format
+msgid "Your password has expired. Choose a new password.\n"
+msgstr "Has³o wygas³o. Nale¿y wybraæ nowe has³o.\n"
+
+#: src/expiry.c:178
+#, c-format
+msgid "Your password will expire in %ld days.\n"
+msgstr "Has³o wyga¶nie za %ld dni.\n"
+
+#: src/expiry.c:181
+#, c-format
+msgid "Your password will expire tomorrow.\n"
+msgstr "Has³o wyga¶nie jutro.\n"
+
+#: src/expiry.c:183
+#, c-format
+msgid "Your password will expire within 24 hours.\n"
+msgstr "Has³o wyga¶nie w ci±gu 24 godzin.\n"
+
+#: src/gpasswd.c:64
+#, c-format
+msgid "Usage: %s [-r] group\n"
+msgstr "Sk³adnia: %s [-r] grupa\n"
+
+#: src/gpasswd.c:71
+#, c-format
+msgid ""
+"%s - change group password\n"
+"\n"
+msgstr ""
+"%s - zmiana has³a grupy\n"
+"\n"
+
+#: src/gpasswd.c:73
+msgid "  -r             Remove the password for this group\n"
+msgstr "  -r             Usuniêcie has³a dla tej grupy\n"
+
+#: src/gpasswd.c:74
+msgid "  --service srv  Use nameservice 'service'\n"
+msgstr "  --service us³  U¿ycie us³ugi nazw 'us³'\n"
+
+#: src/gpasswd.c:77
+msgid "  -P path        Search group file in \"path\"\n"
+msgstr "  -P ¶cie¿ka     Szukanie pliku grup w \"¶cie¿ce\"\n"
+
+#: src/gpasswd.c:79 src/passwd.c:167 src/rpasswd.c:118 src/rpasswdd.c:137
+msgid "  --help         Give this help list\n"
+msgstr "  --help         Wy¶wietlenie tego opisu\n"
+
+#: src/gpasswd.c:80 src/passwd.c:168 src/rpasswd.c:119 src/rpasswdd.c:138
+msgid "  --usage        Give a short usage message\n"
+msgstr "  --usage        Wy¶wietlenie krótkiej informacji o sk³adni\n"
+
+#: src/gpasswd.c:81 src/passwd.c:169 src/rpasswd.c:120 src/rpasswdd.c:139
+msgid "  --version      Print program version\n"
+msgstr "  --version      Wypisanie wersji programu\n"
+
+#: src/gpasswd.c:202
+#, c-format
+msgid "%s: group argument missing.\n"
+msgstr "%s: nie podano nazwy grupy.\n"
+
+#: src/gpasswd.c:236
+#, c-format
+msgid "%s: Group `%s' is not known to service `%s'.\n"
+msgstr "%s: Grupa `%s' nie jest znana us³udze `%s'.\n"
+
+#: src/gpasswd.c:239 src/groupdel.c:306 src/groupmod.c:415 src/useradd.c:220
+#, c-format
+msgid "%s: Unknown group `%s'.\n"
+msgstr "%s: Nieznana grupa `%s'.\n"
+
+#: src/gpasswd.c:270
+#, c-format
+msgid "Changing the password for group %s.\n"
+msgstr "Zmiana has³a dla grupy %s.\n"
+
+#: src/gpasswd.c:274
+msgid "New Password: "
+msgstr "Nowe has³o: "
+
+#: src/gpasswd.c:282
+#, c-format
+msgid "Password change aborted.\n"
+msgstr "Zmiana has³a przerwana.\n"
+
+#: src/gpasswd.c:286
+msgid "Re-enter new password: "
+msgstr "Ponownie nowe has³o: "
+
+#: src/gpasswd.c:294
+#, c-format
+msgid "Sorry, passwords do not match.\n"
+msgstr "Niestety has³a siê ró¿ni±.\n"
+
+#: src/gpasswd.c:300
+#, c-format
+msgid "%s: Try again later.\n"
+msgstr "%s: Proszê spróbowaæ pó¼niej.\n"
+
+#: src/gpasswd.c:370
+#, c-format
+msgid "%s: Error changing password.\n"
+msgstr "%s: B³±d podczas zmiany has³a.\n"
+
+#: src/gpasswd.c:379
+#, c-format
+msgid "Password removed.\n"
+msgstr "Has³o usuniête.\n"
+
+#: src/gpasswd.c:385 src/passwd.c:677
+#, c-format
+msgid "Password changed.\n"
+msgstr "Has³o zmienione.\n"
+
+#: src/groupadd.c:61
+#, c-format
+msgid ""
+"Usage: %s [-D binddn] [-g gid [-o]] [-r] [-P path] [-p password] group\n"
+msgstr ""
+"Sk³adnia: %s [-D binddn] [-g gid [-o]] [-r] [-P ¶cie¿ka] [-o has³o] grupa\n"
+
+#: src/groupadd.c:69
+#, c-format
+msgid ""
+"%s - create a new group\n"
+"\n"
+msgstr ""
+"%s - utworzenie nowej grupy\n"
+"\n"
+
+#: src/groupadd.c:72
+msgid "  -g gid         Force the new groupid to be the given number\n"
+msgstr "  -g gid         Wymuszenie nadania gid jako identyfikatora nowej grupy\n"
+
+#: src/groupadd.c:74 src/groupmod.c:78 src/useradd.c:87 src/usermod.c:87
+msgid "  -o             Allow duplicate (non-unique) UID\n"
+msgstr "  -o             Zezwolenie na powtórzone (nieunikalne) UID-y\n"
+
+#: src/groupadd.c:75 src/groupdel.c:75 src/groupmod.c:79 src/grpck.c:69
+#: src/pwck.c:69 src/useradd.c:88 src/userdel.c:78 src/usermod.c:92
+msgid "  -P path        Search passwd, shadow and group file in \"path\"\n"
+msgstr "  -P ¶cie¿ka     Szukanie plików passwd, shadow i group w \"¶cie¿ce\"\n"
+
+#: src/groupadd.c:77 src/groupmod.c:81 src/useradd.c:90 src/usermod.c:94
+msgid "  -p password    Encrypted password as returned by crypt(3)\n"
+msgstr "  -p has³o       Zaszyfrowane has³o w postaci zwróconej przez crypt(3)\n"
+
+#: src/groupadd.c:79 src/useradd.c:94
+msgid "  -r, --system   Create a system account\n"
+msgstr "  -r, --system   Utworzenie konta systemowego\n"
+
+#: src/groupadd.c:80 src/groupdel.c:77 src/useradd.c:96 src/userdel.c:80
+msgid " --service srv   Add account to nameservice 'srv'\n"
+msgstr " --us³uga us³    Dodanie konta do us³ugi nazw 'us³'\n"
+
+#: src/groupadd.c:82 src/groupmod.c:87 src/useradd.c:98 src/usermod.c:105
+msgid "      --usage    Give a short usage message\n"
+msgstr "      --usage    Wy¶wietlenie krótkiej informacji o sk³adni\n"
+
+#: src/groupadd.c:84 src/groupdel.c:81 src/useradd.c:100 src/userdel.c:84
+msgid "Valid services for --service are: files, ldap\n"
+msgstr "Poprawne us³ugi dla --services to: files, ldap\n"
+
+#: src/groupadd.c:263
+#, c-format
+msgid "%s: Can't get unique gid in range %u - %u.\n"
+msgstr "%s: Nie mo¿na uzyskaæ unikalnego identyfikatora grupy z przedzia³u %u - %u.\n"
+
+#: src/groupadd.c:315
+#, c-format
+msgid "%s: You are using an undocumented option (-f)!\n"
+msgstr "%s: U¿yto nieudokumentowanej opcji (-f)!\n"
+
+#: src/groupadd.c:323
+#, c-format
+msgid "%s: Invalid numeric argument `%s' for Group ID.\n"
+msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla identyfikatora grupy.\n"
+
+#: src/groupadd.c:345 src/useradd.c:1116
+#, c-format
+msgid "%s: Invalid characters in password `%s'.\n"
+msgstr "%s: Nieprawid³owe znaki w ha¶le `%s'.\n"
+
+#: src/groupadd.c:400 src/groupdel.c:261 src/groupmod.c:370 src/useradd.c:1260
+#: src/userdel.c:516 src/usermod.c:986
+#, c-format
+msgid "%s: Too few arguments.\n"
+msgstr "%s: Zbyt ma³o argumentów.\n"
+
+#: src/groupadd.c:406
+#, c-format
+msgid "%s: You cannot use -f with -o.\n"
+msgstr "%s: Nie mo¿na u¿yæ opcji -f z -o.\n"
+
+#: src/groupadd.c:455
+#, c-format
+msgid "%s: GID %u is not unique, using another one.\n"
+msgstr "%s: GID %u nie jest unikalny, u¿yto innego.\n"
+
+#: src/groupadd.c:461 src/groupmod.c:429
+#, c-format
+msgid "%s: GID %u is not unique.\n"
+msgstr "%s: GID %u nie jest unikalny.\n"
+
+#: src/groupadd.c:472 src/groupmod.c:442
+#, c-format
+msgid "%s: Invalid group name `%s'.\n"
+msgstr "%s: Nieprawid³owa nazwa grupy `%s'.\n"
+
+#: src/groupadd.c:490 src/groupmod.c:452
+#, c-format
+msgid "%s: Group `%s' already exists.\n"
+msgstr "%s: Grupa `%s' ju¿ istnieje.\n"
+
+#: src/groupadd.c:532
+#, c-format
+msgid "%s: Cannot add group to LDAP database without DN.\n"
+msgstr "%s: Nie mo¿na dodaæ grupy do bazy danych LDAP bez DN.\n"
+
+#: src/groupadd.c:549
+#, c-format
+msgid "%s: Group not added to LDAP database.\n"
+msgstr "%s: Grupa nie dodana do bazy danych LDAP.\n"
+
+#: src/groupadd.c:581
+#, c-format
+msgid "%s: GROUPADD_CMD fails with exit code %d.\n"
+msgstr "%s: GROUPADD_CMD nie powiod³o siê zwracaj±c kod wyj¶cia %d.\n"
+
+#: src/groupdel.c:62
+#, c-format
+msgid "Usage: %s [-D binddn] [-P path] group\n"
+msgstr "Sk³adnia: %s [-D binddn] [-P ¶cie¿ka] grupa\n"
+
+#: src/groupdel.c:69
+#, c-format
+msgid ""
+"%s - delete a group\n"
+"\n"
+msgstr ""
+"%s - usuniêcie grupy\n"
+"\n"
+
+#: src/groupdel.c:138 src/groupdel.c:155
+#, c-format
+msgid "%s: GID `%u' is primary group of `%s'.\n"
+msgstr "%s: GID `%u' jest g³ówn± grup± u¿ytkownika `%s'.\n"
+
+#: src/groupdel.c:303 src/groupmod.c:412 src/useradd.c:214
+#, c-format
+msgid "%s: Group `%s' not found in service `%s'.\n"
+msgstr "%s: Nie znaleziono grupy `%s' w us³udze `%s'.\n"
+
+#: src/groupdel.c:316
+#, c-format
+msgid "%s: Cannot remove user's primary group.\n"
+msgstr "%s: Nie mo¿na usun±æ g³ównej grupy u¿ytkownika.\n"
+
+#: src/groupdel.c:331
+#, c-format
+msgid "%s: Cannot delete group from LDAP database without DN.\n"
+msgstr "%s: Nie mo¿na usun±æ grupy z bazy danych LDAP bez DN.\n"
+
+#: src/groupdel.c:348
+#, c-format
+msgid "%s: Group not deleted from LDAP database.\n"
+msgstr "%s: Grupa nie usuniêta z bazy danych LDAP.\n"
+
+#: src/groupdel.c:361
+#, c-format
+msgid "%s: GROUPDEL_PRECMD fails with exit code %d.\n"
+msgstr "%s: GROUPDEL_PRECMD nie powiod³o siê zwracaj±c kod wyj¶cia %d.\n"
+
+#: src/groupdel.c:379
+#, c-format
+msgid "%s: Error deleting group `%s'.\n"
+msgstr "%s: B³±d podczas usuwania grupy `%s'.\n"
+
+#: src/groupdel.c:403 src/userdel.c:690
+#, c-format
+msgid "%s: USERDEL_POSTCMD fails with exit code %d.\n"
+msgstr "%s: USERDEL_POSTCMD nie powiod³o siê zwracaj±c kod wyj¶cia %d.\n"
+
+#: src/groupmod.c:62
+#, c-format
+msgid "Usage: %s [-g gid [-o] [-n new_name] group\n"
+msgstr "Sk³adnia: %s [-g gid [-o]] [-n nowa_nazwa] grupa\n"
+
+#: src/groupmod.c:69
+#, c-format
+msgid ""
+"%s - modify a group entry\n"
+"\n"
+msgstr ""
+"%s - zmiana wpisu o grupie\n"
+"\n"
+
+#: src/groupmod.c:73
+msgid "  -g gid         Change the groupid to the given number\n"
+msgstr "  -g gid         Zmiana identyfikatora grupy na podan± liczbê\n"
+
+#: src/groupmod.c:75 src/useradd.c:83 src/usermod.c:83
+msgid "  -k skeldir     Specify an alternative skel directory\n"
+msgstr "  -k kat_skel    Podanie alternatywnego katalogu skel\n"
+
+#: src/groupmod.c:77
+msgid "  -n name        Change group name.\n"
+msgstr "  -n nazwa       Zmiana nazwy grupy.\n"
+
+#: src/groupmod.c:83
+msgid "  -A user        Add the user to the group entry\n"
+msgstr "  -A u¿ytkownik  Dodanie u¿ytkownika do wpisu o grupie\n"
+
+#: src/groupmod.c:84
+msgid "  -R user        Remove the user from the group entry\n"
+msgstr "  -R u¿ytkownik  Usuniêcie u¿ytkownika z wpisu o grupie\n"
+
+#: src/groupmod.c:89 src/usermod.c:107
+msgid "Valid services for -r are: files, ldap\n"
+msgstr "Poprawne us³ugi dla -r to: files, ldap\n"
+
+#: src/groupmod.c:276
+#, c-format
+msgid "%s: invalid numeric argument `%s' for Group ID.\n"
+msgstr "%s: niepoprawny argument liczbowy `%s' dla identyfikatora grupy.\n"
+
+#: src/groupmod.c:302 src/usermod.c:902
+#, c-format
+msgid "%s: invalid characters in password `%s'.\n"
+msgstr "%s: niepoprawne znaki w ha¶le `%s'.\n"
+
+#: src/groupmod.c:498
+#, c-format
+msgid "%s: Cannot modify group in LDAP database without DN.\n"
+msgstr "%s: Nie mo¿na zmodyfikowaæ grupy w bazie danych LDAP bez DN.\n"
+
+#: src/groupmod.c:516
+#, c-format
+msgid "%s: Group not modified in LDAP database.\n"
+msgstr "%s: Grupa nie zmodyfikowana w bazie danych LDAP.\n"
+
+#: src/grpck.c:59
+#, c-format
+msgid "Usage: %s [-P path] [-q|-r]\n"
+msgstr "Sk³adnia: %s [-P ¶cie¿ka] [-q|-r]\n"
+
+#: src/grpck.c:67
+#, c-format
+msgid ""
+"%s - check integrity of group file\n"
+"\n"
+msgstr ""
+"%s - sprawdzenie integralno¶ci pliku grup\n"
+"\n"
+
+#: src/grpck.c:71 src/pwck.c:71
+msgid "  -q, --quiet    Don't print warnings, only errors\n"
+msgstr "  -q, --quiet    Nie wypisywanie ostrze¿eñ, tylko b³êdów\n"
+
+#: src/grpck.c:72 src/pwck.c:72
+msgid "  -r, --read-only Run in read-only mode, don't make changes\n"
+msgstr "  -r, --read-only Dzia³anie w trybie wy³±cznie odczytu, bez dokonywania zmian\n"
+
+#: src/grpck.c:74
+msgid "  -s, --sort     Sort the group file, no checks are done\n"
+msgstr "  -s, --sort     Posortowanie pliku grup bez sprawdzania\n"
+
+#: src/grpck.c:86 src/pwck.c:86
+#, c-format
+msgid "No\n"
+msgstr "Nie\n"
+
+#: src/grpck.c:230 src/pwck.c:237
+#, c-format
+msgid "Checking `%s'\n"
+msgstr "Sprawdzanie `%s'\n"
+
+#: src/grpck.c:315 src/grpck.c:365
+#, c-format
+msgid "Invalid group entry.\n"
+msgstr "Nieprawid³owy wpis o grupie.\n"
+
+#: src/grpck.c:316 src/pwck.c:323 src/pwck.c:562
+#, c-format
+msgid "Delete empty line? "
+msgstr "Usun±æ pust± liniê? "
+
+#: src/grpck.c:337
+#, c-format
+msgid "Invalid group entry with comment.\n"
+msgstr "Nieprawid³owy wpis o grupie z komentarzem.\n"
+
+#: src/grpck.c:338 src/grpck.c:366 src/grpck.c:383 src/grpck.c:399
+#: src/pwck.c:345 src/pwck.c:361 src/pwck.c:377 src/pwck.c:393 src/pwck.c:584
+#: src/pwck.c:600 src/pwck.c:616 src/pwck.c:632 src/pwck.c:650
+#, c-format
+msgid "Delete line `%s'? "
+msgstr "Usun±æ liniê `%s'? "
+
+#: src/grpck.c:382
+#, c-format
+msgid "Invalid group name `%s'.\n"
+msgstr "Nieprawid³owy nazwa grupy `%s'.\n"
+
+#: src/grpck.c:398
+#, c-format
+msgid "Duplicate group entry\n"
+msgstr "Powtórzony wpis o grupie\n"
+
+#: src/grpck.c:426
+#, c-format
+msgid "Group `%s': unknown user `%s'\n"
+msgstr "Grupa `%s': nieznany u¿ytkownik `%s'\n"
+
+#: src/grpck.c:432
+#, c-format
+msgid "Group `%s': Duplicate user entry `%s', already primary group.\n"
+msgstr "Grupa `%s': Powtórzony wpis o u¿ytkowniku `%s', jest ju¿ grup± g³ówn±.\n"
+
+#: src/grpck.c:759 src/pwck.c:990
+#, c-format
+msgid "%s: -s and -r are incompatibile\n"
+msgstr "%s: -s i -r s± niekompatybilne\n"
+
+#: src/grpck.c:767
+#, c-format
+msgid "%s: Cannot lock group files: already locked.\n"
+msgstr "%s: Nie mo¿na zablokowaæ pliku grup: ju¿ zablokowany.\n"
+
+#: src/grpconv.c:38 src/grpunconv.c:57 src/pwconv.c:51 src/pwunconv.c:51
+#, c-format
+msgid "Usage: %s\n"
+msgstr "Sk³adnia: %s\n"
+
+#: src/grpconv.c:45
+#, c-format
+msgid ""
+"%s - convert to shadow group\n"
+"\n"
+msgstr ""
+"%s - konwersja do grup z ukrytymi has³ami\n"
+"\n"
+
+#: src/grpconv.c:108
+#, c-format
+msgid "%s: /etc/gshadow is not supported by this system.\n"
+msgstr "%s: /etc/gshadow nie jest obs³ugiwany przez ten system.\n"
+
+#: src/grpunconv.c:64
+#, c-format
+msgid ""
+"%s - convert from shadow groups\n"
+"\n"
+msgstr ""
+"%s - konwersja z grup z ukrytymi has³ami\n"
+"\n"
+
+#: src/grpunconv.c:67
+msgid "  -P path        Search group and gshadow file in \"path\"\n"
+msgstr "  -P ¶cie¿ka     Szukanie plików group i gshadow w \"¶cie¿ce\"\n"
+
+#: src/grpunconv.c:224
+#, c-format
+msgid "%s: Now gshadow file found.\n"
+msgstr "%s: Nie znaleziono pliku gshadow.\n"
+
+#: src/grpunconv.c:266 src/pwunconv.c:215
+#, c-format
+msgid "Error while moving password for `%s'.\n"
+msgstr "B³±d podczas przenoszenia has³a dla `%s'.\n"
+
+#: src/newgrp.c:60
+#, c-format
+msgid "Usage: %s [-l|-c command] [group]\n"
+msgstr "Sk³adnia: %s [-l|-c polecenie] [grupa]\n"
+
+#: src/newgrp.c:68
+#, c-format
+msgid ""
+"%s - change the effective group id\n"
+"\n"
+msgstr ""
+"%s - zmiana efektywnego identyfikatora grupy\n"
+"\n"
+
+#: src/newgrp.c:71
+msgid "  -l, --login    reinitialize environment as if logged in\n"
+msgstr "  -l, --login    ponowna inicjalizacja ¶rodowiska logowania\n"
+
+#: src/newgrp.c:73
+msgid "  -c  command    Execute `command' with new group\n"
+msgstr "  -c  polecenie  Wykonanie `polecenia' z now± grup±\n"
+
+#: src/newgrp.c:169
+#, c-format
+msgid "%s: -l and -c are exclusive\n"
+msgstr "%s: -l i -c siê wykluczaj±\n"
+
+#: src/newgrp.c:175
+#, c-format
+msgid "%s: -c requires a group argument\n"
+msgstr "%s: -c wymaga argumentu bêd±cego grup±\n"
+
+#: src/newgrp.c:182
+#, c-format
+msgid "%s: unknown user.\n"
+msgstr "%s: nieznany u¿ytkownik.\n"
+
+#: src/newgrp.c:203
+#, c-format
+msgid "%s: bad group `%s'.\n"
+msgstr "%s: b³êdna grupa `%s'.\n"
+
+#: src/newgrp.c:242
+msgid "Password: "
+msgstr "Has³o: "
+
+#: src/newgrp.c:245
+#, c-format
+msgid "%s: password incorrect.\n"
+msgstr "%s: has³o niepoprawne.\n"
+
+#: src/newgrp.c:274
+#, c-format
+msgid "%s: calling getgroups failed: %s\n"
+msgstr "%s: wywo³anie getgroups nie powiod³o siê: %s\n"
+
+#: src/newgrp.c:312
+#, c-format
+msgid "%s: too many groups, not added.\n"
+msgstr "%s: zbyt du¿o grup, nie dodano.\n"
+
+#: src/newgrp.c:319
+#, c-format
+msgid "%s: calling setgroups failed: %s\n"
+msgstr "%s: wywo³anie setgroups nie powiod³o siê: %s\n"
+
+#: src/newgrp.c:326 src/newgrp.c:341 src/newgrp.c:350
+#, c-format
+msgid "%s: calling setgid failed: %s\n"
+msgstr "%s: wywo³anie setgid nie powiod³o siê: %s\n"
+
+#: src/newgrp.c:335
+#, c-format
+msgid "%s: calling initgroups failed: %s\n"
+msgstr "%s: wywo³anie initgroups nie powiod³o siê: %s\n"
+
+#: src/newgrp.c:362
+#, c-format
+msgid "Cannot change to directory %s: %s\n"
+msgstr "Nie mo¿na przej¶æ do katalogu %s: %s\n"
+
+#: src/newgrp.c:399
+#, c-format
+msgid "%s: execl failed: %s\n"
+msgstr "%s: execl nie powiod³o siê: %s\n"
+
+#: src/pam_rpasswd.c:218 src/pam_rpasswd.c:222 src/pam_rpasswd.c:305
+#: src/pam_rpasswd.c:309 src/rpasswd.c:218 src/rpasswd.c:221 src/rpasswd.c:304
+#: src/rpasswd.c:307 src/rpasswdd.c:451 src/rpasswdd.c:454 src/rpasswdd.c:917
+#: src/rpasswdd.c:920 src/rpasswdd.c:984 src/rpasswdd.c:987
+#, c-format
+msgid "error while reading request: %s"
+msgstr "b³±d podczas czytania ¿±dania: %s"
+
+#: src/pam_rpasswd.c:219 src/rpasswd.c:219 src/rpasswd-client.c:54
+#: src/rpasswd-client.c:67 src/rpasswd-client.c:78 src/rpasswd-client.c:104
+#: src/rpasswd-client.c:117
+msgid "Peer has closed the TLS connection"
+msgstr "Druga strona zamknê³a po³±czenie TLS"
+
+#: src/pam_rpasswd.c:231 src/pam_rpasswd.c:321 src/rpasswd.c:230
+#: src/rpasswd.c:319 src/rpasswdd.c:470 src/rpasswdd.c:473
+#, c-format
+msgid "error while reading request data: %s"
+msgstr "b³±d podczas czytania danych ¿±dania: %s"
+
+#: src/pam_rpasswd.c:278 src/pam_rpasswd.c:368 src/rpasswd.c:276
+#: src/rpasswd.c:365
+#, c-format
+msgid "Cannot send input back to server: %s\n"
+msgstr "Nie mo¿na odes³aæ wej¶cia do serwera: %s\n"
+
+#: src/pam_rpasswd.c:306 src/rpasswd.c:305 src/rpasswdd.c:452
+#: src/rpasswdd.c:471 src/rpasswdd.c:985 src/rpasswdd.c:1019
+#: src/rpasswdd.c:1061
+msgid "wrong data received"
+msgstr "otrzymano b³êdne dane"
+
+#: src/pam_rpasswd.c:528
+#, c-format
+msgid "SLP: Found Server on %s, port %s.\n"
+msgstr "SLP: Znaleziono serwer na %s, porcie %s.\n"
+
+#: src/pam_rpasswd.c:531
+#, c-format
+msgid "SLP: Found Server on %s.\n"
+msgstr "SLP: Znaleziono serwer na %s.\n"
+
+#: src/passwd.c:135
+#, c-format
+msgid "Usage: %s [-f|-g|-s|-k[-q]] [name]\n"
+msgstr "Sk³adnia: %s [-f|-g|-s|-k[-q]] [nazwa\n"
+
+#: src/passwd.c:136
+#, c-format
+msgid "       %s [-D binddn] [-n min] [-x max] [-w warn] [-i inact] user\n"
+msgstr "       %s [-D binddn] [-n min] [-x maks] [-w ostrze¿] [-i nieakt] u¿ytkownik\n"
+
+#: src/passwd.c:137
+#, c-format
+msgid "       %s {-l|-u|-d|-S[-a]|-e|-h} user\n"
+msgstr "       %s {-l|-u|-d|-S[-a]|-e|-h} u¿ytkownik\n"
+
+#: src/passwd.c:144 src/rpasswd.c:100 src/rpasswdd.c:121
+#, c-format
+msgid ""
+"%s - change password information\n"
+"\n"
+msgstr ""
+"%s - zmiana informacji o ha¶le\n"
+"\n"
+
+#: src/passwd.c:146
+msgid "  -f             Change the finger (gecos) information\n"
+msgstr "  -f             Zmiana informacji o u¿ytkowniku (GECOS)\n"
+
+#: src/passwd.c:148
+msgid "  -h             Change the home directory\n"
+msgstr "  -h             Zmiana katalogu domowego\n"
+
+#: src/passwd.c:149
+msgid "  -s             Change the login shell\n"
+msgstr "  -s             Zmiana pow³oki logowania\n"
+
+#: src/passwd.c:150
+msgid "  -g             Change the group password\n"
+msgstr "  -g             Zmiana has³a grupy\n"
+
+#: src/passwd.c:151
+msgid "  -k             Change the password only if expired\n"
+msgstr "  -k             Zmiana has³a tylko je¶li wygas³o\n"
+
+#: src/passwd.c:152
+msgid "  -q             Try to be quiet\n"
+msgstr "  -q             Ciche dzia³anie w miarê mo¿liwo¶ci\n"
+
+#: src/passwd.c:153
+msgid "  -S             Show the password attributes\n"
+msgstr "  -S             Pokazanie atrybutów has³a\n"
+
+#: src/passwd.c:154
+msgid "  -a             Only with -S, show for all accounts\n"
+msgstr "  -a             Tylko z -S - pokazanie dla wszystkich kont\n"
+
+#: src/passwd.c:155
+msgid "  -d             Delete the password for the named account\n"
+msgstr "  -d             Usuniêcie has³a z podanego konta\n"
+
+#: src/passwd.c:156
+msgid "  -l             Locks the password entry for \"user\"\n"
+msgstr "  -l             Zablokowanie wpisu o ha¶le dla u¿ytkownika\n"
+
+#: src/passwd.c:157
+msgid "  -u             Try to unlock the password entry for \"user\"\n"
+msgstr "  -u             Próba odblokowania wpisu o ha¶le dla u¿ytkownika\n"
+
+#: src/passwd.c:158
+msgid "  -e             Force the user to change password at next login\n"
+msgstr
+"  -e             Wymuszenie zmiany has³a przez u¿ytkownika przy nastêpnym\n"
+"                   logowaniu\n"
+
+#: src/passwd.c:159
+msgid "  -n min         Set minimum field for \"user\"\n"
+msgstr "  -n min         Ustawienie minimalnego czasu ¿ycia has³a dla u¿ytkownika\n"
+
+#: src/passwd.c:160
+msgid "  -x max         Set maximum field for \"user\"\n"
+msgstr "  -x maks        Ustawienie maksymalnego czasu ¿ycia has³a dla u¿ytkownika\n"
+
+#: src/passwd.c:161
+msgid "  -w warn        Set warn field for \"user\"\n"
+msgstr "  -w ostrze¿     Ustawienie czasu ostrze¿enia o wygasaniu has³a dla u¿ytkownika\n"
+
+#: src/passwd.c:346
+#, c-format
+msgid "%s: User argument missing\n"
+msgstr "%s: Nie podano nazwy u¿ytkownika\n"
+
+#: src/passwd.c:424
+#, c-format
+msgid "%s: User `%s' is not known to service `%s'\n"
+msgstr "%s: U¿ytkownik `%s' nie jest znany us³udze `%s'\n"
+
+#: src/passwd.c:447
+#, c-format
+msgid "%s: %s is not authorized to change the password of %s\n"
+msgstr "%s: %s nie jest autoryzowany do zmiany has³a u¿ytkownika %s\n"
+
+#: src/passwd.c:475
+#, c-format
+msgid "%s: Permission denied\n"
+msgstr "%s: Brak uprawnieñ\n"
+
+#: src/passwd.c:484
+#, c-format
+msgid "You cannot change the shadow data for `%s'.\n"
+msgstr "Brak uprawnieñ do zmiany danych shadow dla u¿ytkownika `%s'.\n"
+
+#: src/passwd.c:512
+#, c-format
+msgid "%s: -P flag not supported in this mode!\n"
+msgstr "%s: -P flaga nie obs³ugiwana w tym trybie!\n"
+
+#: src/passwd.c:518
+#, c-format
+msgid "Changing password for %s.\n"
+msgstr "Zmiana has³a dla %s.\n"
+
+#: src/passwd.c:581 src/passwd.c:595
+#, c-format
+msgid "Cannot unlock the password for `%s'!\n"
+msgstr "Nie mo¿na odblokowaæ has³a dla `%s'!\n"
+
+#: src/passwd.c:617 src/passwd.c:636
+#, c-format
+msgid "Password for `%s' is already locked!\n"
+msgstr "Has³o dla `%s' jest ju¿ zablokowane!\n"
+
+#: src/passwd.c:661
+#, c-format
+msgid "Error while changing password expiry information.\n"
+msgstr "B³±d podczas zmiany informacji o wygasaniu has³a.\n"
+
+#: src/passwd.c:663
+#, c-format
+msgid "Error while changing password.\n"
+msgstr "B³±d podczas zmiany has³a.\n"
+
+#: src/passwd.c:675
+#, c-format
+msgid "Password expiry information changed.\n"
+msgstr "Informacje o wygasaniu has³a zmienione.\n"
+
+#: src/passwd.c:731
+#, c-format
+msgid "passwd: Cannot execute %s"
+msgstr "passwd: Nie mo¿na wywo³aæ %s"
+
+#: src/pwck.c:59
+#, c-format
+msgid "Usage: %s [-P path] [-q|-r|-s]\n"
+msgstr "Sk³adnia: %s [-P ¶cie¿ka] [-q|-r|-s]\n"
+
+#: src/pwck.c:67
+#, c-format
+msgid ""
+"%s - check integrity of password files\n"
+"\n"
+msgstr ""
+"%s - sprawdzenie integralno¶ci plików hase³\n"
+"\n"
+
+#: src/pwck.c:74
+msgid "  -s, --sort     Sort the password file, no checks are done\n"
+msgstr "  -s, --sort     Posortowanie pliku hase³ bez sprawdzania\n"
+
+#: src/pwck.c:322 src/pwck.c:360
+#, c-format
+msgid "Invalid password entry.\n"
+msgstr "Nieprawid³owy wpis o ha¶le.\n"
+
+#: src/pwck.c:344
+#, c-format
+msgid "Invalid password entry with comment.\n"
+msgstr "Nieprawid³owy wpis o ha¶le z komentarzem.\n"
+
+#: src/pwck.c:376 src/pwck.c:615
+#, c-format
+msgid "Invalid account name `%s'.\n"
+msgstr "Nieprawid³owa nazwa konta `%s'.\n"
+
+#: src/pwck.c:392
+#, c-format
+msgid "Duplicate password entry\n"
+msgstr "Powtórzony wpis o ha¶le\n"
+
+#: src/pwck.c:411
+#, c-format
+msgid "User `%s': unknown group `%u'\n"
+msgstr "U¿ytkownik `%s': nieznana grupa `%u'\n"
+
+#: src/pwck.c:419
+#, c-format
+msgid "User `%s': directory `%s' does not exist.\n"
+msgstr "U¿ytkownik `%s': katalog `%s' nie istnieje.\n"
+
+#: src/pwck.c:428
+#, c-format
+msgid "User `%s': shell `%s' is not executeable.\n"
+msgstr "U¿ytkownik `%s': pow³oka `%s' nie jest wykonywalna.\n"
+
+#: src/pwck.c:483
+#, c-format
+msgid "Checking `%s'.\n"
+msgstr "Sprawdzanie `%s'.\n"
+
+#: src/pwck.c:561 src/pwck.c:599
+#, c-format
+msgid "Invalid shadow entry.\n"
+msgstr "Nieprawid³owy wpis shadow.\n"
+
+#: src/pwck.c:583
+#, c-format
+msgid "Invalid shadow entry with comment.\n"
+msgstr "Nieprawid³owy wpis shadow z komentarzem.\n"
+
+#: src/pwck.c:631
+#, c-format
+msgid "Duplicate shadow entry\n"
+msgstr "Powtórzony wpis shadow\n"
+
+#: src/pwck.c:649
+#, c-format
+msgid "No matching password file entry.\n"
+msgstr "Brak odpowiadaj±cego wpisu w pliku hase³.\n"
+
+#: src/pwck.c:664
+#, c-format
+msgid "User `%s': last password change in the future.\n"
+msgstr "U¿ytkownik `%s': ostatnia zmiana has³a w przysz³o¶ci.\n"
+
+#: src/pwck.c:886
+#, c-format
+msgid "Error while writing temporary passwd file: %m\n"
+msgstr "B³±d podczas zapisu tymczasowego pliku passwd: %m\n"
+
+#: src/pwck.c:897
+#, c-format
+msgid "Error while closing old passwd file: %m\n"
+msgstr "B³±d podczas zamykania starego pliku passwd: %m\n"
+
+#: src/pwck.c:905
+#, c-format
+msgid "Error while closing temporary passwd file: %m\n"
+msgstr "B³±d podczas zamykania tymczasowego pliku passwd: %m\n"
+
+#: src/pwck.c:998
+#, c-format
+msgid "%s: Cannot lock password files: already locked.\n"
+msgstr "%s: Nie mo¿na zablokowaæ plików hase³: ju¿ zablokowane.\n"
+
+#: src/pwconv.c:58
+#, c-format
+msgid ""
+"%s - convert to shadow account\n"
+"\n"
+msgstr ""
+"%s - konwersja do kont z ukrytymi has³ami\n"
+"\n"
+
+#: src/pwconv.c:202 src/useradd.c:503
+#, c-format
+msgid "Can't create %s: %m\n"
+msgstr "Nie mo¿na utworzyæ %s: %m\n"
+
+#: src/pwconv.c:265
+#, c-format
+msgid "Error while deleting `%s' shadow account.\n"
+msgstr "B³±d podczas usuwania ukrytego wpisu dla `%s'.\n"
+
+#: src/pwconv.c:286
+#, c-format
+msgid "%s: Error trying to get data for `%s'\n"
+msgstr "%s: B³±d podczas próby uzyskania danych dla `%s'\n"
+
+#: src/pwconv.c:306 src/pwconv.c:326 src/pwconv.c:355 src/pwconv.c:368
+#, c-format
+msgid "Error while converting `%s' to shadow account.\n"
+msgstr "B³±d podczas konwersji `%s' na konta z ukrytymi has³ami.\n"
+
+#: src/pwunconv.c:58
+#, c-format
+msgid ""
+"%s - convert from shadow account\n"
+"\n"
+msgstr ""
+"%s - konwersja z kont z ukrytymi has³ami\n"
+"\n"
+
+#: src/pwunconv.c:172
+#, c-format
+msgid "%s: Now shadow file found.\n"
+msgstr "%s: Nie znaleziono pliku shadow.\n"
+
+#: src/rpasswd.c:92
+#, c-format
+msgid "Usage: %s [-4|-6][-a][-f config-file][-h hostname][-p port][-v][name]\n"
+msgstr "Sk³adnia: %s [-4|-6][-a][-f plik_konfig][-h nazwa_hosta][-p port][-v][nazwa]\n"
+
+#: src/rpasswd.c:102
+msgid "  -4             Use IPv4 only\n"
+msgstr "  -4             U¿ywanie wy³±cznie IPv4\n"
+
+#: src/rpasswd.c:103
+msgid "  -6             Use IPv6 only\n"
+msgstr "  -6             U¿ywanie wy³±cznie IPv6\n"
+
+#: src/rpasswd.c:105
+msgid "  -a             Admin mode, special admin password is required\n"
+msgstr "  -a             Tryb administratora, wymagane specjalne has³o administracyjne\n"
+
+#: src/rpasswd.c:107
+msgid "  -f config-file Specify a different config file\n"
+msgstr "  -f plik_konfig Podanie innego pliku konfiguracyjnego\n"
+
+#: src/rpasswd.c:108
+msgid "  -h hostname    Specify the remote server\n"
+msgstr "  -h nazwa_hosta Podanie zdalnego serwera\n"
+
+#: src/rpasswd.c:109
+msgid "  -p port        Specify port remote server is listening on\n"
+msgstr "  -p port        Podanie portu, na którym nas³uchuje zdalny serwer\n"
+
+#: src/rpasswd.c:111
+msgid "  -r level       Sepcify level of SSL certifcate checks\n"
+msgstr "  -r poziom      Podanie poziomu sprawdzania certyfikatu SSL\n"
+
+#: src/rpasswd.c:114
+msgid "  --no-slp       Don't use SLP to find a server\n"
+msgstr "  --no-slp       Nie u¿ywanie SLP do znalezienia serwera\n"
+
+#: src/rpasswd.c:116
+msgid "  -v, --verbose  Be verbose, print SSL connection data\n"
+msgstr "  -v, --verbose  Du¿o informacji, wy¶wietlanie danych po³±czenia SSL\n"
+
+#: src/rpasswd.c:157
+#, c-format
+msgid "Warning: cannot turn echo off\n"
+msgstr "Uwaga: nie mo¿na wy³±czyæ echo\n"
+
+#: src/rpasswd.c:520
+#, c-format
+msgid "SLP: Found Server on %s, port %s"
+msgstr "SLP: Znaleziono serwer na %s, porcie %s"
+
+#: src/rpasswd.c:523
+#, c-format
+msgid "SLP: Found Server on %s"
+msgstr "SLP: Znaleziono serwer na %s"
+
+#: src/rpasswd.c:559
+#, c-format
+msgid "Go away, you do not exist!"
+msgstr "Odejd¼, nie istniejesz!"
+
+#: src/rpasswd.c:573
+#, c-format
+msgid "No server specified\n"
+msgstr "Nie podano serwera\n"
+
+#: src/rpasswd-client.c:53 src/rpasswd-client.c:56
+#, c-format
+msgid "error while sending start request: %s\n"
+msgstr "b³±d podczas wysy³ania ¿±dania startu: %s\n"
+
+#: src/rpasswd-client.c:66 src/rpasswd-client.c:69
+#, c-format
+msgid "error while sending locale data: %s\n"
+msgstr "b³±d podczas wysy³ania danych o lokalizacji: %s\n"
+
+#: src/rpasswd-client.c:77 src/rpasswd-client.c:80
+#, c-format
+msgid "error while sending username: %s\n"
+msgstr "b³±d podczas wysy³ania nazwy u¿ytkownika: %s\n"
+
+#: src/rpasswd-client.c:103 src/rpasswd-client.c:106 src/rpasswd-client.c:116
+#: src/rpasswd-client.c:119
+#, c-format
+msgid "error while sending string: %s\n"
+msgstr "b³±d podczas wysy³ania ³añcucha: %s\n"
+
+#: src/rpasswd-client.c:314
+msgid "Searching a server...\n"
+msgstr "Poszukiwanie serwera...\n"
+
+#: src/rpasswd-client.c:319
+#, c-format
+msgid "Error opening SLP handle: %i.\n"
+msgstr "B³±d podczas otwierania uchwytu SLP: %i.\n"
+
+#: src/rpasswd-client.c:330
+msgid "No service found with SLP.\n"
+msgstr "Nie znaleziono us³ugi przy u¿yciu SLP.\n"
+
+#: src/rpasswd-client.c:348
+msgid "Error while searching for SLP description.\n"
+msgstr "B³±d podczas poszukiwania opisu dla SLP.\n"
+
+#: src/rpasswd-client.c:367
+#, c-format
+msgid ""
+"\n"
+"Please select a server:\n"
+msgstr ""
+"\n"
+"Proszê wybraæ serwer:\n"
+
+#: src/rpasswd-client.c:373
+#, c-format
+msgid " (port %s)"
+msgstr " (port %s)"
+
+#: src/rpasswd-client.c:449
+msgid "parsing config file"
+msgstr "przetwarzanie pliku konfiguracyjnego"
+
+#: src/rpasswd-client.c:492 src/rpasswd-client.c:495
+msgid "Trying entry:"
+msgstr "Próbowanie wpisu:"
+
+#: src/rpasswd-client.c:534
+#, c-format
+msgid "Entry \"%s\" is not valid!\n"
+msgstr "Wpis \"%s\" jest nieprawid³owy!\n"
+
+#: src/rpasswd-client.c:538
+#, c-format
+msgid "Entry \"%s\" is not valid, ignored!\n"
+msgstr "Wpis \"%s\" jest nieprawid³owy, zignorowano!\n"
+
+#: src/rpasswd-client.c:551
+msgid "Bad entries found.\n"
+msgstr "Znaleziono b³êdne wpisy.\n"
+
+#: src/rpasswd-client.c:556
+msgid "No entry found.\n"
+msgstr "Nie znaleziono wpisu.\n"
+
+#: src/rpasswd-client.c:566
+msgid "No entry found."
+msgstr "Nie znaleziono wpisu."
+
+#: src/rpasswd-client.c:599
+msgid "Hostname or service not known for specified protocol\n"
+msgstr "Nazwa hosta lub us³ugi nieznana dla podanego protoko³u\n"
+
+#: src/rpasswd-client.c:612
+#, c-format
+msgid "bad port: %s\n"
+msgstr "b³êdny port: %s\n"
+
+#: src/rpasswd-client.c:636 src/rpasswd-client.c:644
+#, c-format
+msgid "Trying %s port %d...\r\n"
+msgstr "Próbowanie %s, portu %d...\r\n"
+
+#: src/rpasswd-client.c:649
+#, c-format
+msgid "Trying %s...\r\n"
+msgstr "Próbowanie %s...\r\n"
+
+#: src/rpasswd-client.c:663
+#, c-format
+msgid "connect to address %s: %s\n"
+msgstr "³±czenie z adresem %s: %s\n"
+
+#: src/rpasswd-client.c:717 src/rpasswd-client.c:1000
+msgid "Server certificate info:\n"
+msgstr "Informacje o certyfikacie serwera:\n"
+
+#: src/rpasswd-client.c:727
+#, c-format
+msgid "  Certificate is valid since: %s"
+msgstr "  Certyfikat jest wa¿ny od: %s"
+
+#: src/rpasswd-client.c:729
+#, c-format
+msgid "  Certificate expires: %s"
+msgstr "  Certyfikat wygasa: %s"
+
+#: src/rpasswd-client.c:735
+#, c-format
+msgid "  Certificate public key: %s"
+msgstr "  Klucz publiczny certyfikatu: %s"
+
+#: src/rpasswd-client.c:741
+#, c-format
+msgid "  Certificate version: #%d\n"
+msgstr "  Wersja certyfikatu: #%d\n"
+
+#: src/rpasswd-client.c:746 src/rpasswd-client.c:1006
+#, c-format
+msgid "  DN: %s\n"
+msgstr "  DN: %s\n"
+
+#: src/rpasswd-client.c:750 src/rpasswd-client.c:1013
+#, c-format
+msgid "  Issuer's DN: %s\n"
+msgstr "  DN wystawcy: %s\n"
+
+#: src/rpasswd-client.c:831
+#, c-format
+msgid "Handshake failed: %s\n"
+msgstr "Nawi±zanie transmisji nie powiod³o siê: %s\n"
+
+#: src/rpasswd-client.c:854
+#, c-format
+msgid "TLS certificate error: %s\n"
+msgstr "B³±d certyfikatu TLS: %s\n"
+
+#: src/rpasswd-client.c:865
+#, c-format
+msgid ""
+"%s connection using %s-%s (%s)\n"
+"\n"
+msgstr ""
+"Po³±czenie %s przy u¿yciu %s-%s (%s)\n"
+"\n"
+
+#: src/rpasswd-client.c:883
+msgid "TLS authentication error: server certificate issuer is unknown.\n"
+msgstr "B³±d uwierzytelnienia TLS: nieznany wystawca certyfikatu serwera.\n"
+
+#: src/rpasswd-client.c:891
+msgid "TLS authentication error: server certificate is NOT trusted.\n"
+msgstr "B³±d uwierzytelnienia TLS: certyfikat serwera NIE jest zaufany.\n"
+
+#: src/rpasswd-client.c:902
+msgid "TLS authentication error: server certificate not yet activated.\n"
+msgstr "B³±d uwierzytelnienia TLS: certyfikat serwera nie zosta³ aktywowany.\n"
+
+#: src/rpasswd-client.c:910
+msgid "TLS authentication error: server certificate expired.\n"
+msgstr "B³±d uwierzytelnienia TLS: certyfikat serwera wygas³.\n"
+
+#: src/rpasswd-client.c:945
+#, c-format
+msgid "error loading default verify locations: %s\n"
+msgstr "b³±d podczas ³adowania domy¶lnych lokalizacji weryfikacji: %s\n"
+
+#: src/rpasswd-client.c:953
+#, c-format
+msgid "error setting default verify path: %s\n"
+msgstr "b³±d podczas ustawiania domy¶lnej ¶cie¿ki weryfikacji: %s\n"
+
+#: src/rpasswd-client.c:989
+#, c-format
+msgid ""
+"SSL connection using %s\n"
+"\n"
+msgstr ""
+"Po³±czenie SSL przy u¿yciu %s\n"
+"\n"
+
+#: src/rpasswd-client.c:994
+msgid "Server does not have a certificate?\n"
+msgstr "Serwer nie ma certyfikatu?\n"
+
+#: src/rpasswdd.c:109
+#, c-format
+msgid ""
+"Usage: %s [-4] [-6] [-d] [-c certificate] [-k privatekey] [-p port]\n"
+"       [--slp [--slp-timeout timeout] [--slp-descr description]\n"
+msgstr ""
+"Sk³adnia: %s [-4] [-6] [-d] -c certyfikat] [-k klucz_prywatny] [-p port]\n"
+"          [--slp [--slp-timeout czas] [--slp-descr opis]]\n"
+
+#: src/rpasswdd.c:112
+#, c-format
+msgid "Usage: %s [-4] [-6] [-d] [-c certificate] [-k privatekey] [-p port]\n"
+msgstr "Sk³adnia: %s [-4] [-6] [-d] [-c certyfikat] [-k klucz_prywatny] [-p port]\n"
+
+#: src/rpasswdd.c:123
+msgid "  -4             Use IPv4\n"
+msgstr "  -4             U¿ywanie IPv4\n"
+
+#: src/rpasswdd.c:124
+msgid "  -6             Use IPv6\n"
+msgstr "  -6             U¿ywanie IPv6\n"
+
+#: src/rpasswdd.c:125
+msgid "  -c certificate Specify alternate certificate file\n"
+msgstr "  -c certyfikat  Podanie alternatywnego pliku certyfikatu\n"
+
+#: src/rpasswdd.c:126
+msgid "  -k privatekey  Specify alternate file with private key\n"
+msgstr "  -k klucz_pryw  Podanie alternatywnego pliku z kluczem prywatnym\n"
+
+#: src/rpasswdd.c:128
+msgid "  -d             Run in debug mode\n"
+msgstr "  -d             Dzia³anie w trybie diagnostycznym\n"
+
+#: src/rpasswdd.c:129
+msgid "  -p port        Port on which the server should listen\n"
+msgstr "  -p port        Port, na którym serwer ma s³uchaæ\n"
+
+#: src/rpasswdd.c:132
+msgid "  --slp          Register at local SLP server\n"
+msgstr "  --slp          Zarejestrowanie w lokalnym serwerze SLP\n"
+
+#: src/rpasswdd.c:133
+msgid "  --slp-timeout  Set timeout for re-registration\n"
+msgstr "  --slp-timeout  Ustawienie maksymalnego czasu na ponown± rejestracjê\n"
+
+#: src/rpasswdd.c:134
+msgid "  --slp-descr    Set a description shown to SLP clients\n"
+msgstr "  --slp-descr    Ustawienie opisu pokazywanego klientom SLP\n"
+
+#: src/rpasswdd.c:219 src/rpasswdd.c:267
+#, c-format
+msgid "cannot open socket: %s"
+msgstr "nie mo¿na otworzyæ gniazda: %s"
+
+#: src/rpasswdd.c:252 src/rpasswdd.c:286
+#, c-format
+msgid "cannot enable socket to accept connections: %s"
+msgstr "nie mo¿na umo¿liwiæ przyjmowania po³±czeñ przez gniazdo: %s"
+
+#: src/rpasswdd.c:632
+#, c-format
+msgid "handle_request: request received (Version = %d)"
+msgstr "handle_request: otrzymano ¿±danie (wersja = %d)"
+
+#: src/rpasswdd.c:638
+#, c-format
+msgid "cannot handle request version %d; current version is %d"
+msgstr "nie mo¿na obs³u¿yæ ¿±dania w wersji %d; aktualna wersja to %d"
+
+#: src/rpasswdd.c:702
+#, c-format
+msgid "Please authenticate as %s on %s"
+msgstr "Proszê uwierzytelniæ siê jako %s na %s"
+
+#: src/rpasswdd.c:711 src/rpasswdd.c:772
+#, c-format
+msgid "User %s: %s"
+msgstr "U¿ytkownik %s: %s"
+
+#: src/rpasswdd.c:731
+#, c-format
+msgid ""
+"\n"
+"Now enter the new password for %s"
+msgstr ""
+"\n"
+"Teraz nale¿y wprowadziæ nowe has³o dla %s"
+
+#: src/rpasswdd.c:748
+#, c-format
+msgid "setresuid failed on server: %s"
+msgstr "setresuid nie powiod³o siê na serwerze: %s"
+
+#: src/rpasswdd.c:783
+msgid "Password not changed"
+msgstr "Has³o nie zmienione"
+
+#: src/rpasswdd.c:786
+msgid "Password changed"
+msgstr "Has³o zmienione"
+
+#: src/rpasswdd.c:805
+#, c-format
+msgid "handle_request: exit (%d)"
+msgstr "handle_request: exit (%d)"
+
+#: src/rpasswdd.c:889
+#, c-format
+msgid "while accepting connection: %s"
+msgstr "podczas przyjmowania po³±czenia: %s"
+
+#: src/rpasswdd.c:902
+#, c-format
+msgid "Handshake has failed (%s)"
+msgstr "Nawi±zanie transmisji nie powiod³o siê (%s)"
+
+#: src/rpasswdd.c:918
+msgid "client has closed the GNUTLS connection"
+msgstr "klient zamkn±³ po³±czenie GNUTLS"
+
+#: src/rpasswdd.c:931
+msgid "cannot enable SSL encryption"
+msgstr "nie mo¿na w³±czyæ szyfrowania SSL"
+
+#: src/rpasswdd.c:1001
+#, c-format
+msgid "locale length in request too long: %d"
+msgstr "d³ugo¶æ lokalizacji w ¿±daniu zbyt du¿a: %d"
+
+#: src/rpasswdd.c:1018 src/rpasswdd.c:1021
+#, c-format
+msgid "error while reading request locale: %s"
+msgstr "b³±d podczas czytania ¿±dania lokalizacji: %s"
+
+#: src/rpasswdd.c:1041
+#, c-format
+msgid "data length in request too long: %d"
+msgstr "d³ugo¶æ danych w ¿±daniu zbyt du¿a: %d"
+
+#: src/rpasswdd.c:1060 src/rpasswdd.c:1063
+#, c-format
+msgid "error while reading request username: %s"
+msgstr "b³±d podczas czytania ¿±dania nazwy u¿ytkownika: %s"
+
+#: src/rpasswdd.c:1083
+msgid "No username supplied"
+msgstr "Nie podano nazwy u¿ytkownika"
+
+#: src/rpasswdd.c:1310
+msgid "already running"
+msgstr "ju¿ dzia³a"
+
+#: src/useradd.c:61 src/usermod.c:61
+#, c-format
+msgid "Usage: %s ...\n"
+msgstr "Sk³adnia: %s ...\n"
+
+#: src/useradd.c:68
+#, c-format
+msgid ""
+"%s - create a new user\n"
+"\n"
+msgstr ""
+"%s - utworzenie nowego u¿ytkownika\n"
+"\n"
+
+#: src/useradd.c:70 src/usermod.c:70
+msgid "  -c comment     Set the gecos field for the new account\n"
+msgstr "  -c komentarz   Ustawienie pola GECOS dla nowego konta\n"
+
+#: src/useradd.c:72
+msgid " --show-defaults Print default values\n"
+msgstr " --show-defaults Wypisanie warto¶ci domy¶lnych\n"
+
+#: src/useradd.c:73
+msgid " --save-defaults Save modified default values\n"
+msgstr " --save-defaults Zapisanie zmodyfikowanych warto¶ci domy¶lnych\n"
+
+#: src/useradd.c:75 src/usermod.c:75
+msgid "  -d homedir     Home directory for the new user\n"
+msgstr "  -d kat_domowy  Katalog domowy dla nowego u¿ytkownika\n"
+
+#: src/useradd.c:76 src/usermod.c:76
+msgid "  -e expire      Date on which the new account will be disabled\n"
+msgstr "  -e data_wa¿n   Data po której nowe konto zostanie wy³±czone\n"
+
+#: src/useradd.c:78 src/usermod.c:78
+msgid ""
+"  -f inactive    Days after a password expires until account is disabled\n"
+msgstr ""
+"  -f nieaktywn   Dni od wyga¶niêcia has³a do wy³±czenia konta\n"
+
+#: src/useradd.c:80 src/usermod.c:80
+msgid "  -G group,...   List of supplementary groups\n"
+msgstr "  -G grupa,...   Lista dodatkowych grup\n"
+
+#: src/useradd.c:81 src/usermod.c:81
+msgid "  -g gid         Name/number of the users primary group\n"
+msgstr "  -g gid         Nazwa/numer g³ównej grupy u¿ytkownika\n"
+
+#: src/useradd.c:85
+msgid "  -m             Create home directory for the new user\n"
+msgstr "  -m             Utworzenie katalogu domowego dla nowego u¿ytkownika\n"
+
+#: src/useradd.c:92
+msgid "  -u uid         Force the new userid to be the given number\n"
+msgstr "  -u uid         Wymuszenie nadania uid jako identyfikatora nowego u¿ytkownika\n"
+
+#: src/useradd.c:95 src/usermod.c:96
+msgid "  -s shell       Name of the user's login shell\n"
+msgstr "  -s pow³oka     Nazwa pow³oki logowania u¿ytkownika\n"
+
+#: src/useradd.c:186 src/useradd.c:1068
+#, c-format
+msgid "%s: Invalid numeric argument `%s'.\n"
+msgstr "%s: Nieprawid³owy argument liczbowy `%s'.\n"
+
+#: src/useradd.c:196
+#, c-format
+msgid "%s: Group `%u' not found in service `%s'.\n"
+msgstr "%s: Grupa `%u' nie znaleziona w us³udze `%s'.\n"
+
+#: src/useradd.c:202
+#, c-format
+msgid "%s: Unknown group `%u'.\n"
+msgstr "%s: Nieznana grupa `%u'.\n"
+
+#: src/useradd.c:298
+#, c-format
+msgid "%s: Unknown group `%s' in %s.\n"
+msgstr "%s: Nieznana grupa `%s' w %s.\n"
+
+#: src/useradd.c:313
+#, c-format
+msgid "%s: Invalid home directory `%s' in %s.\n"
+msgstr "%s: Nieprawid³owy katalog domowy `%s' w %s.\n"
+
+#: src/useradd.c:332
+#, c-format
+msgid "%s: Invalid numeric argument `%s' in %s.\n"
+msgstr "%s: Nieprawid³owy argument liczbowy `%s' w %s.\n"
+
+#: src/useradd.c:354
+#, c-format
+msgid "%s: Expiredate `%s' is no date and no integer value >= -1 in %s.\n"
+msgstr "%s: Data wa¿no¶ci `%s' w %s nie jest dat± ani liczb± ca³kowit± >= -1.\n"
+
+#: src/useradd.c:370
+#, c-format
+msgid "%s: Invalid shell `%s' in %s.\n"
+msgstr "%s: Nieprawid³owa pow³oka `%s' w %s.\n"
+
+#: src/useradd.c:384
+#, c-format
+msgid "%s: Skel directory \"%s\" in %s does not exist.\n"
+msgstr "%s: Katalog skel \"%s\" w %s nie istnieje.\n"
+
+#: src/useradd.c:833
+#, c-format
+msgid "%s: Can't get unique uid in range %u - %u.\n"
+msgstr "%s: Nie mo¿na uzyskaæ unikalnego identyfikatora u¿ytkownika z przedzia³u %u - %u.\n"
+
+#: src/useradd.c:910
+#, c-format
+msgid "%s: Cannot create directory `%s'.\n"
+msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
+
+#: src/useradd.c:927
+#, c-format
+msgid "%s: Copying of skel directory failed.\n"
+msgstr "%s: Kopiowanie katalogu skel nie powiod³o siê.\n"
+
+#: src/useradd.c:987
+#, c-format
+msgid "%s: Reading of `%s' was not successful.\n"
+msgstr "%s: Czytanie `%s' nie powiod³o siê.\n"
+
+#: src/useradd.c:1016
+#, c-format
+msgid "%s: Invalid comment `%s'.\n"
+msgstr "%s: Nieprawid³owy komentarz `%s'.\n"
+
+#: src/useradd.c:1032
+#, c-format
+msgid "%s: Invalid home directory `%s'.\n"
+msgstr "%s: Nieprawid³owy katalog domowy `%s'.\n"
+
+#: src/useradd.c:1052 src/usermod.c:813
+#, c-format
+msgid "%s: Expiredate `%s' is no date and no integer value >= -1.\n"
+msgstr "%s: Data wa¿no¶ci `%s' nie jest dat± ani warto¶ci± ca³kowit± >= -1.\n"
+
+#: src/useradd.c:1087
+#, c-format
+msgid "%s: Skel directory `%s' does not exist.\n"
+msgstr "%s: Katalog skel `%s' nie istnieje.\n"
+
+#: src/useradd.c:1129
+#, c-format
+msgid "%s: Invalid shell `%s'.\n"
+msgstr "%s: Nieprawid³owa pow³oka `%s'.\n"
+
+#: src/useradd.c:1138
+#, c-format
+msgid "%s: Invalid numeric argument `%s' for User ID.\n"
+msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla identyfikatora u¿ytkownika.\n"
+
+#: src/useradd.c:1316
+#, c-format
+msgid "%s: Writing of `%s' was not successful.\n"
+msgstr "%s: Zapis `%s' nie powiód³ siê.\n"
+
+#: src/useradd.c:1336 src/usermod.c:1234
+#, c-format
+msgid "%s: UID %u is not unique.\n"
+msgstr "%s: UID %u nie jest unikalny.\n"
+
+#: src/useradd.c:1347
+#, c-format
+msgid "%s: Invalid user name `%s'.\n"
+msgstr "%s: Nieprawid³owa nazwa u¿ytkownika `%s'.\n"
+
+#: src/useradd.c:1368
+#, c-format
+msgid "%s: User `%s' already exists.\n"
+msgstr "%s: U¿ytkownik `%s' ju¿ istnieje.\n"
+
+#: src/useradd.c:1473
+#, c-format
+msgid "%s: Cannot add user to LDAP database without DN.\n"
+msgstr "%s: Nie mo¿na dodaæ u¿ytkownika do bazy danych LDAP bez DN.\n"
+
+#: src/useradd.c:1490
+#, c-format
+msgid "%s: User not added to LDAP database.\n"
+msgstr "%s: U¿ytkownik nie dodany do bazy danych LDAP.\n"
+
+#: src/useradd.c:1518 src/userdel.c:293 src/usermod.c:405 src/usermod.c:639
+#: src/usermod.c:1404 src/usermod.c:1498
+#, c-format
+msgid "%s: ERROR: cannot find group `%s' anymore!.\n"
+msgstr "%s: B£¡D: nie mo¿na ju¿ znale¼æ grupy `%s'!\n"
+
+#: src/useradd.c:1522 src/usermod.c:1409 src/usermod.c:1503
+#, c-format
+msgid "%s: Cannot find group `%s' in service `%s', ignored.\n"
+msgstr "%s: Nie znaleziono grupy `%s' w us³udze `%s', zignorowano.\n"
+
+#: src/useradd.c:1537 src/usermod.c:1426
+#, c-format
+msgid "%s: Cannot add user to groups stored in LDAP database without DN.\n"
+msgstr "%s: Nie mo¿na dodaæ u¿ytkownika do grup zapisanych w bazie LDAP bez DN.\n"
+
+#: src/useradd.c:1545 src/useradd.c:1563 src/useradd.c:1580 src/usermod.c:1434
+#: src/usermod.c:1453 src/usermod.c:1471
+#, c-format
+msgid "%s: User not added to LDAP group `%s'.\n"
+msgstr "%s: U¿ytkownik nie dodany do grupy LDAP `%s'.\n"
+
+#: src/useradd.c:1625
+#, c-format
+msgid "%s: USERADD_CMD fails with exit code %d.\n"
+msgstr "%s: USERADD_CMD nie powiod³o siê zwracaj±c kod wyj¶cia %d.\n"
+
+#: src/userdel.c:61
+#, c-format
+msgid "Usage: %s [-D binddn] [-P path] [-r [-f]] user\n"
+msgstr "Sk³adnia: %s [-D binddn] [-P ¶cie¿ka] [-r [-f]] u¿ytkownik\n"
+
+#: src/userdel.c:68
+#, c-format
+msgid ""
+"%s - delete a user and related files\n"
+"\n"
+msgstr ""
+"%s - usuniêcie u¿ytkownika i zwi±zanych z nim plików\n"
+"\n"
+
+#: src/userdel.c:70
+msgid "  -r             Remove home directory and mail spool\n"
+msgstr "  -r             Usuniêcie katalogu domowego i skrzynki pocztowej\n"
+
+#: src/userdel.c:72
+msgid "  -f             Force removel of files, even if not owned by user\n"
+msgstr ""
+"  -f             Wymuszenie usuniêcia plików nawet nie bêd±cych w³asno¶ci±\n"
+"                   u¿ytkownika\n"
+
+#: src/userdel.c:182 src/userdel.c:201
+#, c-format
+msgid "%s: directory `%s' is in use by `%s'.\n"
+msgstr "%s: katalog `%s' jest u¿ywany przez `%s'.\n"
+
+#: src/userdel.c:310 src/usermod.c:656 src/usermod.c:1520
+#, c-format
+msgid ""
+"%s: Cannot remove user from groups stored in LDAP database without DN.\n"
+msgstr ""
+"%s: Nie mo¿na usun±æ u¿ytkownika z grup zapisanych w bazie LDAP bez DN.\n"
+
+#: src/userdel.c:318 src/userdel.c:337 src/usermod.c:664 src/usermod.c:683
+#: src/usermod.c:1528 src/usermod.c:1547 src/usermod.c:1565
+#, c-format
+msgid "%s: User not removed from LDAP group `%s'.\n"
+msgstr "%s: U¿ytkownik nie usuniêty z grupy LDAP `%s'.\n"
+
+#: src/userdel.c:358 src/usermod.c:701
+#, c-format
+msgid "%s: User not removed from group `%s'.\n"
+msgstr "%s: U¿ytkownik nie usuniêty z grupy `%s'.\n"
+
+#: src/userdel.c:568 src/usermod.c:1223
+#, c-format
+msgid "%s: account `%s' is currently in use.\n"
+msgstr "%s: konto `%s' jest aktualnie u¿ywane.\n"
+
+#: src/userdel.c:590
+#, c-format
+msgid "%s: USERDEL_PRECMD fails with exit code %d.\n"
+msgstr "%s: USERDEL_PRECMD nie powiod³o siê zwracaj±c kod wyj¶cia %d.\n"
+
+#: src/userdel.c:618 src/userdel.c:636
+#, c-format
+msgid "%s: `%s' is not owned by `%s', not removed.\n"
+msgstr "%s: `%s' nie jest w³asno¶ci± `%s', nie usuniêto.\n"
+
+#: src/userdel.c:624 src/userdel.c:646
+#, c-format
+msgid "%s: warning: can't remove `%s': %s"
+msgstr "%s: uwaga: nie mo¿na usun±æ `%s': %s"
+
+#: src/userdel.c:656
+#, c-format
+msgid "%s: directory `%s' not removed.\n"
+msgstr "%s: katalog `%s' nie usuniêty.\n"
+
+#: src/userdel.c:668
+#, c-format
+msgid "%s: error deleting user `%s'.\n"
+msgstr "%s: b³±d podczas usuwania u¿ytkownika `%s'.\n"
+
+#: src/usermod.c:68
+#, c-format
+msgid ""
+"%s - modify a user account\n"
+"\n"
+msgstr ""
+"%s - zmiana konta u¿ytkownika\n"
+
+#: src/usermod.c:85
+msgid "  -l login       Change login name.\n"
+msgstr "  -l login       Zmiana nazwy logowania.\n"
+
+#: src/usermod.c:86
+msgid "  -m             Move home directory to the new path\n"
+msgstr "  -m             Przeniesienie katalogu domowego do nowej ¶cie¿ki\n"
+
+#: src/usermod.c:88
+msgid "  -A group,...   List of groups the user should be added to\n"
+msgstr "  -A grupa,...   Podanie grup, do których u¿ytkownik ma byæ dodany\n"
+
+#: src/usermod.c:90
+msgid "  -R group,...   List of groups the user should be removed from\n"
+msgstr "  -R grupa,...   Podanie grup, z których u¿ytkownik ma byæ usuniêty\n"
+
+#: src/usermod.c:97
+msgid "  -u uid         Change the userid to the given number\n"
+msgstr "  -u uid         Zmiana identyfikatora u¿ytkownika na podan± liczbê\n"
+
+#: src/usermod.c:100
+msgid "  -L             Locks the password entry for \"user\"\n"
+msgstr "  -L             Zablokowanie wpisu o ha¶le dla u¿ytkownika\n"
+
+#: src/usermod.c:102
+msgid "  -U             Try to unlock the password entry for \"user\"\n"
+msgstr "  -U             Próba odblokowania wpisu o ha¶le dla u¿ytkownika\n"
+
+#: src/usermod.c:157 src/usermod.c:830 src/usermod.c:925
+#, c-format
+msgid "%s: invalid numeric argument `%s'.\n"
+msgstr "%s: nieprawid³owy argument liczbowy `%s'.\n"
+
+#: src/usermod.c:168
+#, c-format
+msgid "%s: group `%u' not found in service `%s'.\n"
+msgstr "%s: grupa `%u' nie znaleziona w us³udze `%s'.\n"
+
+#: src/usermod.c:174
+#, c-format
+msgid "%s: unknown group `%u'.\n"
+msgstr "%s: nieznana grupa `%u'.\n"
+
+#: src/usermod.c:187
+#, c-format
+msgid "%s: group `%s' not found in service `%s'.\n"
+msgstr "%s: grupa `%s' nie znaleziona w us³udze `%s'.\n"
+
+#: src/usermod.c:193
+#, c-format
+msgid "%s: unknown group `%s'.\n"
+msgstr "%s: nieznana grupa `%s'.\n"
+
+#: src/usermod.c:420
+#, c-format
+msgid "%s: User not renamed in LDAP group `%s'.\n"
+msgstr "%s: Nazwa u¿ytkownika nie zmieniona w grupie LDAP `%s'.\n"
+
+#: src/usermod.c:433
+#, c-format
+msgid "%s: User not renamed from LDAP group `%s'.\n"
+msgstr "%s: Nazwa u¿ytkownika nie z grupy LDAP `%s'.\n"
+
+#: src/usermod.c:451
+#, c-format
+msgid "%s: User not renamed in group `%s'.\n"
+msgstr "%s: Nazwa u¿ytkownika nie zmieniona w grupie `%s'.\n"
+
+#: src/usermod.c:509
+#, c-format
+msgid "%s: cannot create directory `%s'.\n"
+msgstr "%s: nie mo¿na utworzyæ katalogu `%s'.\n"
+
+#: src/usermod.c:528
+#, c-format
+msgid "%s: can't create %s\n"
+msgstr "%s: nie mo¿na utworzyæ %s\n"
+
+#: src/usermod.c:534
+#, c-format
+msgid "%s: can't chown %s\n"
+msgstr "%s: nie mo¿na wykonaæ chown %s\n"
+
+#: src/usermod.c:544
+#, c-format
+msgid "%s: cannot rename directory %s to %s\n"
+msgstr "%s: nie mo¿na zmieniæ nazwy katalogu %s na %s\n"
+
+#: src/usermod.c:776
+#, c-format
+msgid "%s: invalid comment `%s'.\n"
+msgstr "%s: nieprawid³owy komentarz `%s'.\n"
+
+#: src/usermod.c:790
+#, c-format
+msgid "%s: invalid home directory `%s'.\n"
+msgstr "%s: nieprawid³owy katalog domowy `%s'.\n"
+
+#: src/usermod.c:912
+#, c-format
+msgid "%s: invalid shell `%s'.\n"
+msgstr "%s: nieprawid³owa pow³oka `%s'.\n"
+
+#: src/usermod.c:1027
+#, c-format
+msgid "%s: user `%s' does not exist.\n"
+msgstr "%s: u¿ytkownik `%s' nie istnieje.\n"
+
+#: src/usermod.c:1077 src/usermod.c:1142
+#, c-format
+msgid "%s: `%s' is primary group name.\n"
+msgstr "%s: `%s' jest nazw± grupy g³ównej.\n"
+
+#: src/usermod.c:1246
+#, c-format
+msgid "%s: Invalid account name `%s'.\n"
+msgstr "%s: Nieprawid³owa nazwa konta `%s'.\n"
+
+#: src/usermod.c:1255
+#, c-format
+msgid "%s: Account `%s' already exists.\n"
+msgstr "%s: Konto `%s' ju¿ istnieje.\n"
+
+#: src/usermod.c:1314
+#, c-format
+msgid "%s: Shadow passwords required for -e and -f\n"
+msgstr "%s: Dla opcji -e i -f wymagane s± has³a ukryte\n"
+
+#: src/usermod.c:1330
+#, c-format
+msgid "%s: Cannot modify user in LDAP database without DN.\n"
+msgstr "%s: Nie mo¿na zmodyfikowaæ danych u¿ytkownika w bazie danych LDAP bez DN.\n"
+
+#: src/usermod.c:1348
+#, c-format
+msgid "%s: User not modified in LDAP database.\n"
+msgstr "%s: Dane u¿ytkownika nie zmodyfikowane w bazie danych LDAP.\n"
+
+#: src/vipw.c:66
+#, c-format
+msgid "Usage: %s [-g|-p|-s]\n"
+msgstr "Sk³adnia: %s [-g|-p|-s]\n"
+
+#: src/vipw.c:74
+#, c-format
+msgid ""
+"%s - edit the password, group or shadow file\n"
+"\n"
+msgstr ""
+"%s - edycja pliku hase³, grup lub ukrytych hase³\n"
+"\n"
+
+#: src/vipw.c:77
+msgid "  -g, --group    Edit the /etc/group file\n"
+msgstr "  -g, --group    Edycja pliku /etc/group\n"
+
+#: src/vipw.c:78
+msgid "  -p, --passwd   Edit the /etc/passwd file\n"
+msgstr "  -p, --passwd   Edycja pliku /etc/passwd\n"
+
+#: src/vipw.c:79
+msgid "  -s, --shadow   Edit the /etc/shadow file\n"
+msgstr "  -s, --shadow   Edycja pliku /etc/shadow\n"
+
+#: src/vipw.c:172
+#, c-format
+msgid "Cannot lock `%s': already locked.\n"
+msgstr "Nie mo¿na zablokowaæ `%s': ju¿ zablokowany.\n"
+
+#: src/vipw.c:190
+#, c-format
+msgid "Can't create `%s': %m\n"
+msgstr "Nie mo¿na utworzyæ `%s': %m\n"
+
+#: src/vipw.c:250 src/vipw.c:259 src/vipw.c:273
+#, c-format
+msgid "Can't stat `%s': %m\n"
+msgstr "Nie mo¿na wykonaæ stat `%s': %m\n"
+
+#: src/vipw.c:279
+#, c-format
+msgid "%s: no changes made\n"
+msgstr "%s: nie dokonano zmian\n"
