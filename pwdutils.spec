@@ -1,6 +1,5 @@
 # TODO:
 # - finish and test it
-# - subpackage with rpasswd daemon
 #
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
@@ -54,14 +53,22 @@ has³a niezale¿nie od tego, gdzie s± przechowywane.
 
 %package -n rpasswdd
 Summary:	Remote password update daemon
+Summary(pl):	Demon do zdalnego uaktualniania hase³
 Group:		Applications/System
 
 %description -n rpasswdd
 rpasswdd is a daemon that lets users change their passwords in the
 presence of a directory service like NIS, NIS+ or LDAP over a secure
 SSL connection. rpasswdd behaves like the normal passwd(1) program and
-uses PAM for authentification and changing the password, so it can be
+uses PAM for authentication and changing the password, so it can be
 configured very flexibel for the local requirements.
+
+%description -n rpasswdd -l pl
+rpasswdd to demon pozwalaj±cy u¿ytkownikom zmieniaæ has³a w obecno¶ci
+us³ug katalogowych takich jak NIS, NIS+ czy LDAP po bezpiecznym
+po³±czeniu SSL. rpasswdd zachowuje siê tak, jak normalny program
+passwd(1) i u¿ywam PAM do uwierzytelniania i zmiany hase³, wiêc mo¿e
+byæ bardzo elastycznie konfigurowany dla lokalnych wymagañ.
 
 %prep
 %setup -q
