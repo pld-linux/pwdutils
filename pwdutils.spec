@@ -1,17 +1,17 @@
 #
 # Conditional build:
-%bcond_without	ldap	# build without LDAP support
+%bcond_without	ldap		# build without LDAP support
 %bcond_without	selinux		# build without SELinux support
 #
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.6.94
+Version:	2.6.95
 Release:	0.1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	e28822a9c81c381aceb47879694a6a99
+# Source0-md5:	a8d5ca9f242fb7574fdea72b3f2e166e
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -21,8 +21,8 @@ Source6:	chsh.pamd
 Source7:	passwd.pamd
 Source8:	useradd.pamd
 Source9:	userdb.pamd
-Source10:	%{name}-pl.po
 Patch0:		%{name}-f-option.patch
+Patch1:		%{name}-pl.po-update.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
@@ -108,9 +108,8 @@ funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
-cp %{SOURCE10} po/pl.po
-sed -i -e 's/\(ALL_LINGUAS\)="de"/\1="de pl"/' configure.in
 rm -f po/stamp-po
 
 sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
