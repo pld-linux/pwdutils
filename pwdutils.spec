@@ -68,6 +68,8 @@ has³a niezale¿nie od tego, gdzie s± przechowywane.
 Summary:	Remote password update daemon
 Summary(pl):	Demon do zdalnego uaktualniania hase³
 Group:		Applications/System
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 
 %description -n rpasswdd
 rpasswdd is a daemon that lets users change their passwords in the
