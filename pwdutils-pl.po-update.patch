@@ -1,0 +1,134 @@
+--- pwdutils-2.6.95/po/pl.po.orig	2005-01-04 18:12:58.000000000 +0100
++++ pwdutils-2.6.95/po/pl.po	2005-01-09 16:57:11.448721936 +0100
+@@ -4,10 +4,10 @@
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: pwdutils 2.6.94\n"
++"Project-Id-Version: pwdutils 2.6.95\n"
+ "Report-Msgid-Bugs-To: kukuk@thkukuk.de\n"
+ "POT-Creation-Date: 2005-01-04 18:12+0100\n"
+-"PO-Revision-Date: 2005-01-01 19:28+01:00\n"
++"PO-Revision-Date: 2005-01-09 16:50+0100\n"
+ "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
+ "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+ "MIME-Version: 1.0\n"
+@@ -239,7 +239,7 @@
+ #: lib/logging.c:130
+ #, c-format
+ msgid "Error setting up logging subsystem!\n"
+-msgstr ""
++msgstr "B³±d podczas uruchamiania podsystemu logowania!\n"
+ 
+ #: lib/parse_crypt_arg.c:92
+ #, c-format
+@@ -257,7 +257,7 @@
+ msgstr "Nie mo¿na wygenerowaæ zarodka, proszê sprawdziæ ustawienia crypt.\n"
+ 
+ #: lib/parse_crypt_arg.c:149
+-#, fuzzy, c-format
++#, c-format
+ msgid "No support for blowfish compiled in, using MD5.\n"
+ msgstr "Nie wkompilowano obs³ugi blowfish. U¿yto MD5.\n"
+ 
+@@ -373,40 +373,39 @@
+ msgstr "Nie mo¿na usun±æ katalogu `%s': %s\n"
+ 
+ #: lib/selinux_utils.c:87
+-#, fuzzy, c-format
++#, c-format
+ msgid "Couldn't get security context `%s': %s\n"
+-msgstr "nie mo¿na odczytaæ kontekstu bezpieczeñstwa `%s': %s"
++msgstr "Nie mo¿na odczytaæ kontekstu bezpieczeñstwa `%s': %s\n"
+ 
+ #: lib/selinux_utils.c:95
+-#, fuzzy, c-format
++#, c-format
+ msgid "Couldn't get default security context: %s\n"
+-msgstr "nie mo¿na odczytaæ domy¶lnego kontekstu bezpieczeñstwa: %s"
++msgstr "Nie mo¿na odczytaæ domy¶lnego kontekstu bezpieczeñstwa: %s\n"
+ 
+ #: lib/selinux_utils.c:104
+-#, fuzzy, c-format
++#, c-format
+ msgid "Couldn't set default security context to `%s': %s\n"
+-msgstr "nie mo¿na ustawiæ domy¶lnego kontekstu bezpieczeñstwa na `%s': %s"
++msgstr "Nie mo¿na ustawiæ domy¶lnego kontekstu bezpieczeñstwa na `%s': %s\n"
+ 
+ #: lib/selinux_utils.c:123
+-#, fuzzy, c-format
++#, c-format
+ msgid "Couldn't reset default security context to `%s': %s\n"
+-msgstr ""
+-"nie mo¿na ustawiæ domy¶lnego kontekstu bezpieczeñstwa z powrotem na `%s': %s"
++msgstr "Nie mo¿na ustawiæ domy¶lnego kontekstu bezpieczeñstwa z powrotem na `%s': %s\n"
+ 
+ #: lib/user.c:88
+-#, fuzzy, c-format
++#, c-format
+ msgid "Can't find the NIS master server: %s\n"
+-msgstr "nie znaleziono g³ównego serwera yp: %s\n"
++msgstr "nie znaleziono g³ównego serwera NIS: %s\n"
+ 
+ #: lib/user.c:95
+-#, fuzzy, c-format
++#, c-format
+ msgid "rpc.yppasswdd not running on NIS master %s.\n"
+-msgstr "yppasswdd nie dzia³a na g³ównym serwerze NIS %s\n"
++msgstr "rpc.yppasswdd nie dzia³a na g³ównym serwerze NIS %s.\n"
+ 
+ #: lib/user.c:101
+-#, fuzzy, c-format
++#, c-format
+ msgid "rpc.yppasswdd running on illegal port on NIS master %s.\n"
+-msgstr "Demon yppasswd dzia³a na nielegalnym porcie g³ównego serwera NIS %s.\n"
++msgstr "rpc.yppasswdd dzia³a na nielegalnym porcie g³ównego serwera NIS %s.\n"
+ 
+ #: lib/user.c:418 src/groupmod.c:439 src/useradd.c:1361 src/userdel.c:575
+ #: src/usermod.c:1295
+@@ -639,9 +638,9 @@
+ msgstr "%s: Zbyt du¿o argumentów\n"
+ 
+ #: src/chage.c:405
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Do not include \"l\" with other flags\n"
+-msgstr "%s: nie mo¿na ³±czyæ \"l\" z innymi flagami\n"
++msgstr "%s: Nie mo¿na ³±czyæ \"l\" z innymi flagami\n"
+ 
+ #: src/chage.c:430 src/chfn.c:535 src/chsh.c:402 src/expiry.c:272
+ #: src/gpasswd.c:222 src/groupadd.c:431 src/groupdel.c:283 src/groupmod.c:367
+@@ -682,9 +681,9 @@
+ msgstr "U¿ytkownik mo¿e wypisywaæ tylko w³asne informacje o przedawnianiu.\n"
+ 
+ #: src/chage.c:546 src/expiry.c:312
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Failed to drop privileges: %s\n"
+-msgstr "%s: nie uda³o siê porzuciæ uprawnieñ: %s\n"
++msgstr "%s: Nie uda³o siê porzuciæ uprawnieñ: %s\n"
+ 
+ #: src/chage.c:558
+ #, c-format
+@@ -2974,21 +2973,3 @@
+ #, c-format
+ msgid "%s: no changes made\n"
+ msgstr "%s: nie dokonano zmian\n"
+-
+-#~ msgid "%s: invalid numeric argument `%s'.\n"
+-#~ msgstr "%s: nieprawid³owy argument liczbowy `%s'.\n"
+-
+-#~ msgid "%s: invalid comment `%s'.\n"
+-#~ msgstr "%s: nieprawid³owy komentarz `%s'.\n"
+-
+-#~ msgid "%s: invalid home directory `%s'.\n"
+-#~ msgstr "%s: nieprawid³owy katalog domowy `%s'.\n"
+-
+-#~ msgid "%s: invalid shell `%s'.\n"
+-#~ msgstr "%s: nieprawid³owa pow³oka `%s'.\n"
+-
+-#~ msgid "%s: unknown group `%u'.\n"
+-#~ msgstr "%s: nieznana grupa `%u'.\n"
+-
+-#~ msgid "%s: unknown group `%s'.\n"
+-#~ msgstr "%s: nieznana grupa `%s'.\n"
