@@ -150,10 +150,11 @@ GID_MAX			60000
 
 #
 # User/group names must match the following regex expression.
-# The default is [A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_.$-]\?
-# Address this issue:
-# http://lists.suse.com/archive/pwdutils/2004-Nov/0003.html
-#CHARACTER_CLASS		[[:alpha:]_][[:alnum:]_.-]*[[:alnum:]_.$-]\?
+# The default is [A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_.$-]\?,
+# but be aware that the result could be depend on the locale settings.
+#
+#CHARACTER_CLASS		[A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_.$-]\?
+CHARACTER_CLASS		[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_][ABCDEFGHIJKLMNOPQRSTUVWXYabcdefghijklmnopqrstuvwxyz0123456789_.-]*[ABCDEFGHIJKLMNOPQRSTUVWXYabcdefghijklmnopqrstuvwxyz01234567899_.$-]\?
 
 #
 # Umask which is used by useradd and newusers for creating
