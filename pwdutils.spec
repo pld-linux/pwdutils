@@ -21,6 +21,7 @@ Source6:	chsh.pamd
 Source7:	passwd.pamd
 Source8:	useradd.pamd
 Source9:	userdb.pamd
+Source10:	%{name}-pl.po
 Patch0:		%{name}-f-option.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 BuildRequires:	autoconf
@@ -108,8 +109,13 @@ funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
 %setup -q
 %patch0 -p1
 
-%build
+cp %{SOURCE10} po/pl.po
+sed -i -e 's/\(ALL_LINGUAS\)="de"/\1="de pl"/' configure.in
+rm -f po/stamp-po
+
 sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
+
+%build
 %{__gettextize}
 %{__aclocal}
 %{__autoconf}
@@ -175,19 +181,19 @@ fi
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README THANKS TODO
-%attr(600,root,root) %config(noreplace) %verify(not md5 size mtime) %ghost %{_sysconfdir}/shadow
+%attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) %ghost %{_sysconfdir}/shadow
 %attr(750,root,root) %dir %{_sysconfdir}/default
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/default/*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/default/*
 %attr(750,root,root) %dir %{_sysconfdir}/%{name}
-%attr(750,root,root) %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/%{name}/*.local
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/chage
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/chfn
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/chsh
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/passwd
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/useradd
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/shadow
+%attr(750,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/*.local
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/chage
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/chfn
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/chsh
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/passwd
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/useradd
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/shadow
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/login.defs
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/rpasswd.conf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/rpasswd.conf
 %dir /etc/skel
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
@@ -215,15 +221,15 @@ fi
 %attr(755,root,root) %{_sbindir}/vigr
 %attr(755,root,root) %{_sbindir}/vipw
 %{_mandir}/man?/*
-%exclude %{_mandir}/man8/rpasswdd*
+%exclude %{_mandir}/man8/rpasswdd.8*
 %exclude %{_mandir}/man8/pam_rpasswd.8*
 
 %files -n rpasswdd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/rpasswdd
 %attr(754,root,root) /etc/rc.d/init.d/rpasswdd
-%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/rpasswd
-%{_mandir}/man8/rpasswdd*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/rpasswd
+%{_mandir}/man8/rpasswdd.8*
 
 %files -n pam-pam_rpasswd
 %defattr(644,root,root,755)
