@@ -4,12 +4,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.4.90
+Version:	2.5.1
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	8c53806b01d10fef9f21cdc4ce57490c
+# Source0-md5:	a76481b59e5cbc5efc41380db9b355dc
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -18,6 +18,7 @@ Source5:	chfn.pamd
 Source6:	chsh.pamd
 Source7:	passwd.pamd
 Source8:	useradd.pamd
+Source9:	userdb.pamd
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -101,6 +102,7 @@ install %{SOURCE5} $RPM_BUILD_ROOT/etc/pam.d/chfn
 install %{SOURCE6} $RPM_BUILD_ROOT/etc/pam.d/chsh
 install %{SOURCE7} $RPM_BUILD_ROOT/etc/pam.d/passwd
 install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
+install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 
 :> $RPM_BUILD_ROOT/etc/shadow
 
@@ -146,6 +148,7 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/chsh
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/passwd
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/useradd
+%attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/shadow
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/login.defs
 %dir /etc/skel
 %attr(755,root,root) %{_bindir}/chage
@@ -160,6 +163,7 @@ fi
 %attr(755,root,root) %{_sbindir}/groupdel
 %attr(755,root,root) %{_sbindir}/groupmod
 %attr(755,root,root) %{_sbindir}/grpconv
+%attr(755,root,root) %{_sbindir}/grpunconv
 %attr(755,root,root) %{_sbindir}/pwconv
 %attr(755,root,root) %{_sbindir}/pwunconv
 %attr(755,root,root) %{_sbindir}/rpasswdd
