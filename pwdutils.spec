@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	ldap	# build without LDAP support
+#
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
@@ -22,7 +26,7 @@ BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 BuildRequires:	libselinux-devel
-BuildRequires:	openldap-devel
+%{?with_ldap:	BuildRequires:	openldap-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
@@ -109,7 +113,7 @@ sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
 	--enable-selinux \
 	--enable-slp \
 	--enable-ssl \
-	--enable-ldap \
+	--%{?with_ldap:en}%{!?with_ldap:dis}able-ldap \
 	--enable-nls \
 	--disable-rpath
 %{__make}
