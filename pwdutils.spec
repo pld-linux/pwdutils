@@ -1,12 +1,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.5.97
-Release:	2
+Version:	2.6
+Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	e221330372be7931bd80542082bafe4b
+# Source0-md5:	8567328b1ad7609f8851eec57658f1a0
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -16,6 +16,7 @@ Source6:	chsh.pamd
 Source7:	passwd.pamd
 Source8:	useradd.pamd
 Source9:	userdb.pamd
+URL:		http://www.thkukuk.de/pam/pwdutils/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.2
@@ -23,6 +24,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	libselinux-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
+BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
 BuildRequires:	sed >= 4.0
 Provides:	shadow = 2:%{version}-%{release}
@@ -82,7 +84,12 @@ sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
 %{__autoheader}
 %{__automake}
 %configure \
+	--enable-pam_rpasswd \
 	--enable-selinux \
+	--enable-slp \
+	--enable-ssl \
+	--enable-ldap \
+	--enable-nls \
 	--disable-rpath
 %{__make}
 
