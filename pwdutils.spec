@@ -34,6 +34,9 @@ Obsoletes:	shadow-extras
 Conflicts:	util-linux < 2.12-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# for pam module in /%{_lib}/security
+%define		_libdir		/%{_lib}
+
 %description
 pwdutils is a collection of utilities to manage the passwd and shadow
 user information. The difference to the shadow suite is that these
@@ -73,6 +76,24 @@ po³±czeniu SSL. rpasswdd zachowuje siê tak, jak normalny program
 passwd(1) i u¿ywam PAM do uwierzytelniania i zmiany hase³, wiêc mo¿e
 byæ bardzo elastycznie konfigurowany dla lokalnych wymagañ.
 
+%package -n pam-pam_rpasswd
+Summary:	pam_rpasswd - PAM module to change remote password
+Summary(pl):	pam_rpasswd - modu³ PAM do zdalnej zmiany has³a
+Group:		Base
+# rpasswd.conf is in base
+Requires:	%{name} = %{version}-%{release}
+
+%description -n pam-pam_rpasswd
+The pam_rpasswd PAM module is for changing the password of user
+accounts on a remote server over a secure SSL connection. It only
+provides functionality for one PAM management group: password
+changing.
+
+%description -n pam-pam_rpasswd -l pl
+Modu³ PAM pam_rpasswd s³u¿y do zmiany hase³ dla kont u¿ytkowników na
+zdalnym serwerze po bezpiecznym po³±czeniu SSL. Udostêpnia
+funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
+
 %prep
 %setup -q
 
@@ -95,7 +116,7 @@ sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d/,pwdutils,skel}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,skel}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -155,6 +176,7 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/useradd
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/shadow
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/login.defs
+%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/rpasswd.conf
 %dir /etc/skel
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
@@ -182,11 +204,16 @@ fi
 %attr(755,root,root) %{_sbindir}/vipw
 %{_mandir}/man?/*
 %exclude %{_mandir}/man8/rpasswdd*
+%exclude %{_mandir}/man8/pam_rpasswd.8*
 
 %files -n rpasswdd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/rpasswdd
 %attr(754,root,root) /etc/rc.d/init.d/rpasswdd
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/rpasswd
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/rpasswd.conf
 %{_mandir}/man8/rpasswdd*
+
+%files -n pam-pam_rpasswd
+%defattr(644,root,root,755)
+%attr(755,root,root) /%{_lib}/security/pam_rpasswd.so
+%{_mandir}/man8/pam_rpasswd.8*
