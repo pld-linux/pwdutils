@@ -26,7 +26,7 @@ BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 BuildRequires:	libselinux-devel
-%{?with_ldap:BuildRequires: openldap-devel}
+%{?with_ldap:BuildRequires:	openldap-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
@@ -152,17 +152,17 @@ fi
 %post -n rpasswdd
 /sbin/chkconfig --add rpasswdd
 if [ -f /var/lock/subsys/rpasswdd ]; then
-        /etc/rc.d/init.d/rpasswdd restart 1>&2
+	/etc/rc.d/init.d/rpasswdd restart 1>&2
 else
-        echo "Run \"/etc/rc.d/init.d/rpasswdd start\" to start rpasswdd daemon."
+	echo "Run \"/etc/rc.d/init.d/rpasswdd start\" to start rpasswdd daemon."
 fi
 
 %preun -n rpasswdd
 if [ "$1" = "0" ]; then
-        if [ -f /var/lock/subsys/rpasswdd ]; then
-                /etc/rc.d/init.d/rpasswdd stop 1>&2
-        fi
-        /sbin/chkconfig --del rpasswdd
+	if [ -f /var/lock/subsys/rpasswdd ]; then
+		/etc/rc.d/init.d/rpasswdd stop 1>&2
+	fi
+	/sbin/chkconfig --del rpasswdd
 fi
 
 %files -f %{name}.lang
