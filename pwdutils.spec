@@ -25,7 +25,7 @@ Source10:	%{name}-pl.po
 Patch0:		%{name}-f-option.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 BuildRequires:	autoconf
-BuildRequires:	automake >= 1.7
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 BuildRequires:	libnscd-devel
