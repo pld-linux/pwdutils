@@ -21,6 +21,7 @@ Source8:	useradd.pamd
 Source9:	userdb.pamd
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 BuildRequires:	libselinux-devel
 BuildRequires:	openldap-devel
