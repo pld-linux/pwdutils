@@ -153,7 +153,7 @@ GID_MAX			60000
 # The default is [A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_.$-]\?
 # Address this issue:
 # http://lists.suse.com/archive/pwdutils/2004-Nov/0003.html
-CHARACTER_CLASS		[[:alpha:]_][[:alnum:]_.-]*[[:alnum:]_.$-]\?
+#CHARACTER_CLASS		[[:alpha:]_][[:alnum:]_.-]*[[:alnum:]_.$-]\?
 
 #
 # Umask which is used by useradd and newusers for creating
