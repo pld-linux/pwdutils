@@ -1,4 +1,3 @@
-#
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
@@ -25,10 +24,11 @@ BuildRequires:	libselinux-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
+BuildRequires:	sed >= 4.0
 Provides:	shadow = 2:%{version}-%{release}
 Provides:	shadow-extras = 2:%{version}-%{release}
 Obsoletes:	shadow
-Obsoletes:	shadow-extras 
+Obsoletes:	shadow-extras
 Conflicts:	util-linux < 2.12-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -113,12 +113,9 @@ install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/ldconfig
 if [ ! -f /etc/shadow ]; then
 	%{_sbindir}/pwconv
 fi
-
-%postun -p /sbin/ldconfig
 
 %post -n rpasswdd
 /sbin/chkconfig --add rpasswdd
