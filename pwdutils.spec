@@ -36,6 +36,7 @@ Provides:	shadow = 2:%{version}-%{release}
 Provides:	shadow-extras = 2:%{version}-%{release}
 Obsoletes:	shadow
 Obsoletes:	shadow-extras
+Obsoletes:	shadow-utils
 Conflicts:	util-linux < 2.12-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
