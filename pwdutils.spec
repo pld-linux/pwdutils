@@ -28,6 +28,8 @@ BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
 Obsoletes:	shadow
 Obsoletes:	shadow-extras
+Provides:	shadow
+Provides:	shadow-extras
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
