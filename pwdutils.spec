@@ -8,7 +8,7 @@ Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i sh
 Name:		pwdutils
 Version:	2.6.94
 Release:	0.1
-License:	GPL
+License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
 # Source0-md5:	e28822a9c81c381aceb47879694a6a99
@@ -28,6 +28,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
+BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
 %{?with_ldap:BuildRequires:	openldap-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
@@ -137,7 +138,7 @@ install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_sbindir}/*.local $RPM_BUILD_ROOT%{_sysconfdir}/pwdutils
+mv -f $RPM_BUILD_ROOT%{_sbindir}/*.local $RPM_BUILD_ROOT%{_sysconfdir}/pwdutils
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/default/useradd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/rpasswdd
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/login.defs
@@ -148,6 +149,8 @@ install %{SOURCE6} $RPM_BUILD_ROOT/etc/pam.d/chsh
 install %{SOURCE7} $RPM_BUILD_ROOT/etc/pam.d/passwd
 install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
 
 :> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
 :> $RPM_BUILD_ROOT/etc/security/chfn.allow
@@ -223,6 +226,8 @@ fi
 %attr(755,root,root) %{_sbindir}/usermod
 %attr(755,root,root) %{_sbindir}/vigr
 %attr(755,root,root) %{_sbindir}/vipw
+%dir %{_libdir}/pwdutils
+%attr(755,root,root) %{_libdir}/pwdutils/liblog_syslog.so*
 %{_mandir}/man?/*
 %exclude %{_mandir}/man8/rpasswdd.8*
 %exclude %{_mandir}/man8/pam_rpasswd.8*
