@@ -95,6 +95,8 @@ install %{SOURCE6} $RPM_BUILD_ROOT/etc/pam.d/chsh
 install %{SOURCE7} $RPM_BUILD_ROOT/etc/pam.d/passwd
 install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 
+:> $RPM_BUILD_ROOT/etc/shadow
+
 %find_lang %{name}
 
 %clean
@@ -127,6 +129,7 @@ fi
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ChangeLog NEWS README THANKS TODO
+%attr(600,root,root) %config(noreplace) %verify(not md5 size mtime) %ghost %{_sysconfdir}/shadow
 %attr(750,root,root) %dir %{_sysconfdir}/default
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/default/*
 %attr(750,root,root) %dir %{_sysconfdir}/%{name}
