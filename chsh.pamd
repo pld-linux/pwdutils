@@ -1,5 +1,5 @@
 #%PAM-1.0
-auth		required	/lib/security/pam_listfile.so item=user sense=allow file=/etc/security/chsh onerr=fail
+auth		required	/lib/security/pam_listfile.so item=user sense=allow file=/etc/security/chsh.allow onerr=fail
 auth		sufficient	/lib/security/pam_rootok.so
 auth		required	/lib/security/pam_unix.so
 account		required	/lib/security/pam_unix.so
