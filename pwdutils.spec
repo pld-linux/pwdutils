@@ -23,7 +23,7 @@ BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 BuildRequires:	libselinux-devel
 BuildRequires:	openldap-devel
-BuildRequires:	openssl-devel
+BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
 BuildRequires:	sed >= 4.0
