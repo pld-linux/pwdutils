@@ -5,12 +5,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.3.96
+Version:	2.3.97
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	036233da82d9d54d6f99848a7e7ce843
+# Source0-md5:	dd5db584a7541de20b00454f85af2a36
 Source1:	%{name}.useradd
 # missing in repo
 #Source2:	%{name}.rpasswdd.init
@@ -57,6 +57,7 @@ has³a niezale¿nie od tego, gdzie s± przechowywane.
 %{__gettextize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--disable-rpath
@@ -112,14 +113,17 @@ fi
 %attr(4755,root,root) %{_bindir}/chfn
 %attr(4755,root,root) %{_bindir}/chsh
 %attr(4755,root,root) %{_bindir}/expiry
+%attr(4755,root,root) %{_bindir}/gpasswd
 %attr(4755,root,root) %{_bindir}/passwd
 %attr(755,root,root) %{_bindir}/rpasswd
 %attr(755,root,root) %{_sbindir}/chpasswd
 %attr(755,root,root) %{_sbindir}/groupadd
 %attr(755,root,root) %{_sbindir}/groupdel
+%attr(755,root,root) %{_sbindir}/groupmod
 %attr(755,root,root) %{_sbindir}/rpasswdd
 %attr(755,root,root) %{_sbindir}/useradd
 %attr(755,root,root) %{_sbindir}/userdel
+%attr(755,root,root) %{_sbindir}/usermod
 %attr(755,root,root) %{_sbindir}/vigr
 %attr(755,root,root) %{_sbindir}/vipw
 %{_mandir}/man?/*
