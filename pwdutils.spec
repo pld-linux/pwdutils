@@ -1,12 +1,13 @@
 #
 # Conditional build:
 %bcond_without	ldap	# build without LDAP support
+%bcond_without	selinux		# build without SELinux support
 #
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	2.6.90
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -26,7 +27,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
-BuildRequires:	libselinux-devel
+%{?with_selinux:BuildRequires:	libselinux-devel}
 %{?with_ldap:BuildRequires:	openldap-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	openslp-devel
@@ -113,7 +114,7 @@ sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
 %{__automake}
 %configure \
 	--enable-pam_rpasswd \
-	--enable-selinux \
+	--%{?with_selinux:en}%{!?with_selinux:dis}able-selinux \
 	--enable-slp \
 	--enable-ssl \
 	--%{?with_ldap:en}%{!?with_ldap:dis}able-ldap \
