@@ -1,15 +1,14 @@
-diff -urN pwdutils-2.6.4.org/src/groupadd.c pwdutils-2.6.4/src/groupadd.c
---- pwdutils-2.6.4.org/src/groupadd.c	2004-06-12 15:07:20.538718288 +0200
-+++ pwdutils-2.6.4/src/groupadd.c	2004-06-12 15:12:56.616626680 +0200
-@@ -475,7 +475,10 @@
-     {				/* Group does already exists.  */
+--- pwdutils-2.6.90/src/groupadd.c.orig	2004-08-16 08:05:50.000000000 +0000
++++ pwdutils-2.6.90/src/groupadd.c	2004-08-17 19:55:48.533394920 +0000
+@@ -486,7 +486,10 @@
        fprintf (stderr, _("%s: Group `%s' already exists.\n"),
  	       program, utf8_to_locale (new_group));
+       sec_log (program, MSG_GROUP_ALREADY_EXISTS, new_group, getuid ());
 -      return E_NAME_IN_USE;
 +      if (force_add)
-+	  return E_SUCCESS;
++	      return E_SUCCESS;
 +      else
-+    	  return E_NAME_IN_USE;
++	      return E_NAME_IN_USE;
      }
    else
      {
