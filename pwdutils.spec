@@ -4,12 +4,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.5.1
+Version:	2.5.92
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	a76481b59e5cbc5efc41380db9b355dc
+# Source0-md5:	7599cfd10f74207e78bcea313bfad39a
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -28,9 +28,9 @@ BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
 Obsoletes:	shadow
-Obsoletes:	shadow-extras
-Provides:	shadow
-Provides:	shadow-extras
+Obsoletes:	shadow-extras 
+Provides:	shadow = 2:%{version}-%{release}
+Provides:	shadow-extras = 2:%{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,6 +76,7 @@ byæ bardzo elastycznie konfigurowany dla lokalnych wymagañ.
 %setup -q
 
 %build
+sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
 %{__gettextize}
 %{__aclocal}
 %{__autoconf}
@@ -164,8 +165,10 @@ fi
 %attr(755,root,root) %{_sbindir}/groupdel
 %attr(755,root,root) %{_sbindir}/groupmod
 %attr(755,root,root) %{_sbindir}/grpconv
+%attr(755,root,root) %{_sbindir}/grpck
 %attr(755,root,root) %{_sbindir}/grpunconv
 %attr(755,root,root) %{_sbindir}/pwconv
+%attr(755,root,root) %{_sbindir}/pwck
 %attr(755,root,root) %{_sbindir}/pwunconv
 %attr(755,root,root) %{_sbindir}/rpasswdd
 %attr(755,root,root) %{_sbindir}/useradd
@@ -181,4 +184,5 @@ fi
 %attr(755,root,root) %{_sbindir}/rpasswdd
 %attr(754,root,root) /etc/rc.d/init.d/rpasswdd
 %attr(640,root,root) %config(noreplace) %verify(not md5 size mtime) /etc/pam.d/rpasswd
+%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/rpasswd.conf
 %{_mandir}/man8/rpasswdd*
