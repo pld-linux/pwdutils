@@ -149,10 +149,23 @@ GID_MIN			 1000
 GID_MAX			60000
 
 #
+# User/group names must match the following regex expression.
+# The default is [A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_.$-]\?
+#
+CHARACTER_CLASS		[A-Za-z_][A-Za-z0-9_.-]*[A-Za-z0-9_.$-]\?
+
+#
 # Umask which is used by useradd and newusers for creating
 # new home directories.
 #
 UMASK			022
+
+#
+# If defined, this command is run when adding a group.
+# It should rebuild any NIS database etc. to add the
+# new created group.
+#
+GROUPADD_CMD             /etc/pwdutils/groupadd.local
 
 #
 # If defined, this command is run when adding a user.
