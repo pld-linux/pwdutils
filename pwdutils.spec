@@ -5,14 +5,15 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.3.94
+Version:	2.3.96
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	ab0e2ae537414973565a23dd87708417
+# Source0-md5:	036233da82d9d54d6f99848a7e7ce843
 Source1:	%{name}.useradd
-Source2:	%{name}.rpasswdd.init
+# missing in repo
+#Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
 Source4:	chage.pamd
 Source5:	chfn.pamd
@@ -68,9 +69,9 @@ install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d/,pwdutils,skel}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_sbindir}/*.local $RPM_BUILD_ROOT/etc/pwdutils/
+mv $RPM_BUILD_ROOT%{_sbindir}/*.local $RPM_BUILD_ROOT/etc/pwdutils
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/default/useradd
-install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/rpasswdd
+#install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/rpasswdd
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/login.defs
 
 install %{SOURCE4} $RPM_BUILD_ROOT/etc/pam.d/chage
@@ -119,5 +120,7 @@ fi
 %attr(755,root,root) %{_sbindir}/rpasswdd
 %attr(755,root,root) %{_sbindir}/useradd
 %attr(755,root,root) %{_sbindir}/userdel
-%{_mandir}/man?/*.gz
-%attr(754,root,root) /etc/rc.d/init.d/rpasswdd
+%attr(755,root,root) %{_sbindir}/vigr
+%attr(755,root,root) %{_sbindir}/vipw
+%{_mandir}/man?/*
+#%attr(754,root,root) /etc/rc.d/init.d/rpasswdd
