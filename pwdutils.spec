@@ -7,7 +7,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	2.6.92
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -133,7 +133,7 @@ sed -i -e 's#EXTRA_CFLAGS=.*#EXTRA_CFLAGS="-W -Wall"#g' configure.in
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,skel}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -150,7 +150,9 @@ install %{SOURCE7} $RPM_BUILD_ROOT/etc/pam.d/passwd
 install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 
-:> $RPM_BUILD_ROOT/etc/shadow
+:> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
+:> $RPM_BUILD_ROOT/etc/security/chfn.allow
+:> $RPM_BUILD_ROOT/etc/security/chsh.allow
 
 %find_lang %{name}
 
@@ -194,6 +196,8 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/shadow
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/login.defs
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/rpasswd.conf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
