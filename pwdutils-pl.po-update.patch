@@ -1,19 +1,54 @@
---- pwdutils-2.6.97/po/pl.po.orig	2005-04-05 14:46:40.000000000 +0200
-+++ pwdutils-2.6.97/po/pl.po	2005-04-24 20:33:54.814009544 +0200
-@@ -4,10 +4,10 @@
+--- pwdutils-2.6.98/po/pl.po.orig	2005-04-25 17:20:36.000000000 +0200
++++ pwdutils-2.6.98/po/pl.po	2005-04-26 21:56:28.378360320 +0200
+@@ -1,13 +1,13 @@
+ # Polish translation for pwdutils.
+ # This file is distributed under the same license as the pwdutils package.
+-# Jakub Bogusz <qboosh@pld-linux.org>, 2004.
++# Jakub Bogusz <qboosh@pld-linux.org>, 2004-2005.
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: pwdutils 2.6.94\n"
-+"Project-Id-Version: pwdutils 2.6.97\n"
++"Project-Id-Version: pwdutils 2.6.98\n"
  "Report-Msgid-Bugs-To: kukuk@thkukuk.de\n"
- "POT-Creation-Date: 2005-04-05 14:46+0200\n"
+ "POT-Creation-Date: 2005-04-25 17:20+0200\n"
 -"PO-Revision-Date: 2005-01-01 19:28+01:00\n"
-+"PO-Revision-Date: 2005-04-24 20:33+0200\n"
++"PO-Revision-Date: 2005-04-26 21:41+0200\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -239,7 +239,7 @@
+@@ -136,9 +136,9 @@
+ #: lib/group.c:378 lib/user.c:484 lib/user.c:716 src/grpck.c:268
+ #: src/grpck.c:637 src/pwck.c:275 src/pwck.c:537 src/pwck.c:890
+ #: src/pwconv.c:217 src/useradd.c:510 src/useradd.c:952 src/vipw.c:287
+-#, fuzzy, c-format
++#, c-format
+ msgid "Cannot change mode for `%s': %s\n"
+-msgstr "Nie mo¿na zmieniæ w³a¶ciciela/grupy pliku `%s': %s\n"
++msgstr "Nie mo¿na zmieniæ uprawnieñ `%s': %s\n"
+ 
+ #: lib/group.c:435 lib/group.c:477 lib/group.c:490 src/grpck.c:697
+ #, c-format
+@@ -161,14 +161,14 @@
+ msgstr "B³±d podczas zamykania tymczasowego pliku grup: %m\n"
+ 
+ #: lib/group.c:523 src/grpck.c:474 src/grpck.c:723
+-#, fuzzy, c-format
++#, c-format
+ msgid "Warning: cannot create backup of group file: %m\n"
+-msgstr "Uwaga: nie mo¿na wy³±czyæ echo\n"
++msgstr "Uwaga: nie mo¿na utworzyæ kopii zapasowej pliku grup: %m\n"
+ 
+ #: lib/group.c:527
+-#, fuzzy, c-format
++#,  c-format
+ msgid "Error while renaming temporary group file: %m\n"
+-msgstr "B³±d podczas zapisu tymczasowego pliku grup: %m\n"
++msgstr "B³±d podczas zmiany nazwy tymczasowego pliku grup: %m\n"
+ 
+ #: lib/group.c:660 lib/user.c:1039
+ #, c-format
+@@ -241,7 +241,7 @@
  #: lib/logging.c:130
  #, c-format
  msgid "Error setting up logging subsystem!\n"
@@ -22,7 +57,7 @@
  
  #: lib/parse_crypt_arg.c:92
  #, c-format
-@@ -257,7 +257,7 @@
+@@ -259,7 +259,7 @@
  msgstr "Nie mo¿na wygenerowaæ zarodka, proszê sprawdziæ ustawienia crypt.\n"
  
  #: lib/parse_crypt_arg.c:149
@@ -31,7 +66,7 @@
  msgid "No support for blowfish compiled in, using MD5.\n"
  msgstr "Nie wkompilowano obs³ugi blowfish. U¿yto MD5.\n"
  
-@@ -373,40 +373,39 @@
+@@ -375,40 +375,39 @@
  msgstr "Nie mo¿na usun±æ katalogu `%s': %s\n"
  
  #: lib/selinux_utils.c:87
@@ -84,36 +119,195 @@
 -msgstr "Demon yppasswd dzia³a na nielegalnym porcie g³ównego serwera NIS %s.\n"
 +msgstr "rpc.yppasswdd dzia³a na nielegalnym porcie g³ównego serwera NIS %s.\n"
  
- #: lib/user.c:418 src/groupmod.c:439 src/useradd.c:1361 src/userdel.c:575
- #: src/usermod.c:1295
-@@ -639,9 +638,9 @@
+ #: lib/user.c:418 src/groupmod.c:439 src/useradd.c:1400 src/userdel.c:575
+ #: src/usermod.c:1299
+@@ -436,14 +435,14 @@
+ msgstr "B³±d podczas zamykania tymczasowego pliku hase³: %m\n"
+ 
+ #: lib/user.c:637 src/pwck.c:468 src/pwck.c:976
+-#, fuzzy, c-format
++#, c-format
+ msgid "Warning: cannot create backup of passwd file: %m\n"
+-msgstr "Uwaga: nie mo¿na wy³±czyæ echo\n"
++msgstr "Uwaga: nie mo¿na utworzyæ kopii zapasowej pliku hase³: %m\n"
+ 
+ #: lib/user.c:641 src/pwconv.c:445
+-#, fuzzy, c-format
++#, c-format
+ msgid "Error while renaming temporary password file: %m\n"
+-msgstr "B³±d podczas zapisu tymczasowego pliku hase³: %m\n"
++msgstr "B³±d podczas zmiany nazwy tymczasowego pliku hase³: %m\n"
+ 
+ #: lib/user.c:771 lib/user.c:826 lib/user.c:841
+ #, c-format
+@@ -461,14 +460,14 @@
+ msgstr "B³±d podczas zamykania tymczasowego pliku shadow: %m\n"
+ 
+ #: lib/user.c:865 src/pwck.c:727
+-#, fuzzy, c-format
++#, c-format
+ msgid "Warning: cannot create backup of shadow file: %m\n"
+-msgstr "Uwaga: nie mo¿na wy³±czyæ echo\n"
++msgstr "Uwaga: nie mo¿na utworzyæ kopii zapasowej pliku shadow: %m\n"
+ 
+ #: lib/user.c:869 src/pwconv.c:421
+-#, fuzzy, c-format
++#, c-format
+ msgid "Error while renaming temporary shadow file: %m\n"
+-msgstr "B³±d podczas zapisu tymczasowego pliku shadow: %m\n"
++msgstr "B³±d podczas zmiany nazwy tymczasowego pliku shadow: %m\n"
+ 
+ #: lib/user.c:927
+ #, c-format
+@@ -661,9 +660,9 @@
  msgstr "%s: Zbyt du¿o argumentów\n"
  
- #: src/chage.c:405
+ #: src/chage.c:403
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Do not include \"l\" with other flags\n"
 -msgstr "%s: nie mo¿na ³±czyæ \"l\" z innymi flagami\n"
 +msgstr "%s: Nie mo¿na ³±czyæ \"l\" z innymi flagami\n"
  
- #: src/chage.c:430 src/chfn.c:535 src/chsh.c:402 src/expiry.c:272
- #: src/gpasswd.c:222 src/groupadd.c:431 src/groupdel.c:283 src/groupmod.c:367
-@@ -682,9 +681,9 @@
+ #: src/chage.c:428 src/chfn.c:535 src/chsh.c:402 src/expiry.c:272
+ #: src/gpasswd.c:220 src/groupadd.c:431 src/groupdel.c:283 src/groupmod.c:367
+@@ -704,9 +703,9 @@
  msgstr "U¿ytkownik mo¿e wypisywaæ tylko w³asne informacje o przedawnianiu.\n"
  
- #: src/chage.c:546 src/expiry.c:312
+ #: src/chage.c:543 src/expiry.c:311
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Failed to drop privileges: %s\n"
 -msgstr "%s: nie uda³o siê porzuciæ uprawnieñ: %s\n"
 +msgstr "%s: Nie uda³o siê porzuciæ uprawnieñ: %s\n"
  
- #: src/chage.c:558
+ #: src/chage.c:555
  #, c-format
-@@ -2974,21 +2973,3 @@
+@@ -1684,9 +1683,9 @@
+ msgstr "%s: Nie znaleziono pliku gshadow.\n"
+ 
+ #: src/grpunconv.c:248 src/pwconv.c:239 src/pwconv.c:259 src/pwunconv.c:196
+-#, fuzzy, c-format
++#, c-format
+ msgid "Cannot create backup file `%s': %m\n"
+-msgstr "Nie mo¿na utworzyæ pliku specjalnego `%s': %s\n"
++msgstr "Nie mo¿na utworzyæ kopii zapasowej pliku `%s': %m\n"
+ 
+ #: src/grpunconv.c:271 src/pwunconv.c:220
  #, c-format
- msgid "%s: no changes made\n"
+@@ -2249,7 +2248,7 @@
+ #: src/rpasswd-client.c:383
+ #, c-format
+ msgid "Enter number of choice [1-%d]: "
+-msgstr ""
++msgstr "Proszê podaæ wybran± liczbê [1-%d]: "
+ 
+ #: src/rpasswd-client.c:453
+ msgid "parsing config file"
+@@ -2614,7 +2613,7 @@
+ msgstr "  -s pow³oka     Nazwa pow³oki logowania u¿ytkownika\n"
+ 
+ #: src/useradd.c:186
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Invalid numeric argument `%s' for group ID.\n"
+ msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla identyfikatora grupy.\n"
+ 
+@@ -2639,9 +2638,9 @@
+ msgstr "%s: Nieprawid³owy katalog domowy `%s' w %s.\n"
+ 
+ #: src/useradd.c:332
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Invalid numeric argument `%s' for `INACTIVE' in %s.\n"
+-msgstr "%s: Nieprawid³owy argument liczbowy `%s' w %s.\n"
++msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla `INACTIVE' w %s.\n"
+ 
+ #: src/useradd.c:354
+ #, c-format
+@@ -2672,14 +2671,14 @@
+ msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
+ 
+ #: src/useradd.c:935 src/usermod.c:533
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Warning: chown on `%s' failed: %m\n"
+-msgstr "%s: uwaga: nie mo¿na usun±æ `%s': %s"
++msgstr "%s: Uwaga: chown na `%s' nie powiod³o siê: %m\n"
+ 
+ #: src/useradd.c:938 src/usermod.c:536
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Warning: chmod on `%s' failed: %m\n"
+-msgstr "%s: uwaga: nie mo¿na usun±æ `%s': %s"
++msgstr "%s: Uwaga: chmod na `%s' nie powiod³o siê: %m\n"
+ 
+ #: src/useradd.c:962
+ #, c-format
+@@ -2707,9 +2706,9 @@
+ msgstr "%s: Data wa¿no¶ci `%s' nie jest dat± ani warto¶ci± ca³kowit± >= -1.\n"
+ 
+ #: src/useradd.c:1104
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Invalid numeric argument `%s' for `-f'.\n"
+-msgstr "%s: Nieprawid³owy argument liczbowy `%s'.\n"
++msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla `-f'.\n"
+ 
+ #: src/useradd.c:1123
+ #, c-format
+@@ -2748,14 +2747,14 @@
+ msgstr "%s: Konto `%s' ju¿ istnieje.\n"
+ 
+ #: src/useradd.c:1491
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Error: Cannot clear old faillog entry: %s\n"
+-msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
++msgstr "%s: B³±d: Nie mo¿na wyczy¶ciæ starego wpisu faillog: %s\n"
+ 
+ #: src/useradd.c:1504
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Error: Cannot clear old lastlog entry: %s\n"
+-msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
++msgstr "%s: B³±d: Nie mo¿na wyczy¶ciæ starego wpisu lastlog: %s\n"
+ 
+ #: src/useradd.c:1518
+ #, c-format
+@@ -2993,12 +2992,12 @@
+ #: src/usermod.c:1703 src/usermod.c:1714 src/usermod.c:1740
+ #, c-format
+ msgid "%s: Error: Cannot copy faillog entry: %s\n"
+-msgstr ""
++msgstr "%s: B³±d: Nie mo¿na skopiowaæ wpisu faillog: %s\n"
+ 
+ #: src/usermod.c:1729
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Error: Cannot copy lastlog entry: %s\n"
+-msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
++msgstr "%s: B³±d: Nie mo¿na skopiowaæ wpisu lastlog: %s\n"
+ 
+ #: src/vipw.c:65
+ #, c-format
+@@ -3047,33 +3046,6 @@
  msgstr "%s: nie dokonano zmian\n"
+ 
+ #: src/vipw.c:318
+-#, fuzzy, c-format
++#, c-format
+ msgid "Warning: cannot create backup file: %m\n"
+-msgstr "Uwaga: nie mo¿na wy³±czyæ echo\n"
+-
+-#~ msgid "Error while writing temporary gshadow file: %m\n"
+-#~ msgstr "B³±d podczas zapisu tymczasowego pliku gshadow: %m\n"
+-
+-#~ msgid "Error while closing old gshadow file: %m\n"
+-#~ msgstr "B³±d podczas zamykania starego pliku gshadow: %m\n"
+-
+-#~ msgid "Error while closing temporary gshadow file: %m\n"
+-#~ msgstr "B³±d podczas zamykania tymczasowego pliku gshadow: %m\n"
 -
 -#~ msgid "%s: invalid numeric argument `%s'.\n"
 -#~ msgstr "%s: nieprawid³owy argument liczbowy `%s'.\n"
@@ -132,3 +326,4 @@
 -
 -#~ msgid "%s: unknown group `%s'.\n"
 -#~ msgstr "%s: nieznana grupa `%s'.\n"
++msgstr "Uwaga: nie mo¿na utworzyæ kopii zapasowej pliku: %m\n"
