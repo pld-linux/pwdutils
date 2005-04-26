@@ -1,3 +1,4 @@
+# TODO: review default login.defs
 #
 # Conditional build:
 %bcond_without	ldap		# build without LDAP support
@@ -6,12 +7,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	2.6.97
-Release:	2
+Version:	2.6.98
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	c0403845ee5b9d35a6095a60c9ef60b4
+# Source0-md5:	586ca4954b43e635aa659c2feb4c2edb
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
