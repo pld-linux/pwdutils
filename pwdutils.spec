@@ -24,6 +24,8 @@ Source8:	useradd.pamd
 Source9:	userdb.pamd
 Patch0:		%{name}-f-option.patch
 Patch1:		%{name}-pl.po-update.patch
+Patch2:		%{name}-no_bash.patch
+Patch3:		%{name}-silent_crontab.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
@@ -110,6 +112,8 @@ funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 rm -f po/stamp-po
 
