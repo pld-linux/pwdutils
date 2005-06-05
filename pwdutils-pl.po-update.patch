@@ -1,5 +1,5 @@
---- pwdutils-2.6.98/po/pl.po.orig	2005-04-25 17:20:36.000000000 +0200
-+++ pwdutils-2.6.98/po/pl.po	2005-04-26 21:56:28.378360320 +0200
+--- pwdutils-3.0/po/pl.po.orig	2005-06-03 11:56:17.000000000 +0200
++++ pwdutils-3.0/po/pl.po	2005-06-05 22:02:58.801618800 +0200
 @@ -1,13 +1,13 @@
  # Polish translation for pwdutils.
  # This file is distributed under the same license as the pwdutils package.
@@ -9,18 +9,18 @@
  msgid ""
  msgstr ""
 -"Project-Id-Version: pwdutils 2.6.94\n"
-+"Project-Id-Version: pwdutils 2.6.98\n"
++"Project-Id-Version: pwdutils 3.0\n"
  "Report-Msgid-Bugs-To: kukuk@thkukuk.de\n"
- "POT-Creation-Date: 2005-04-25 17:20+0200\n"
+ "POT-Creation-Date: 2005-06-03 11:56+0200\n"
 -"PO-Revision-Date: 2005-01-01 19:28+01:00\n"
-+"PO-Revision-Date: 2005-04-26 21:41+0200\n"
++"PO-Revision-Date: 2005-06-05 21:55+0200\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -136,9 +136,9 @@
+@@ -135,9 +135,9 @@
  #: lib/group.c:378 lib/user.c:484 lib/user.c:716 src/grpck.c:268
  #: src/grpck.c:637 src/pwck.c:275 src/pwck.c:537 src/pwck.c:890
- #: src/pwconv.c:217 src/useradd.c:510 src/useradd.c:952 src/vipw.c:287
+ #: src/pwconv.c:217 src/vipw.c:287
 -#, fuzzy, c-format
 +#, c-format
  msgid "Cannot change mode for `%s': %s\n"
@@ -29,7 +29,7 @@
  
  #: lib/group.c:435 lib/group.c:477 lib/group.c:490 src/grpck.c:697
  #, c-format
-@@ -161,14 +161,14 @@
+@@ -160,14 +160,14 @@
  msgstr "B³±d podczas zamykania tymczasowego pliku grup: %m\n"
  
  #: lib/group.c:523 src/grpck.c:474 src/grpck.c:723
@@ -48,7 +48,7 @@
  
  #: lib/group.c:660 lib/user.c:1039
  #, c-format
-@@ -241,7 +241,7 @@
+@@ -240,7 +240,7 @@
  #: lib/logging.c:130
  #, c-format
  msgid "Error setting up logging subsystem!\n"
@@ -57,7 +57,7 @@
  
  #: lib/parse_crypt_arg.c:92
  #, c-format
-@@ -259,7 +259,7 @@
+@@ -258,7 +258,7 @@
  msgstr "Nie mo¿na wygenerowaæ zarodka, proszê sprawdziæ ustawienia crypt.\n"
  
  #: lib/parse_crypt_arg.c:149
@@ -66,7 +66,7 @@
  msgid "No support for blowfish compiled in, using MD5.\n"
  msgstr "Nie wkompilowano obs³ugi blowfish. U¿yto MD5.\n"
  
-@@ -375,40 +375,39 @@
+@@ -374,40 +374,39 @@
  msgstr "Nie mo¿na usun±æ katalogu `%s': %s\n"
  
  #: lib/selinux_utils.c:87
@@ -119,9 +119,9 @@
 -msgstr "Demon yppasswd dzia³a na nielegalnym porcie g³ównego serwera NIS %s.\n"
 +msgstr "rpc.yppasswdd dzia³a na nielegalnym porcie g³ównego serwera NIS %s.\n"
  
- #: lib/user.c:418 src/groupmod.c:439 src/useradd.c:1400 src/userdel.c:575
+ #: lib/user.c:418 src/groupmod.c:439 src/useradd.c:1530 src/userdel.c:575
  #: src/usermod.c:1299
-@@ -436,14 +435,14 @@
+@@ -435,14 +434,14 @@
  msgstr "B³±d podczas zamykania tymczasowego pliku hase³: %m\n"
  
  #: lib/user.c:637 src/pwck.c:468 src/pwck.c:976
@@ -140,7 +140,7 @@
  
  #: lib/user.c:771 lib/user.c:826 lib/user.c:841
  #, c-format
-@@ -461,14 +460,14 @@
+@@ -460,14 +459,14 @@
  msgstr "B³±d podczas zamykania tymczasowego pliku shadow: %m\n"
  
  #: lib/user.c:865 src/pwck.c:727
@@ -159,7 +159,7 @@
  
  #: lib/user.c:927
  #, c-format
-@@ -661,9 +660,9 @@
+@@ -660,9 +659,9 @@
  msgstr "%s: Zbyt du¿o argumentów\n"
  
  #: src/chage.c:403
@@ -171,7 +171,7 @@
  
  #: src/chage.c:428 src/chfn.c:535 src/chsh.c:402 src/expiry.c:272
  #: src/gpasswd.c:220 src/groupadd.c:431 src/groupdel.c:283 src/groupmod.c:367
-@@ -704,9 +703,9 @@
+@@ -703,9 +702,9 @@
  msgstr "U¿ytkownik mo¿e wypisywaæ tylko w³asne informacje o przedawnianiu.\n"
  
  #: src/chage.c:543 src/expiry.c:311
@@ -183,7 +183,7 @@
  
  #: src/chage.c:555
  #, c-format
-@@ -1684,9 +1683,9 @@
+@@ -1683,9 +1682,9 @@
  msgstr "%s: Nie znaleziono pliku gshadow.\n"
  
  #: src/grpunconv.c:248 src/pwconv.c:239 src/pwconv.c:259 src/pwunconv.c:196
@@ -195,7 +195,104 @@
  
  #: src/grpunconv.c:271 src/pwunconv.c:220
  #, c-format
-@@ -2249,7 +2248,7 @@
+@@ -1821,26 +1820,24 @@
+ msgstr "SLP: Znaleziono serwer na %s.\n"
+ 
+ #: src/passwd.c:165
+-#, fuzzy, c-format
++#, c-format
+ msgid "Usage: %s [-f|-g|-s|-k[-q]] [account]\n"
+-msgstr "Sk³adnia: %s [-f|-g|-s|-k[-q]] [nazwa\n"
++msgstr "Sk³adnia: %s [-f|-g|-s|-k[-q]] [konto]\n"
+ 
+ #: src/passwd.c:166
+-#, fuzzy, c-format
++#, c-format
+ msgid "       %s [-D binddn] [-n min] [-x max] [-w warn] [-i inact] account\n"
+-msgstr ""
+-"       %s [-D binddn] [-n min] [-x maks] [-w ostrze¿] [-i nieakt] "
+-"u¿ytkownik\n"
++msgstr "       %s [-D binddn] [-n min] [-x maks] [-w ostrze¿] [-i nieakt] konto\n"
+ 
+ #: src/passwd.c:167
+-#, fuzzy, c-format
++#, c-format
+ msgid "       %s {-l|-u|-d|-S[-a]|-e|-h} account\n"
+-msgstr "       %s {-l|-u|-d|-S[-a]|-e|-h} u¿ytkownik\n"
++msgstr "       %s {-l|-u|-d|-S[-a]|-e|-h} konto\n"
+ 
+ #: src/passwd.c:168
+-#, fuzzy, c-format
++#, c-format
+ msgid "       %s --stdin account\n"
+-msgstr "       %s -l u¿ytkownik\n"
++msgstr "       %s --stdin konto\n"
+ 
+ #: src/passwd.c:175 src/rpasswd.c:100 src/rpasswdd.c:121
+ #, c-format
+@@ -1888,14 +1885,12 @@
+ msgstr "  -d             Usuniêcie has³a z podanego konta\n"
+ 
+ #: src/passwd.c:187
+-#, fuzzy
+ msgid "  -l             Locks the password entry for \"account\"\n"
+-msgstr "  -l             Zablokowanie wpisu o ha¶le dla u¿ytkownika\n"
++msgstr "  -l             Zablokowanie wpisu o ha¶le dla konta\n"
+ 
+ #: src/passwd.c:188
+-#, fuzzy
+ msgid "  -u             Try to unlock the password entry for \"account\"\n"
+-msgstr "  -u             Próba odblokowania wpisu o ha¶le dla u¿ytkownika\n"
++msgstr "  -u             Próba odblokowania wpisu o ha¶le dla konta\n"
+ 
+ #: src/passwd.c:189
+ msgid "  -e             Force the user to change password at next login\n"
+@@ -1904,28 +1899,20 @@
+ "                   logowaniu\n"
+ 
+ #: src/passwd.c:190
+-#, fuzzy
+ msgid "  -n min         Set minimum field for \"account\"\n"
+-msgstr ""
+-"  -n min         Ustawienie minimalnego czasu ¿ycia has³a dla u¿ytkownika\n"
++msgstr "  -n min         Ustawienie minimalnego czasu ¿ycia has³a dla konta\n"
+ 
+ #: src/passwd.c:191
+-#, fuzzy
+ msgid "  -x max         Set maximum field for \"account\"\n"
+-msgstr ""
+-"  -x maks        Ustawienie maksymalnego czasu ¿ycia has³a dla u¿ytkownika\n"
++msgstr "  -x maks        Ustawienie maksymalnego czasu ¿ycia has³a dla konta\n"
+ 
+ #: src/passwd.c:192
+-#, fuzzy
+ msgid "  -w warn        Set warn field for \"account\"\n"
+-msgstr ""
+-"  -w ostrze¿     Ustawienie czasu ostrze¿enia o wygasaniu has³a dla "
+-"u¿ytkownika\n"
++msgstr "  -w ostrze¿     Ustawienie czasu ostrze¿enia o wygasaniu has³a dla konta\n"
+ 
+ #: src/passwd.c:198
+-#, fuzzy
+ msgid "  --stdin        Read new password from stdin (root only)\n"
+-msgstr "  -r             Usuniêcie has³a dla tej grupy\n"
++msgstr "  --stdin        Odczytanie nowego has³a ze standardowego wej¶cia (tylko root)\n"
+ 
+ #: src/passwd.c:382
+ #, c-format
+@@ -1958,9 +1945,9 @@
+ msgstr "%s: -P flaga nie obs³ugiwana w tym trybie!\n"
+ 
+ #: src/passwd.c:570
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: error reading from stdin!\n"
+-msgstr "%s: b³±d podczas usuwania u¿ytkownika `%s'.\n"
++msgstr "%s: b³±d podczas odczytu ze standardowego wej¶cia!\n"
+ 
+ #: src/passwd.c:585
+ #, c-format
+@@ -2268,7 +2255,7 @@
  #: src/rpasswd-client.c:383
  #, c-format
  msgid "Enter number of choice [1-%d]: "
@@ -204,78 +301,130 @@
  
  #: src/rpasswd-client.c:453
  msgid "parsing config file"
-@@ -2614,7 +2613,7 @@
+@@ -2633,7 +2620,7 @@
  msgstr "  -s pow³oka     Nazwa pow³oki logowania u¿ytkownika\n"
  
- #: src/useradd.c:186
+ #: src/useradd.c:187
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Invalid numeric argument `%s' for group ID.\n"
  msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla identyfikatora grupy.\n"
  
-@@ -2639,9 +2638,9 @@
+@@ -2658,9 +2645,9 @@
  msgstr "%s: Nieprawid³owy katalog domowy `%s' w %s.\n"
  
- #: src/useradd.c:332
+ #: src/useradd.c:333
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Invalid numeric argument `%s' for `INACTIVE' in %s.\n"
 -msgstr "%s: Nieprawid³owy argument liczbowy `%s' w %s.\n"
 +msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla `INACTIVE' w %s.\n"
  
- #: src/useradd.c:354
+ #: src/useradd.c:355
  #, c-format
-@@ -2672,14 +2671,14 @@
+@@ -2679,19 +2666,19 @@
+ msgstr "%s: Katalog skel \"%s\" w %s nie istnieje.\n"
+ 
+ #: src/useradd.c:446
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Invalid value `%s' for option CREATE_MAIL_SPOOL in %s.\n"
+-msgstr "%s: Nieprawid³owy argument liczbowy `%s' w %s.\n"
++msgstr "%s: Nieprawid³owa warto¶æ `%s' dla opcji CREATE_MAIL_SPOOL w %s.\n"
+ 
+ #: src/useradd.c:527 src/useradd.c:1011 src/useradd.c:1082
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Cannot change mode for `%s': %s\n"
+-msgstr "Nie mo¿na zmieniæ w³a¶ciciela/grupy pliku `%s': %s\n"
++msgstr "%s: Nie mo¿na zmieniæ uprawnieñ pliku `%s': %s\n"
+ 
+ #: src/useradd.c:537 src/useradd.c:1001 src/useradd.c:1076
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Cannot change owner/group for `%s': %s\n"
+-msgstr "Nie mo¿na zmieniæ w³a¶ciciela/grupy pliku `%s': %s\n"
++msgstr "%s: Nie mo¿na zmieniæ w³a¶ciciela/grupy pliku `%s': %s\n"
+ 
+ #: src/useradd.c:878
+ #, c-format
+@@ -2701,20 +2688,21 @@
+ "- %u.\n"
+ 
+ #: src/useradd.c:952
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Can't stat %s: %m\n"
+-msgstr "Nie mo¿na wykonaæ stat na %s: %m\n"
++msgstr "%s: Nie mo¿na wykonaæ stat na %s: %m\n"
+ 
+ #: src/useradd.c:983
+ #, c-format
+ msgid ""
+ "%s: No group named \"mail\" exists, creating mail spool with mode 0600.\n"
+ msgstr ""
++"%s: Grupa o nazwie \"mail\" nie istnieje, tworzenie skrzynki pocztowej o uprawnieniach 0600.\n"
+ 
+ #: src/useradd.c:991
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: Can't create mail spool for user %s.\n"
+-msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
++msgstr "%s: Nie mo¿na utworzyæ skrzynki pocztowej dla u¿ytkownika %s.\n"
+ 
+ #: src/useradd.c:1060
+ #, c-format
+@@ -2722,14 +2710,14 @@
  msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
  
- #: src/useradd.c:935 src/usermod.c:533
+ #: src/useradd.c:1065 src/usermod.c:533
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Warning: chown on `%s' failed: %m\n"
 -msgstr "%s: uwaga: nie mo¿na usun±æ `%s': %s"
 +msgstr "%s: Uwaga: chown na `%s' nie powiod³o siê: %m\n"
  
- #: src/useradd.c:938 src/usermod.c:536
+ #: src/useradd.c:1068 src/usermod.c:536
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Warning: chmod on `%s' failed: %m\n"
 -msgstr "%s: uwaga: nie mo¿na usun±æ `%s': %s"
 +msgstr "%s: Uwaga: chmod na `%s' nie powiod³o siê: %m\n"
  
- #: src/useradd.c:962
+ #: src/useradd.c:1092
  #, c-format
-@@ -2707,9 +2706,9 @@
+@@ -2757,9 +2745,9 @@
  msgstr "%s: Data wa¿no¶ci `%s' nie jest dat± ani warto¶ci± ca³kowit± >= -1.\n"
  
- #: src/useradd.c:1104
+ #: src/useradd.c:1234
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Invalid numeric argument `%s' for `-f'.\n"
 -msgstr "%s: Nieprawid³owy argument liczbowy `%s'.\n"
 +msgstr "%s: Nieprawid³owy argument liczbowy `%s' dla `-f'.\n"
  
- #: src/useradd.c:1123
+ #: src/useradd.c:1253
  #, c-format
-@@ -2748,14 +2747,14 @@
+@@ -2798,14 +2786,14 @@
  msgstr "%s: Konto `%s' ju¿ istnieje.\n"
  
- #: src/useradd.c:1491
+ #: src/useradd.c:1621
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Error: Cannot clear old faillog entry: %s\n"
 -msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
 +msgstr "%s: B³±d: Nie mo¿na wyczy¶ciæ starego wpisu faillog: %s\n"
  
- #: src/useradd.c:1504
+ #: src/useradd.c:1634
 -#, fuzzy, c-format
 +#, c-format
  msgid "%s: Error: Cannot clear old lastlog entry: %s\n"
 -msgstr "%s: Nie mo¿na utworzyæ katalogu `%s'.\n"
 +msgstr "%s: B³±d: Nie mo¿na wyczy¶ciæ starego wpisu lastlog: %s\n"
  
- #: src/useradd.c:1518
+ #: src/useradd.c:1648
  #, c-format
-@@ -2993,12 +2992,12 @@
+@@ -3043,12 +3031,12 @@
  #: src/usermod.c:1703 src/usermod.c:1714 src/usermod.c:1740
  #, c-format
  msgid "%s: Error: Cannot copy faillog entry: %s\n"
@@ -291,7 +440,7 @@
  
  #: src/vipw.c:65
  #, c-format
-@@ -3047,33 +3046,6 @@
+@@ -3097,33 +3085,6 @@
  msgstr "%s: nie dokonano zmian\n"
  
  #: src/vipw.c:318
