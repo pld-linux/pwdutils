@@ -33,6 +33,7 @@ BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
+BuildRequires:	libtool
 %{?with_ldap:BuildRequires:	openldap-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	openslp-devel
@@ -201,7 +202,7 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/passwd
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/useradd
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/shadow
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/login.defs
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/login.defs
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/rpasswd.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
