@@ -7,12 +7,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	3.0
-Release:	2
+Version:	3.0.2
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	be954620dfb8f2b36b398d7d4742d205
+# Source0-md5:	f56fd7d1b6ae64ea7e70734bc20c2718
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -26,6 +26,7 @@ Patch0:		%{name}-f-option.patch
 Patch1:		%{name}-pl.po-update.patch
 Patch2:		%{name}-no_bash.patch
 Patch3:		%{name}-silent_crontab.patch
+Patch4:		%{name}-slp.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
@@ -115,6 +116,7 @@ funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 rm -f po/stamp-po
 
