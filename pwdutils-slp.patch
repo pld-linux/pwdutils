@@ -1,0 +1,14 @@
+--- pwdutils-3.0.2/src/pam_rpasswd.c.orig	2005-07-13 23:31:57.000000000 +0200
++++ pwdutils-3.0.2/src/pam_rpasswd.c	2005-07-18 19:29:30.733607496 +0200
+@@ -524,9 +524,9 @@
+ #ifdef USE_SLP
+   if (used_slp)
+     {
+-      char *descr;
++      char *hostp, *portp, *descr;
+ 
+-      query_slp (&hostp, &portp, &descr);
++      query_slp (pamh, &hostp, &portp, &descr);
+       if (options->port != NULL && strcmp (options->port, "rpasswd") != 0)
+ 	PRINTF (STD_HANDLE, _("SLP: Found Server on %s, port %s"),
+ 		options->host, options->port);
