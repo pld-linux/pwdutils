@@ -38,7 +38,7 @@ FAILLOG_ENAB		yes
 # logged here in a utmp format.
 # last, when invoked as lastb, will read /var/log/btmp, so...
 #
-#FTMP_FILE	/var/log/btmp
+FTMP_FILE	/var/log/btmpx
 
 #
 # If defined, file which inhibits all the usual chatter
