@@ -3,6 +3,7 @@
 # Conditional build:
 %bcond_without	ldap		# build without LDAP support
 %bcond_without	selinux		# build without SELinux support
+%bcond_with	openssl		# use OpenSSL instead of GnuTLS
 #
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
@@ -32,11 +33,12 @@ BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
+%{!?with_openssl:BuildRequires:	gnutls-devel >= 1.0.0}
 BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
 BuildRequires:	libtool
 %{?with_ldap:BuildRequires:	openldap-devel}
-BuildRequires:	openssl-devel >= 0.9.7d
+%{?with_openssl:BuildRequires:	openssl-devel >= 0.9.7d}
 BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
 BuildRequires:	sed >= 4.0
@@ -129,10 +131,10 @@ sed -i -e 's/-Werror //' configure.in
 %{__autoheader}
 %{__automake}
 %configure \
+	%{?with_openssl:--disable-gnutls} \
 	--enable-pam_rpasswd \
 	--%{?with_selinux:en}%{!?with_selinux:dis}able-selinux \
 	--enable-slp \
-	--enable-ssl \
 	--%{?with_ldap:en}%{!?with_ldap:dis}able-ldap \
 	--enable-nls \
 	--disable-rpath
