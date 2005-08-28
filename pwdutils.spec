@@ -1,6 +1,7 @@
 # TODO: review default login.defs
 #
 # Conditional build:
+%bcond_without	audit		# don't build audit log plugin
 %bcond_without	ldap		# build without LDAP support
 %bcond_without	selinux		# build without SELinux support
 %bcond_with	openssl		# use OpenSSL instead of GnuTLS
@@ -8,12 +9,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	3.0.2
+Version:	3.0.4
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	f56fd7d1b6ae64ea7e70734bc20c2718
+# Source0-md5:	10603d67f4959772544a76691310dfc8
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -24,11 +25,10 @@ Source7:	passwd.pamd
 Source8:	useradd.pamd
 Source9:	userdb.pamd
 Patch0:		%{name}-f-option.patch
-Patch1:		%{name}-pl.po-update.patch
-Patch2:		%{name}-no_bash.patch
-Patch3:		%{name}-silent_crontab.patch
-Patch4:		%{name}-slp.patch
+Patch1:		%{name}-no_bash.patch
+Patch2:		%{name}-silent_crontab.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
+%{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	gcc >= 5:3.2
@@ -72,6 +72,18 @@ uwierzytelniania u¿ytkowników i zmiany hase³. Zestaw zawiera passwd,
 chage, chfn, chsh oraz demona do zmiany has³a na zdalnej maszynie po
 bezpiecznym po³±czeniu SSL. Demon tak¿e u¿ywa PAM, wiêc mo¿na zmieniaæ
 has³a niezale¿nie od tego, gdzie s± przechowywane.
+
+%package log-audit
+Summary:	audit log plugin for pwdutils
+Summary(pl):	Wtyczka loguj±ca audit dla pwdutils
+Group:		Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description log-audit
+audit log plugin for pwdutils.
+
+%description log-audit -l pl
+Wtyczka loguj±ca audit dla pwdutils.
 
 %package -n rpasswdd
 Summary:	Remote password update daemon
@@ -117,10 +129,6 @@ funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
-
-rm -f po/stamp-po
 
 sed -i -e 's/-Werror //' configure.in
 
@@ -131,12 +139,13 @@ sed -i -e 's/-Werror //' configure.in
 %{__autoheader}
 %{__automake}
 %configure \
+	%{?with_audit:--enable-audit-plugin} \
 	%{?with_openssl:--disable-gnutls} \
+	--%{?with_ldap:en}%{!?with_ldap:dis}able-ldap \
+	--enable-nls \
 	--enable-pam_rpasswd \
 	--%{?with_selinux:en}%{!?with_selinux:dis}able-selinux \
 	--enable-slp \
-	--%{?with_ldap:en}%{!?with_ldap:dis}able-ldap \
-	--enable-nls \
 	--disable-rpath
 %{__make}
 
@@ -241,6 +250,12 @@ fi
 %{_mandir}/man?/*
 %exclude %{_mandir}/man8/rpasswdd.8*
 %exclude %{_mandir}/man8/pam_rpasswd.8*
+
+%if %{with audit}
+%files log-audit
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/pwdutils/liblog_audit.so*
+%endif
 
 %files -n rpasswdd
 %defattr(644,root,root,755)
