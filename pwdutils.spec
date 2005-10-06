@@ -1,4 +1,5 @@
-# TODO: review default login.defs
+# TODO:
+# - review default login.defs
 #
 # Conditional build:
 %bcond_without	audit		# don't build audit log plugin
@@ -9,12 +10,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	3.0.4
+Version:	3.0.5
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	10603d67f4959772544a76691310dfc8
+# Source0-md5:	54618945498c104408ddabee01416a9f
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -97,7 +98,7 @@ rpasswdd is a daemon that lets users change their passwords in the
 presence of a directory service like NIS, NIS+ or LDAP over a secure
 SSL connection. rpasswdd behaves like the normal passwd(1) program and
 uses PAM for authentication and changing the password, so it can be
-configured very flexibel for the local requirements.
+configured very flexible for the local requirements.
 
 %description -n rpasswdd -l pl
 rpasswdd to demon pozwalaj±cy u¿ytkownikom zmieniaæ has³a w obecno¶ci
@@ -169,6 +170,7 @@ install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
+rm -f $RPM_BUILD_ROOT/etc/init.d/rpasswdd
 
 :> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
 :> $RPM_BUILD_ROOT/etc/security/chfn.allow
