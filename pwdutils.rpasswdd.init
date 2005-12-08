@@ -25,7 +25,7 @@ if is_yes "${NETWORKING}"; then
 else
 	exit 0
 fi
-			
+
 RETVAL=0
 # See how we were called.
 case "$1" in
@@ -33,9 +33,9 @@ case "$1" in
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/rpasswdd ]; then
 		msg_starting rpasswdd
-		daemon /usr/sbin/rpasswdd 
+		daemon /usr/sbin/rpasswdd
 		RETVAL=$?
-		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/rpasswdd		
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/rpasswdd
 	else
 		msg_already_running rpasswdd
 	fi
@@ -47,7 +47,7 @@ case "$1" in
 		rm -f /var/run/rpasswdd.pid /var/lock/subsys/rpasswdd >/dev/null 2>&1
 	else
 		msg_not_running rpasswdd
-	fi	
+	fi
 	;;
   restart)
 	$0 stop
