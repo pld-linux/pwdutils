@@ -11,7 +11,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.0.7
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -87,11 +87,31 @@ audit log plugin for pwdutils.
 %description log-audit -l pl
 Wtyczka loguj±ca audit dla pwdutils.
 
+%package -n rpasswd
+Summary:	Remote password update client
+Summary(pl):	Klient do zdalnego uaktualniania hase³
+Group:		Applications/System
+
+%description -n rpasswd
+rpasswd changes passwords for user accounts on a remote server over a
+secure SSL connection. A normal user may only change the password for
+their own account, if the user knows the password of the administrator
+account (in the moment this is the root password on the server), he may
+change the password for any account if he calls rpasswd with the -a
+option.
+
+%description -n rpasswd -l pl
+rpasswd pozwala zmieniaæ has³a u¿ytkowników na zdlanym serwerze przy
+u¿yciu bezpiecznego po³±czenia SSL. Zwyk³y u¿ytkowni mo¿e zmieniæ
+jedynie  swoje has³o, a je¶li zna has³o administratora (obecnie jest to
+has³o root-a na serwerze), mo¿e zmieniæ has³o dla dowolnego konta
+wywo³uj±c rpasswd z opcj± -a.
+
 %package -n rpasswdd
 Summary:	Remote password update daemon
 Summary(pl):	Demon do zdalnego uaktualniania hase³
 Group:		Applications/System
-PreReq:		rc-scripts
+Requires:	rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 
 %description -n rpasswdd
@@ -112,8 +132,8 @@ byæ bardzo elastycznie konfigurowany dla lokalnych wymagañ.
 Summary:	pam_rpasswd - PAM module to change remote password
 Summary(pl):	pam_rpasswd - modu³ PAM do zdalnej zmiany has³a
 Group:		Base
-# rpasswd.conf is in base
-Requires:	%{name} = %{version}-%{release}
+# rpasswd.conf is in rpasswd
+Requires:	rpasswd = %{version}-%{release}
 
 %description -n pam-pam_rpasswd
 The pam_rpasswd PAM module is for changing the password of user
@@ -220,7 +240,6 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/useradd
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/shadow
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/login.defs
-%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/rpasswd.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
@@ -231,7 +250,6 @@ fi
 %attr(4755,root,root) %{_bindir}/gpasswd
 %attr(755,root,root) %{_bindir}/newgrp
 %attr(4755,root,root) %{_bindir}/passwd
-%attr(755,root,root) %{_bindir}/rpasswd
 %attr(755,root,root) %{_bindir}/sg
 %attr(755,root,root) %{_sbindir}/chpasswd
 %attr(755,root,root) %{_sbindir}/groupadd
@@ -243,7 +261,6 @@ fi
 %attr(755,root,root) %{_sbindir}/pwconv
 %attr(755,root,root) %{_sbindir}/pwck
 %attr(755,root,root) %{_sbindir}/pwunconv
-%attr(755,root,root) %{_sbindir}/rpasswdd
 %attr(755,root,root) %{_sbindir}/useradd
 %attr(755,root,root) %{_sbindir}/userdel
 %attr(755,root,root) %{_sbindir}/usermod
@@ -252,6 +269,8 @@ fi
 %dir %{_libdir}/pwdutils
 %attr(755,root,root) %{_libdir}/pwdutils/liblog_syslog.so*
 %{_mandir}/man?/*
+%exclude %{_mandir}/man1/rpasswd.1*
+%exclude %{_mandir}/man5/rpasswd.conf.5*
 %exclude %{_mandir}/man8/rpasswdd.8*
 %exclude %{_mandir}/man8/pam_rpasswd.8*
 
@@ -260,6 +279,13 @@ fi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/pwdutils/liblog_audit.so*
 %endif
+
+%files -n rpasswd
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/rpasswd
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/rpasswd.conf
+%{_mandir}/man1/rpasswd.1*
+%{_mandir}/man5/rpasswd.conf.5*
 
 %files -n rpasswdd
 %defattr(644,root,root,755)
