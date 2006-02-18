@@ -101,10 +101,10 @@ change the password for any account if he calls rpasswd with the -a
 option.
 
 %description -n rpasswd -l pl
-rpasswd pozwala zmieniaæ has³a u¿ytkowników na zdlanym serwerze przy
-u¿yciu bezpiecznego po³±czenia SSL. Zwyk³y u¿ytkowni mo¿e zmieniæ
-jedynie  swoje has³o, a je¶li zna has³o administratora (obecnie jest to
-has³o root-a na serwerze), mo¿e zmieniæ has³o dla dowolnego konta
+rpasswd pozwala zmieniaæ has³a u¿ytkowników na zdalnym serwerze przy
+u¿yciu bezpiecznego po³±czenia SSL. Zwyk³y u¿ytkownik mo¿e zmieniæ
+jedynie swoje has³o, a je¶li zna has³o administratora (obecnie jest to
+has³o roota na serwerze), mo¿e zmieniæ has³o dla dowolnego konta
 wywo³uj±c rpasswd z opcj± -a.
 
 %package -n rpasswdd
