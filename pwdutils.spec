@@ -40,9 +40,10 @@ BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
 BuildRequires:	libtool
 %{?with_ldap:BuildRequires:	openldap-devel >= 2.3.0}
-%{!?with_gnutls:BuildRequires:	openssl-devel >= 0.9.7d}
 BuildRequires:	openslp-devel
+%{!?with_gnutls:BuildRequires:	openssl-devel >= 0.9.7d}
 BuildRequires:	pam-devel
+BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
 Provides:	shadow = 2:%{version}-%{release}
 Provides:	shadow-extras = 2:%{version}-%{release}
@@ -111,8 +112,8 @@ wywo³uj±c rpasswd z opcj± -a.
 Summary:	Remote password update daemon
 Summary(pl):	Demon do zdalnego uaktualniania hase³
 Group:		Applications/System
-Requires:	rc-scripts
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 
 %description -n rpasswdd
 rpasswdd is a daemon that lets users change their passwords in the
@@ -210,17 +211,11 @@ fi
 
 %post -n rpasswdd
 /sbin/chkconfig --add rpasswdd
-if [ -f /var/lock/subsys/rpasswdd ]; then
-	/etc/rc.d/init.d/rpasswdd restart 1>&2
-else
-	echo "Run \"/etc/rc.d/init.d/rpasswdd start\" to start rpasswdd daemon."
-fi
+%service rpasswdd restart "rpasswdd daemon"
 
 %preun -n rpasswdd
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/rpasswdd ]; then
-		/etc/rc.d/init.d/rpasswdd stop 1>&2
-	fi
+	%service rpasswdd stop
 	/sbin/chkconfig --del rpasswdd
 fi
 
