@@ -1,0 +1,4 @@
+- release 2
+- fixed %files
+- added rpasswd package so pam_rpasswd does not depend on pwdutils
+  (because passwd from pwdutils sucks contrary to passwd from shadow)
