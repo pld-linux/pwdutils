@@ -11,7 +11,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.0.7
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -175,7 +175,7 @@ sed -i -e 's/-Werror //' configure.in
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/tmp}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -238,6 +238,7 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
+%dir /etc/skel/tmp
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
 %attr(4755,root,root) %{_bindir}/chsh
