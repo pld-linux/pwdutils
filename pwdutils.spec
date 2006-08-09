@@ -1,18 +1,18 @@
 # TODO:
 # - review default login.defs
-# - BioAPI support
 #
 # Conditional build:
 %bcond_without	audit		# don't build audit log plugin
 %bcond_without	ldap		# build without LDAP support
 %bcond_without	selinux		# build without SELinux support
+%bcond_with	bioapi		# with BioAPI support in passwd
 %bcond_with	gnutls		# use GnuTLS instead of OpenSSL
 #
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.0
-Release:	0.2
+Release:	0.3
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -34,6 +34,7 @@ URL:		http://www.thkukuk.de/pam/pwdutils/
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
+%{?with_bioapi:BuildRequires:	bioapi-devel}
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.0.0}
@@ -166,6 +167,8 @@ rm -f po/stamp-po
 %{__autoheader}
 %{__automake}
 %configure \
+	%{?with_bioapi:CPPFLAGS="-I/usr/include/bioapi"} \
+	%{!?with_bioapi:ac_cv_header_bioapi_h=no ac_cv_lib_bioapi100_BioAPI_Init=no} \
 	%{?with_audit:--enable-audit-plugin} \
 	%{!?with_gnutls:--disable-gnutls} \
 	--%{?with_ldap:en}%{!?with_ldap:dis}able-ldap \
