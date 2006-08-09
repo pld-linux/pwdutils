@@ -1,6 +1,5 @@
-diff -ur pwdutils-3.1.0/po/pl.po pwdutils-3.1.0.new/po/pl.po
---- pwdutils-3.1.0/po/pl.po	2006-07-25 12:24:59.000000000 +0000
-+++ pwdutils-3.1.0.new/po/pl.po	2006-08-01 17:26:11.767113250 +0000
+--- pwdutils-3.1.0/po/pl.po.orig	2006-07-25 14:24:59.000000000 +0200
++++ pwdutils-3.1.0/po/pl.po	2006-08-09 19:53:26.911360000 +0200
 @@ -1,14 +1,14 @@
  # Polish translation for pwdutils.
 -# Copyright (C) 2004, 2005 Free Software Foundation, Inc.
@@ -16,11 +15,79 @@ diff -ur pwdutils-3.1.0/po/pl.po pwdutils-3.1.0.new/po/pl.po
  "Report-Msgid-Bugs-To: kukuk@thkukuk.de\n"
  "POT-Creation-Date: 2006-07-25 14:24+0200\n"
 -"PO-Revision-Date: 2005-07-18 18:01+0200\n"
-+"PO-Revision-Date: 2006-08-01 19:23+0100\n"
++"PO-Revision-Date: 2006-08-09 19:45+0200\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
-@@ -1754,9 +1754,9 @@
+@@ -310,7 +310,7 @@
+ msgstr "Niepowodzenie deszyfrowania DES!\n"
+ 
+ #: lib/passwd_nisplus.c:516
+-#, fuzzy, c-format
++#, c-format
+ msgid "ERROR: Unknown error, don't know what happened\n"
+ msgstr "B£¡D: Nieznany b³±d, nie wiadomo co siê sta³o\n"
+ 
+@@ -956,7 +956,7 @@
+ msgstr "%s: linia %ld: nie mo¿na uaktualniæ wpisu o ha¶le\n"
+ 
+ #: src/chpasswd.c:395
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: errors occurred, %ld passwords not updated\n"
+ msgstr "%s: wyst±pi³y b³êdy, %ld hase³ nie zosta³o zmienionych\n"
+ 
+@@ -1140,9 +1140,9 @@
+ msgstr "Has³o wyga¶nie w ci±gu 24 godzin.\n"
+ 
+ #: src/gpasswd.c:60
+-#, fuzzy, c-format
++#, c-format
+ msgid "Usage: %s [-r|-l|-u] group\n"
+-msgstr "Sk³adnia: %s [-r] grupa\n"
++msgstr "Sk³adnia: %s [-r|-l|-u] grupa\n"
+ 
+ #: src/gpasswd.c:67
+ #, c-format
+@@ -1158,14 +1158,12 @@
+ msgstr "  -r             Usuniêcie has³a dla tej grupy\n"
+ 
+ #: src/gpasswd.c:69
+-#, fuzzy
+ msgid "  -l             Locks the password entry for \"group\"\n"
+-msgstr "  -l             Zablokowanie wpisu o ha¶le dla konta\n"
++msgstr "  -l             Zablokowanie wpisu o ha¶le dla grupy\n"
+ 
+ #: src/gpasswd.c:71
+-#, fuzzy
+ msgid "  -u             Try to unlock the password entry for \"group\"\n"
+-msgstr "  -u             Próba odblokowania wpisu o ha¶le dla konta\n"
++msgstr "  -u             Próba odblokowania wpisu o ha¶le dla grupy\n"
+ 
+ #: src/gpasswd.c:76
+ msgid "  -P path        Search group file in \"path\"\n"
+@@ -1670,7 +1668,7 @@
+ #: src/newgrp.c:241
+ #, c-format
+ msgid "%s: failure to get group entry for %d.\n"
+-msgstr ""
++msgstr "%s: nie uda³o siê pobraæ wpisu o grupie dla %d.\n"
+ 
+ #: src/newgrp.c:253
+ msgid "Password: "
+@@ -1707,9 +1705,9 @@
+ msgstr "%s: wywo³anie initgroups nie powiod³o siê: %s\n"
+ 
+ #: src/newgrp.c:361
+-#, fuzzy, c-format
++#, c-format
+ msgid "%s: calling setuid failed: %s\n"
+-msgstr "%s: wywo³anie setgid nie powiod³o siê: %s\n"
++msgstr "%s: wywo³anie setuid nie powiod³o siê: %s\n"
+ 
+ #: src/newgrp.c:373
+ #, c-format
+@@ -1754,39 +1752,39 @@
  msgstr "otrzymano b³êdne dane"
  
  #: src/pam_rpasswd.c:520
@@ -31,27 +98,142 @@ diff -ur pwdutils-3.1.0/po/pl.po pwdutils-3.1.0.new/po/pl.po
 +msgstr "SLP: Znaleziono serwer na %s, porcie %s (%s)\n"
  
  #: src/pam_rpasswd.c:523
- #, fuzzy, c-format
-@@ -1764,14 +1764,14 @@
- msgstr "SLP: Znaleziono serwer na %s, porcie %s"
+-#, fuzzy, c-format
++#, c-format
+ msgid "SLP: Found Server on %s, port %s\n"
+-msgstr "SLP: Znaleziono serwer na %s, porcie %s"
++msgstr "SLP: Znaleziono serwer na %s, porcie %s\n"
  
  #: src/pam_rpasswd.c:529
 -#, fuzzy, c-format
 +#, c-format
  msgid "SLP: Found Server on %s (%s)\n"
 -msgstr "SLP: Znaleziono serwer na %s"
-+msgstr "SLP: Znaleziono serwer na %s, porcie %s\n"
++msgstr "SLP: Znaleziono serwer na %s (%s)\n"
  
  #: src/pam_rpasswd.c:532
 -#, fuzzy, c-format
 +#, c-format
  msgid "SLP: Found Server on %s\n"
 -msgstr "SLP: Znaleziono serwer na %s"
-+msgstr "SLP: Znaleziono serwer na %s (%s)\n"
++msgstr "SLP: Znaleziono serwer na %s\n"
  
  #: src/passwd.c:212
  #, c-format
-@@ -2711,7 +2711,7 @@
+ msgid "Unable to initilize BioAPI framework, BioAPI error #:%x.\n"
+-msgstr ""
++msgstr "Nie mo¿na zainicjowaæ szkieletu BioAPI, b³±d BioAPI #:%x.\n"
+ 
+ #: src/passwd.c:222
+ #, c-format
+ msgid "Unable to parse UUID (BioAPI error #:%x) : %s\n"
+-msgstr ""
++msgstr "Nie mo¿na przeanalizowaæ UUID-a (b³±d BioAPI #:%x): %s\n"
+ 
+ #: src/passwd.c:243
+ #, c-format
+ msgid "Unable to load BioAPI BSP with UUID of %s, BioAPI error #%x.\n"
+-msgstr ""
++msgstr "Nie mo¿na wczytaæ BSP BioAPI z UUID-em %s, b³±d BioAPI #%x.\n"
+ 
+ #: src/passwd.c:254
+ #, c-format
+@@ -1794,11 +1792,12 @@
+ "Unable to attach default device to BioAPI BSP with UUID of %s, BioAPI error #"
+ "%x.\n"
+ msgstr ""
++"Nie mo¿na do³±czyæ domy¶lnego urz±dzenia do BSP BioAPI z UUID-em %s, b³±d BioAPI #%x.\n"
+ 
+ #: src/passwd.c:280
+ #, c-format
+ msgid "Unable to create BIR database directory, \"%s\"\n"
+-msgstr ""
++msgstr "Nie mo¿na utworzyæ katalogu bazy danych BIR, \"%s\"\n"
+ 
+ #: src/passwd.c:293
+ #, c-format
+@@ -1806,22 +1805,24 @@
+ "Unable to create BSP-specific subdirectory in BIR database directory, \"%s"
+ "\"\n"
+ msgstr ""
++"Nie mo¿na utworzyæ podkatalogu dla BSP w katalogu bazy danych BIR, \"%s\"\n"
+ 
+ #: src/passwd.c:308
+ #, c-format
+ msgid ""
+ "Unable to write biometric identification record, \"%s\": BioAPI error #%x\n"
+ msgstr ""
++"Nie mo¿na zapisaæ rekordu identyfikacji biometrycznej, \"%s\": b³±d BioAPI #%x\n"
+ 
+ #: src/passwd.c:320
+-#, fuzzy, c-format
++#, c-format
+ msgid "Unable to open BIR for writing, \"%s\"\n"
+-msgstr "Nie mo¿na otworzyæ %s do odczytu: %s\n"
++msgstr "Nie mo¿na otworzyæ BIR do zapisu, \"%s\"\n"
+ 
+ #: src/passwd.c:351
+ #, c-format
+ msgid "Unable to enroll user %s using BSP with UUID of %s, BioAPI error #%x.\n"
+-msgstr ""
++msgstr "Nie mo¿na zarejestrowaæ u¿ytkownika %s przy u¿yciu BSP z UUID-em %s, b³±d BioAPI #%x.\n"
+ 
+ #: src/passwd.c:369
+ #, c-format
+@@ -1835,19 +1836,19 @@
+ "       %s [-D binddn] [-n min] [-x maks] [-w ostrze¿] [-i nieakt] konto\n"
+ 
+ #: src/passwd.c:371
+-#, fuzzy, c-format
++#, c-format
+ msgid "       %s {-l|-u|-d|-S[-a]|-e} account\n"
+-msgstr "       %s {-l|-u|-d|-S[-a]|-e|-h} konto\n"
++msgstr "       %s {-l|-u|-d|-S[-a]|-e} konto\n"
+ 
+ #: src/passwd.c:373
+-#, fuzzy, c-format
++#, c-format
+ msgid "       %s --bioapi [account]\n"
+-msgstr "       %s --stdin konto\n"
++msgstr "       %s --bioapi [konto]\n"
+ 
+ #: src/passwd.c:375
+-#, fuzzy, c-format
++#, c-format
+ msgid "       %s --stdin [account]\n"
+-msgstr "       %s --stdin konto\n"
++msgstr "       %s --stdin [konto]\n"
+ 
+ #: src/passwd.c:382 src/rpasswd.c:99 src/rpasswdd.c:116
+ #, c-format
+@@ -1919,7 +1920,7 @@
+ 
+ #: src/passwd.c:400
+ msgid "  --bioapi       Authentication token is handled via BioAPI\n"
+-msgstr ""
++msgstr "  --bioapi       Token uwierzytelniaj±cy jest obs³ugiwany przez BioAPI\n"
+ 
+ #: src/passwd.c:407
+ msgid "  --stdin        Read new password from stdin (root only)\n"
+@@ -1983,7 +1984,7 @@
+ msgstr "Informacje o wygasaniu has³a zmienione.\n"
+ 
+ #: src/passwd.c:978
+-#, fuzzy, c-format
++#, c-format
+ msgid "Password deleted.\n"
+ msgstr "Has³o usuniête.\n"
+ 
+@@ -2041,7 +2042,7 @@
+ msgstr "U¿ytkownik `%s': katalog `%s' nie istnieje.\n"
+ 
+ #: src/pwck.c:450
+-#, fuzzy, c-format
++#, c-format
+ msgid "User `%s': shell `%s' is not executable.\n"
+ msgstr "U¿ytkownik `%s': pow³oka `%s' nie jest wykonywalna.\n"
+ 
+@@ -2711,7 +2712,7 @@
  #: src/useradd.c:1097
  #, c-format
  msgid "%s: Warning: home directory already exists, not modifying it.\n"
@@ -60,3 +242,21 @@ diff -ur pwdutils-3.1.0/po/pl.po pwdutils-3.1.0.new/po/pl.po
  
  #: src/useradd.c:1155
  #, c-format
+@@ -2840,7 +2841,6 @@
+ msgstr "  -r             Usuniêcie katalogu domowego i skrzynki pocztowej\n"
+ 
+ #: src/userdel.c:66
+-#, fuzzy
+ msgid "  -f             Force removal of files, even if not owned by user\n"
+ msgstr ""
+ "  -f             Wymuszenie usuniêcia plików nawet nie bêd±cych w³asno¶ci±\n"
+@@ -3057,9 +3057,3 @@
+ #, c-format
+ msgid "Warning: cannot create backup file: %m\n"
+ msgstr "Uwaga: nie mo¿na utworzyæ pliku kopii zapasowej: %m\n"
+-
+-#~ msgid "  -h             Change the home directory\n"
+-#~ msgstr "  -h             Zmiana katalogu domowego\n"
+-
+-#~ msgid "%s: ERROR: cannot find group `%s' anymore!.\n"
+-#~ msgstr "%s: B£¡D: nie mo¿na ju¿ znale¼æ grupy `%s'!\n"
