@@ -1,5 +1,6 @@
 # TODO:
 # - review default login.defs
+# - BioAPI support
 #
 # Conditional build:
 %bcond_without	audit		# don't build audit log plugin
@@ -11,7 +12,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.0
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -155,6 +156,8 @@ funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
 %patch3 -p1
 
 sed -i -e 's/-Werror //' configure.in
+
+rm -f po/stamp-po
 
 %build
 %{__gettextize}
