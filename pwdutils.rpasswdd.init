@@ -64,7 +64,7 @@ case "$1" in
 		killproc rpasswdd -HUP
 		RETVAL=$?
 	else
-		msg_not_running rpasswdd >&2
+		msg_not_running rpasswdd
 		exit 7
 	fi
 	;;
