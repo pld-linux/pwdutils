@@ -1,11 +1,11 @@
---- pwdutils-2.6.98/etc/userdel-pre.local~	2005-05-26 22:31:19.000000000 +0200
-+++ pwdutils-2.6.98/etc/userdel-pre.local	2005-05-26 22:31:19.000000000 +0200
+--- pwdutils-3.1.2/etc/userdel-pre.local.orig	2006-10-27 23:36:17.880332500 +0200
++++ pwdutils-3.1.2/etc/userdel-pre.local	2006-10-27 23:36:58.246855250 +0200
 @@ -14,7 +14,7 @@
  fi
  
  # Remove cron jobs
--crontab -r -u $1
-+[ -f /usr/bin/crontab ] && /usr/bin/crontab -r -u $1 >/dev/null 2>&1
+-test -x /usr/bin/crontab && /usr/bin/crontab -r -u $1
++test -x /usr/bin/crontab && /usr/bin/crontab -r -u $1 >/dev/null 2>&1
  
  # All done.
  exit 0
