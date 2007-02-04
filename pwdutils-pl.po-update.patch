@@ -1,22 +1,21 @@
---- pwdutils-3.1.0/po/pl.po.orig	2006-07-25 14:24:59.000000000 +0200
-+++ pwdutils-3.1.0/po/pl.po	2006-08-09 19:53:26.911360000 +0200
+--- pwdutils-3.1.3/po/pl.po.orig	2006-11-30 14:19:27.000000000 +0100
++++ pwdutils-3.1.3/po/pl.po	2007-02-05 00:29:20.378018888 +0100
 @@ -1,14 +1,14 @@
  # Polish translation for pwdutils.
 -# Copyright (C) 2004, 2005 Free Software Foundation, Inc.
 +# Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
  # This file is distributed under the same license as the pwdutils package.
 -# Jakub Bogusz <qboosh@pld-linux.org>, 2004-2005.
-+# Jakub Bogusz <qboosh@pld-linux.org>, 2004-2006.
++# Jakub Bogusz <qboosh@pld-linux.org>, 2004-2007.
  #
  msgid ""
  msgstr ""
 -"Project-Id-Version: pwdutils 3.0.2\n"
-+"Project-Id-Version: pwdutils 3.1.0\n"
++"Project-Id-Version: pwdutils 3.1.3\n"
  "Report-Msgid-Bugs-To: kukuk@thkukuk.de\n"
--"POT-Creation-Date: 2006-11-30 14:19+0100\n"
+ "POT-Creation-Date: 2006-11-30 14:19+0100\n"
 -"PO-Revision-Date: 2005-07-18 18:01+0200\n"
-+"POT-Creation-Date: 2007-02-04 23:31+0100\n"
-+"PO-Revision-Date: 2006-08-09 19:45+0200\n"
++"PO-Revision-Date: 2007-02-05 00:24+0100\n"
  "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
  "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
@@ -67,28 +66,20 @@
  
  #: src/gpasswd.c:96
  msgid "  -P path        Search group file in \"path\"\n"
-@@ -1377,17 +1375,17 @@
- msgid "%s: Group `%s' already exists.\n"
- msgstr "%s: Grupa `%s' ju¿ istnieje.\n"
+@@ -1189,11 +1187,8 @@
+ msgstr "  --version      Wypisanie wersji programu\n"
  
--#: src/groupadd.c:527
-+#: src/groupadd.c:530
- #, c-format
- msgid "%s: Cannot add group to LDAP database without DN.\n"
- msgstr "%s: Nie mo¿na dodaæ grupy do bazy danych LDAP bez DN.\n"
+ #: src/gpasswd.c:101
+-#, fuzzy
+ msgid "  --stdin        Receive input from stdin instead of /dev/tty\n"
+-msgstr ""
+-"  --stdin        Odczytanie nowego has³a ze standardowego wej¶cia (tylko "
+-"root)\n"
++msgstr "  --stdin        Odbiór wej¶cia z stdin zamiast /dev/tty\n"
  
--#: src/groupadd.c:544
-+#: src/groupadd.c:547
- #, c-format
- msgid "%s: Group not added to LDAP database.\n"
- msgstr "%s: Grupa nie dodana do bazy danych LDAP.\n"
- 
--#: src/groupadd.c:576
-+#: src/groupadd.c:579
- #, c-format
- msgid "%s: GROUPADD_CMD fails with exit code %d.\n"
- msgstr "%s: GROUPADD_CMD nie powiod³o siê zwracaj±c kod wyj¶cia %d.\n"
-@@ -1682,7 +1680,7 @@
+ #: src/gpasswd.c:102
+ msgid "Valid services for -r are: files, nis, nisplus, ldap\n"
+@@ -1682,7 +1677,7 @@
  #: src/newgrp.c:240
  #, c-format
  msgid "%s: failure to get group entry for %d.\n"
@@ -97,7 +88,7 @@
  
  #: src/newgrp.c:250
  msgid "Password: "
-@@ -1719,9 +1717,9 @@
+@@ -1719,9 +1714,9 @@
  msgstr "%s: wywo³anie initgroups nie powiod³o siê: %s\n"
  
  #: src/newgrp.c:358
@@ -109,7 +100,7 @@
  
  #: src/newgrp.c:370
  #, c-format
-@@ -1766,39 +1764,39 @@
+@@ -1766,39 +1761,39 @@
  msgstr "otrzymano b³êdne dane"
  
  #: src/pam_rpasswd.c:518
@@ -160,7 +151,7 @@
  
  #: src/passwd.c:252
  #, c-format
-@@ -1806,11 +1804,13 @@
+@@ -1806,11 +1801,13 @@
  "Unable to attach default device to BioAPI BSP with UUID of %s, BioAPI error #"
  "%x.\n"
  msgstr ""
@@ -175,7 +166,7 @@
  
  #: src/passwd.c:291
  #, c-format
-@@ -1818,22 +1818,27 @@
+@@ -1818,22 +1815,27 @@
  "Unable to create BSP-specific subdirectory in BIR database directory, \"%s"
  "\"\n"
  msgstr ""
@@ -205,7 +196,7 @@
  
  #: src/passwd.c:367
  #, c-format
-@@ -1847,19 +1852,19 @@
+@@ -1847,19 +1849,19 @@
  "       %s [-D binddn] [-n min] [-x maks] [-w ostrze¿] [-i nieakt] konto\n"
  
  #: src/passwd.c:369
@@ -231,7 +222,7 @@
  
  #: src/passwd.c:380 src/rpasswd.c:93 src/rpasswdd.c:114
  #, c-format
-@@ -1932,6 +1937,7 @@
+@@ -1932,6 +1934,7 @@
  #: src/passwd.c:398
  msgid "  --bioapi       Authentication token is handled via BioAPI\n"
  msgstr ""
@@ -239,7 +230,7 @@
  
  #: src/passwd.c:405
  msgid "  --stdin        Read new password from stdin (root only)\n"
-@@ -1990,7 +1996,7 @@
+@@ -1990,7 +1993,7 @@
  msgstr "Informacje o wygasaniu has³a zmienione.\n"
  
  #: src/passwd.c:976
@@ -248,7 +239,7 @@
  msgid "Password deleted.\n"
  msgstr "Has³o usuniête.\n"
  
-@@ -2048,7 +2054,7 @@
+@@ -2048,7 +2051,7 @@
  msgstr "U¿ytkownik `%s': katalog `%s' nie istnieje.\n"
  
  #: src/pwck.c:448
@@ -257,7 +248,7 @@
  msgid "User `%s': shell `%s' is not executable.\n"
  msgstr "U¿ytkownik `%s': pow³oka `%s' nie jest wykonywalna.\n"
  
-@@ -2718,7 +2724,7 @@
+@@ -2718,7 +2721,7 @@
  #: src/useradd.c:1095
  #, c-format
  msgid "%s: Warning: home directory already exists, not modifying it.\n"
@@ -266,7 +257,7 @@
  
  #: src/useradd.c:1155
  #, c-format
-@@ -2847,7 +2853,6 @@
+@@ -2847,7 +2850,6 @@
  msgstr "  -r             Usuniêcie katalogu domowego i skrzynki pocztowej\n"
  
  #: src/userdel.c:64
@@ -274,7 +265,7 @@
  msgid "  -f             Force removal of files, even if not owned by user\n"
  msgstr ""
  "  -f             Wymuszenie usuniêcia plików nawet nie bêd±cych w³asno¶ci±\n"
-@@ -3064,9 +3069,3 @@
+@@ -3064,9 +3066,3 @@
  #, c-format
  msgid "Warning: cannot create backup file: %m\n"
  msgstr "Uwaga: nie mo¿na utworzyæ pliku kopii zapasowej: %m\n"
