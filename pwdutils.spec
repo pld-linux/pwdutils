@@ -12,7 +12,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -47,6 +47,7 @@ BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
+Requires:	pam >= 0.99.7.1
 Provides:	shadow = 2:%{version}-%{release}
 Provides:	shadow-extras = 2:%{version}-%{release}
 Obsoletes:	shadow
