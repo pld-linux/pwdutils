@@ -9,7 +9,7 @@
 %bcond_with	gnutls		# use GnuTLS instead of OpenSSL
 #
 Summary:	Utilities to manage the passwd and shadow user information
-Summary(pl):	Narzêdzia do zarz±dzania informacjami o u¿ytkownikach z passwd i shadow
+Summary(pl.UTF-8):   NarzÄ™dzia do zarzÄ…dzania informacjami o uÅ¼ytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.3
 Release:	2
@@ -69,31 +69,31 @@ password on a remote machine over a secure SSL connection. The daemon
 also uses PAM so that it can change passwords independent of where
 they are stored.
 
-%description -l pl
-pwdutils to zestaw narzêdzi do zarz±dzania informacjami o
-u¿ytkownikach z passwd i shadow. Ró¿nica w stosunku do pakietu shadow
-polega na tym, ¿e te narzêdzia mog± tak¿e modyfikowaæ informacje
-zapisane w bazie NIS, NIS+ lub LDAP. PAM jest u¿ywany do
-uwierzytelniania u¿ytkowników i zmiany hase³. Zestaw zawiera passwd,
-chage, chfn, chsh oraz demona do zmiany has³a na zdalnej maszynie po
-bezpiecznym po³±czeniu SSL. Demon tak¿e u¿ywa PAM, wiêc mo¿na zmieniaæ
-has³a niezale¿nie od tego, gdzie s± przechowywane.
+%description -l pl.UTF-8
+pwdutils to zestaw narzÄ™dzi do zarzÄ…dzania informacjami o
+uÅ¼ytkownikach z passwd i shadow. RÃ³Å¼nica w stosunku do pakietu shadow
+polega na tym, Å¼e te narzÄ™dzia mogÄ… takÅ¼e modyfikowaÄ‡ informacje
+zapisane w bazie NIS, NIS+ lub LDAP. PAM jest uÅ¼ywany do
+uwierzytelniania uÅ¼ytkownikÃ³w i zmiany haseÅ‚. Zestaw zawiera passwd,
+chage, chfn, chsh oraz demona do zmiany hasÅ‚a na zdalnej maszynie po
+bezpiecznym poÅ‚Ä…czeniu SSL. Demon takÅ¼e uÅ¼ywa PAM, wiÄ™c moÅ¼na zmieniaÄ‡
+hasÅ‚a niezaleÅ¼nie od tego, gdzie sÄ… przechowywane.
 
 %package log-audit
 Summary:	audit log plugin for pwdutils
-Summary(pl):	Wtyczka loguj±ca audit dla pwdutils
+Summary(pl.UTF-8):   Wtyczka logujÄ…ca audit dla pwdutils
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description log-audit
 audit log plugin for pwdutils.
 
-%description log-audit -l pl
-Wtyczka loguj±ca audit dla pwdutils.
+%description log-audit -l pl.UTF-8
+Wtyczka logujÄ…ca audit dla pwdutils.
 
 %package -n rpasswd
 Summary:	Remote password update client
-Summary(pl):	Klient do zdalnego uaktualniania hase³
+Summary(pl.UTF-8):   Klient do zdalnego uaktualniania haseÅ‚
 Group:		Applications/System
 
 %description -n rpasswd
@@ -104,16 +104,16 @@ account (in the moment this is the root password on the server), he may
 change the password for any account if he calls rpasswd with the -a
 option.
 
-%description -n rpasswd -l pl
-rpasswd pozwala zmieniaæ has³a u¿ytkowników na zdalnym serwerze przy
-u¿yciu bezpiecznego po³±czenia SSL. Zwyk³y u¿ytkownik mo¿e zmieniæ
-jedynie swoje has³o, a je¶li zna has³o administratora (obecnie jest to
-has³o roota na serwerze), mo¿e zmieniæ has³o dla dowolnego konta
-wywo³uj±c rpasswd z opcj± -a.
+%description -n rpasswd -l pl.UTF-8
+rpasswd pozwala zmieniaÄ‡ hasÅ‚a uÅ¼ytkownikÃ³w na zdalnym serwerze przy
+uÅ¼yciu bezpiecznego poÅ‚Ä…czenia SSL. ZwykÅ‚y uÅ¼ytkownik moÅ¼e zmieniÄ‡
+jedynie swoje hasÅ‚o, a jeÅ›li zna hasÅ‚o administratora (obecnie jest to
+hasÅ‚o roota na serwerze), moÅ¼e zmieniÄ‡ hasÅ‚o dla dowolnego konta
+wywoÅ‚ujÄ…c rpasswd z opcjÄ… -a.
 
 %package -n rpasswdd
 Summary:	Remote password update daemon
-Summary(pl):	Demon do zdalnego uaktualniania hase³
+Summary(pl.UTF-8):   Demon do zdalnego uaktualniania haseÅ‚
 Group:		Applications/System
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
@@ -125,16 +125,16 @@ SSL connection. rpasswdd behaves like the normal passwd(1) program and
 uses PAM for authentication and changing the password, so it can be
 configured very flexible for the local requirements.
 
-%description -n rpasswdd -l pl
-rpasswdd to demon pozwalaj±cy u¿ytkownikom zmieniaæ has³a w obecno¶ci
-us³ug katalogowych takich jak NIS, NIS+ czy LDAP po bezpiecznym
-po³±czeniu SSL. rpasswdd zachowuje siê tak, jak normalny program
-passwd(1) i u¿ywam PAM do uwierzytelniania i zmiany hase³, wiêc mo¿e
-byæ bardzo elastycznie konfigurowany dla lokalnych wymagañ.
+%description -n rpasswdd -l pl.UTF-8
+rpasswdd to demon pozwalajÄ…cy uÅ¼ytkownikom zmieniaÄ‡ hasÅ‚a w obecnoÅ›ci
+usÅ‚ug katalogowych takich jak NIS, NIS+ czy LDAP po bezpiecznym
+poÅ‚Ä…czeniu SSL. rpasswdd zachowuje siÄ™ tak, jak normalny program
+passwd(1) i uÅ¼ywam PAM do uwierzytelniania i zmiany haseÅ‚, wiÄ™c moÅ¼e
+byÄ‡ bardzo elastycznie konfigurowany dla lokalnych wymagaÅ„.
 
 %package -n pam-pam_rpasswd
 Summary:	pam_rpasswd - PAM module to change remote password
-Summary(pl):	pam_rpasswd - modu³ PAM do zdalnej zmiany has³a
+Summary(pl.UTF-8):   pam_rpasswd - moduÅ‚ PAM do zdalnej zmiany hasÅ‚a
 Group:		Base
 # rpasswd.conf is in rpasswd
 Requires:	rpasswd = %{version}-%{release}
@@ -145,10 +145,10 @@ accounts on a remote server over a secure SSL connection. It only
 provides functionality for one PAM management group: password
 changing.
 
-%description -n pam-pam_rpasswd -l pl
-Modu³ PAM pam_rpasswd s³u¿y do zmiany hase³ dla kont u¿ytkowników na
-zdalnym serwerze po bezpiecznym po³±czeniu SSL. Udostêpnia
-funkcjonalno¶æ tylko dla jednej grupy zarz±dzania PAM: zmiany hase³.
+%description -n pam-pam_rpasswd -l pl.UTF-8
+ModuÅ‚ PAM pam_rpasswd sÅ‚uÅ¼y do zmiany haseÅ‚ dla kont uÅ¼ytkownikÃ³w na
+zdalnym serwerze po bezpiecznym poÅ‚Ä…czeniu SSL. UdostÄ™pnia
+funkcjonalnoÅ›Ä‡ tylko dla jednej grupy zarzÄ…dzania PAM: zmiany haseÅ‚.
 
 %prep
 %setup -q
