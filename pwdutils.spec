@@ -9,7 +9,7 @@
 %bcond_with	gnutls		# use GnuTLS instead of OpenSSL
 #
 Summary:	Utilities to manage the passwd and shadow user information
-Summary(pl.UTF-8):   Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
+Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.3
 Release:	2
@@ -81,7 +81,7 @@ hasła niezależnie od tego, gdzie są przechowywane.
 
 %package log-audit
 Summary:	audit log plugin for pwdutils
-Summary(pl.UTF-8):   Wtyczka logująca audit dla pwdutils
+Summary(pl.UTF-8):	Wtyczka logująca audit dla pwdutils
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -93,7 +93,7 @@ Wtyczka logująca audit dla pwdutils.
 
 %package -n rpasswd
 Summary:	Remote password update client
-Summary(pl.UTF-8):   Klient do zdalnego uaktualniania haseł
+Summary(pl.UTF-8):	Klient do zdalnego uaktualniania haseł
 Group:		Applications/System
 
 %description -n rpasswd
@@ -113,7 +113,7 @@ wywołując rpasswd z opcją -a.
 
 %package -n rpasswdd
 Summary:	Remote password update daemon
-Summary(pl.UTF-8):   Demon do zdalnego uaktualniania haseł
+Summary(pl.UTF-8):	Demon do zdalnego uaktualniania haseł
 Group:		Applications/System
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
@@ -134,7 +134,7 @@ być bardzo elastycznie konfigurowany dla lokalnych wymagań.
 
 %package -n pam-pam_rpasswd
 Summary:	pam_rpasswd - PAM module to change remote password
-Summary(pl.UTF-8):   pam_rpasswd - moduł PAM do zdalnej zmiany hasła
+Summary(pl.UTF-8):	pam_rpasswd - moduł PAM do zdalnej zmiany hasła
 Group:		Base
 # rpasswd.conf is in rpasswd
 Requires:	rpasswd = %{version}-%{release}
