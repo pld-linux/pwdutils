@@ -26,6 +26,7 @@ Source6:	chsh.pamd
 Source7:	passwd.pamd
 Source8:	useradd.pamd
 Source9:	userdb.pamd
+Source10:	rpasswd.pamd
 Patch0:		%{name}-f-option.patch
 Patch1:		%{name}-no_bash.patch
 Patch2:		%{name}-silent_crontab.patch
@@ -198,6 +199,7 @@ install %{SOURCE6} $RPM_BUILD_ROOT/etc/pam.d/chsh
 install %{SOURCE7} $RPM_BUILD_ROOT/etc/pam.d/passwd
 install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
+install %{SOURCE10} $RPM_BUILD_ROOT/etc/pam.d/rpasswd
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
 rm -f $RPM_BUILD_ROOT/etc/init.d/rpasswdd
