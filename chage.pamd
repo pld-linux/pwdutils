@@ -1,5 +1,6 @@
 #%PAM-1.0
 auth		sufficient	pam_rootok.so
-auth		required	pam_unix.so
+auth		required	pam_deny.so
 account		required	pam_permit.so
 password	required	pam_exec.so failok seteuid /usr/bin/make -C /var/db
+# password	required	pam_exec.so failok seteuid /usr/bin/make -C /var/yp
