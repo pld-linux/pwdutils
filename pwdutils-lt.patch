@@ -1,0 +1,48 @@
+--- pwdutils-3.1.3/src/Makefile.am.orig	2006-07-25 12:58:50.000000000 +0200
++++ pwdutils-3.1.3/src/Makefile.am	2008-09-08 20:36:36.592983118 +0200
+@@ -29,9 +29,9 @@
+ 		pwconv pwunconv rpasswdd useradd userdel usermod vipw \
+ 		pwck grpck
+ 
+-pam_PROGRAMS = @EXTRA_PAM_MODULES@
++pam_LTLIBRARIES = @EXTRA_PAM_MODULES@
+ 
+-EXTRA_PROGRAMS = pam_rpasswd.so
++EXTRA_LTLIBRARIES = pam_rpasswd.la
+ EXTRA_MANS = pam_rpasswd.8
+ 
+ TESTS = tst-useradd tst-chage tst-passwd tst-groupadd tst-long-group-entry \
+@@ -48,10 +48,10 @@
+ 
+ noinst_HEADERS = rpasswd-client.h
+ 
+-pam_rpasswd_so_LDFLAGS = -shared -Wl,-soname,pam_rpasswd.so
+-pam_rpasswd_so_SOURCES = pam_rpasswd.c
+-pam_rpasswd_so_CFLAGS = @EXTRA_CFLAGS@ -fPIC
+-pam_rpasswd_so_LDADD = @PAM_LIBS@ @TLS_LIBS@ @SLP_LIBS@
++pam_rpasswd_la_LDFLAGS = -shared -module -avoid-version -rpath $(pamdir)
++pam_rpasswd_la_SOURCES = pam_rpasswd.c
++pam_rpasswd_la_CFLAGS = @EXTRA_CFLAGS@
++pam_rpasswd_la_LIBADD = @PAM_LIBS@ @TLS_LIBS@ @SLP_LIBS@
+ 
+ chage_SOURCES = chage.c
+ chage_CFLAGS = @PIE_CFLAGS@
+--- pwdutils-3.1.3/configure.in.orig	2008-09-08 20:28:05.504984794 +0200
++++ pwdutils-3.1.3/configure.in	2008-09-08 20:34:48.952983956 +0200
+@@ -33,6 +33,7 @@
+ 
+ dnl Checks for programs.
+ AC_PROG_CC
++AM_PROG_CC_C_O
+ AC_GNU_SOURCE
+ AC_ISC_POSIX
+ AC_PROG_INSTALL
+@@ -83,7 +84,7 @@
+ 
+ if test "$enable_pam_rpasswd" = "yes"
+ then
+-  EXTRA_PAM_MODULES="pam_rpasswd.so"
++  EXTRA_PAM_MODULES="pam_rpasswd.la"
+   EXTRA_PAM_MODULES_MAN="pam_rpasswd.8"
+ fi
+ AC_SUBST(EXTRA_PAM_MODULES)
