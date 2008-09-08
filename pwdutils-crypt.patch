@@ -1,0 +1,310 @@
+--- pwdutils-3.1.3/lib/Makefile.am.orig	2005-08-17 16:43:31.000000000 +0200
++++ pwdutils-3.1.3/lib/Makefile.am	2008-09-08 20:15:07.320983956 +0200
+@@ -13,7 +13,7 @@
+ noinst_HEADERS = error_codes.h libldap.h logindefs.h nispasswd.h nsw.h \
+ 		public.h read-files.h yppasswd.h group.h use_slp.h \
+ 		dbg_log.h yesno.h parse_crypt_arg.h utf8conv.h logging.h \
+-		msg_table.h i18n.h
++		msg_table.h i18n.h crypt-gensalt.h
+ 
+ libpwdutils_a_SOURCES = authentication.c get_value.c libldap.c logindefs.c \
+ 			nsw.c passwd_nisplus.c read-files.c user.c \
+@@ -25,7 +25,7 @@ libpwdutils_a_SOURCES = authentication.c
+ 			chown_dir_rec.c check_home.c use_slp.c dbg_log.c \
+ 			parse_pwent.c yesno.c parse_grent.c strtoid.c \
+ 			parse_crypt_arg.c utf8conv.c get_ldap_password.c \
+-			get_caller_dn.c logging.c remove_gr_mem.c
++			get_caller_dn.c logging.c remove_gr_mem.c crypt-gensalt.c
+ 
+ localedir = $(datadir)/locale
+ plugindir = $(libdir)/pwdutils
+--- pwdutils-3.1.3/lib/parse_crypt_arg.c.orig	2005-08-16 13:53:34.000000000 +0200
++++ pwdutils-3.1.3/lib/parse_crypt_arg.c	2008-09-08 20:20:57.168985632 +0200
+@@ -33,6 +33,7 @@
+ 
+ #include "i18n.h"
+ #include "parse_crypt_arg.h"
++#include "crypt-gensalt.h"
+ 
+ #ifndef RANDOM_DEVICE
+ #define RANDOM_DEVICE "/dev/urandom"
+--- pwdutils-3.1.3/configure.in.orig	2008-09-08 20:01:26.988991499 +0200
++++ pwdutils-3.1.3/configure.in	2008-09-08 20:17:27.936994851 +0200
+@@ -185,7 +185,8 @@
+ BACKUP_LIBS=$LIBS
+ LIBS="$LIBS $CRYPT_LIB"
+ dnl Function check for blowfish crypt
+-AC_CHECK_FUNCS(crypt crypt_r crypt_rn crypt_gensalt_rn)
++AC_CHECK_FUNCS(crypt crypt_r)
++AC_DEFINE([HAVE_CRYPT_GENSALT_RN], [1], [We have crypt_gensalt_rn function])
+ dnl restore old LIBS variable
+ LIBS=$BACKUP_LIBS
+ 
+--- pwdutils-3.1.3/lib/crypt-gensalt.h.orig	1970-01-01 01:00:00.000000000 +0100
++++ pwdutils-3.1.3/lib/crypt-gensalt.h	2008-09-08 20:06:36.872989823 +0200
+@@ -0,0 +1,23 @@
++/*
++ * Written by Solar Designer and placed in the public domain.
++ * Ripped from crypt-blowfish.
++ */
++
++#ifndef _CRYPT_GENSALT_H
++#define _CRYPT_GENSALT_H
++
++#undef __CONST
++#ifdef __GNUC__
++#define __CONST __const
++#else
++#define __CONST
++#endif
++
++extern char *crypt_gensalt(__CONST char *prefix, unsigned long count,
++	__CONST char *input, int size);
++extern char *crypt_gensalt_rn(__CONST char *prefix, unsigned long count,
++	__CONST char *input, int size, char *output, int output_size);
++extern char *crypt_gensalt_ra(__CONST char *prefix, unsigned long count,
++	__CONST char *input, int size);
++
++#endif
+--- pwdutils-3.1.3/lib/crypt-gensalt.c.orig	1970-01-01 01:00:00.000000000 +0100
++++ pwdutils-3.1.3/lib/crypt-gensalt.c	2008-09-08 20:14:03.952983956 +0200
+@@ -0,0 +1,239 @@
++/*
++ * Written by Solar Designer and placed in the public domain.
++ * Ripped from crypt-blowfish.
++ */
++
++#include <string.h>
++
++#include <errno.h>
++#ifndef __set_errno
++#define __set_errno(val) errno = (val)
++#endif
++
++#include "crypt-gensalt.h"
++
++#define CRYPT_OUTPUT_SIZE		(7 + 22 + 31 + 1)
++#define CRYPT_GENSALT_OUTPUT_SIZE	(7 + 22 + 1)
++
++#undef __CONST
++#ifdef __GNUC__
++#define __CONST __const
++#else
++#define __CONST
++#endif
++
++static unsigned char _crypt_itoa64[64 + 1] =
++	"./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
++
++static char *_crypt_gensalt_traditional_rn(unsigned long count,
++	__CONST char *input, int size, char *output, int output_size)
++{
++	if (size < 2 || output_size < 2 + 1 || (count && count != 25)) {
++		if (output_size > 0) output[0] = '\0';
++		__set_errno((output_size < 2 + 1) ? ERANGE : EINVAL);
++		return NULL;
++	}
++
++	output[0] = _crypt_itoa64[(unsigned int)input[0] & 0x3f];
++	output[1] = _crypt_itoa64[(unsigned int)input[1] & 0x3f];
++	output[2] = '\0';
++
++	return output;
++}
++
++static char *_crypt_gensalt_extended_rn(unsigned long count,
++	__CONST char *input, int size, char *output, int output_size)
++{
++	unsigned long value;
++
++/* Even iteration counts make it easier to detect weak DES keys from a look
++ * at the hash, so they should be avoided */
++	if (size < 3 || output_size < 1 + 4 + 4 + 1 ||
++	    (count && (count > 0xffffff || !(count & 1)))) {
++		if (output_size > 0) output[0] = '\0';
++		__set_errno((output_size < 1 + 4 + 4 + 1) ? ERANGE : EINVAL);
++		return NULL;
++	}
++
++	if (!count) count = 725;
++
++	output[0] = '_';
++	output[1] = _crypt_itoa64[count & 0x3f];
++	output[2] = _crypt_itoa64[(count >> 6) & 0x3f];
++	output[3] = _crypt_itoa64[(count >> 12) & 0x3f];
++	output[4] = _crypt_itoa64[(count >> 18) & 0x3f];
++	value = (unsigned long)(unsigned char)input[0] |
++		((unsigned long)(unsigned char)input[1] << 8) |
++		((unsigned long)(unsigned char)input[2] << 16);
++	output[5] = _crypt_itoa64[value & 0x3f];
++	output[6] = _crypt_itoa64[(value >> 6) & 0x3f];
++	output[7] = _crypt_itoa64[(value >> 12) & 0x3f];
++	output[8] = _crypt_itoa64[(value >> 18) & 0x3f];
++	output[9] = '\0';
++
++	return output;
++}
++
++static char *_crypt_gensalt_md5_rn(unsigned long count,
++	__CONST char *input, int size, char *output, int output_size)
++{
++	unsigned long value;
++
++	if (size < 3 || output_size < 3 + 4 + 1 || (count && count != 1000)) {
++		if (output_size > 0) output[0] = '\0';
++		__set_errno((output_size < 3 + 4 + 1) ? ERANGE : EINVAL);
++		return NULL;
++	}
++
++	output[0] = '$';
++	output[1] = '1';
++	output[2] = '$';
++	value = (unsigned long)(unsigned char)input[0] |
++		((unsigned long)(unsigned char)input[1] << 8) |
++		((unsigned long)(unsigned char)input[2] << 16);
++	output[3] = _crypt_itoa64[value & 0x3f];
++	output[4] = _crypt_itoa64[(value >> 6) & 0x3f];
++	output[5] = _crypt_itoa64[(value >> 12) & 0x3f];
++	output[6] = _crypt_itoa64[(value >> 18) & 0x3f];
++	output[7] = '\0';
++
++	if (size >= 6 && output_size >= 3 + 4 + 4 + 1) {
++		value = (unsigned long)(unsigned char)input[3] |
++			((unsigned long)(unsigned char)input[4] << 8) |
++			((unsigned long)(unsigned char)input[5] << 16);
++		output[7] = _crypt_itoa64[value & 0x3f];
++		output[8] = _crypt_itoa64[(value >> 6) & 0x3f];
++		output[9] = _crypt_itoa64[(value >> 12) & 0x3f];
++		output[10] = _crypt_itoa64[(value >> 18) & 0x3f];
++		output[11] = '\0';
++	}
++
++	return output;
++}
++
++typedef unsigned int BF_word;
++
++static unsigned char BF_itoa64[64 + 1] =
++	"./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
++
++static void BF_encode(char *dst, __CONST BF_word *src, int size)
++{
++	unsigned char *sptr = (unsigned char *)src;
++	unsigned char *end = sptr + size;
++	unsigned char *dptr = (unsigned char *)dst;
++	unsigned int c1, c2;
++
++	do {
++		c1 = *sptr++;
++		*dptr++ = BF_itoa64[c1 >> 2];
++		c1 = (c1 & 0x03) << 4;
++		if (sptr >= end) {
++			*dptr++ = BF_itoa64[c1];
++			break;
++		}
++
++		c2 = *sptr++;
++		c1 |= c2 >> 4;
++		*dptr++ = BF_itoa64[c1];
++		c1 = (c2 & 0x0f) << 2;
++		if (sptr >= end) {
++			*dptr++ = BF_itoa64[c1];
++			break;
++		}
++
++		c2 = *sptr++;
++		c1 |= c2 >> 6;
++		*dptr++ = BF_itoa64[c1];
++		*dptr++ = BF_itoa64[c2 & 0x3f];
++	} while (sptr < end);
++}
++
++static char *_crypt_gensalt_blowfish_rn(unsigned long count,
++	__CONST char *input, int size, char *output, int output_size)
++{
++	if (size < 16 || output_size < 7 + 22 + 1 ||
++	    (count && (count < 4 || count > 31))) {
++		if (output_size > 0) output[0] = '\0';
++		__set_errno((output_size < 7 + 22 + 1) ? ERANGE : EINVAL);
++		return NULL;
++	}
++
++	if (!count) count = 5;
++
++	output[0] = '$';
++	output[1] = '2';
++	output[2] = 'a';
++	output[3] = '$';
++	output[4] = '0' + count / 10;
++	output[5] = '0' + count % 10;
++	output[6] = '$';
++
++	BF_encode(&output[7], (BF_word *)input, 16);
++	output[7 + 22] = '\0';
++
++	return output;
++}
++
++char *crypt_gensalt_rn(__CONST char *prefix, unsigned long count,
++	__CONST char *input, int size, char *output, int output_size)
++{
++	char *(*use)(unsigned long count,
++		__CONST char *input, int size, char *output, int output_size);
++
++	/* This may be supported on some platforms in the future */
++	if (!input) {
++		__set_errno(EINVAL);
++		return NULL;
++	}
++
++	if (!strncmp(prefix, "$2a$", 4))
++		use = _crypt_gensalt_blowfish_rn;
++	else
++	if (!strncmp(prefix, "$1$", 3))
++		use = _crypt_gensalt_md5_rn;
++	else
++	if (prefix[0] == '_')
++		use = _crypt_gensalt_extended_rn;
++	else
++	if (!prefix[0] ||
++	    (prefix[0] && prefix[1] &&
++	    memchr(_crypt_itoa64, prefix[0], 64) &&
++	    memchr(_crypt_itoa64, prefix[1], 64)))
++		use = _crypt_gensalt_traditional_rn;
++	else {
++		__set_errno(EINVAL);
++		return NULL;
++	}
++
++	return use(count, input, size, output, output_size);
++}
++
++char *crypt_gensalt_ra(__CONST char *prefix, unsigned long count,
++	__CONST char *input, int size)
++{
++	char output[CRYPT_GENSALT_OUTPUT_SIZE];
++	char *retval;
++
++	retval = crypt_gensalt_rn(prefix, count,
++		input, size, output, sizeof(output));
++
++	if (retval) {
++		retval = strdup(retval);
++#ifndef __GLIBC__
++		/* strdup(3) on glibc sets errno, so we don't need to bother */
++		if (!retval)
++			__set_errno(ENOMEM);
++#endif
++	}
++
++	return retval;
++}
++
++char *crypt_gensalt(__CONST char *prefix, unsigned long count,
++	__CONST char *input, int size)
++{
++	static char output[CRYPT_GENSALT_OUTPUT_SIZE];
++
++	return crypt_gensalt_rn(prefix, count,
++		input, size, output, sizeof(output));
++}
