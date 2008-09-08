@@ -1,5 +1,3 @@
-# TODO:
-# - review default login.defs
 #
 # Conditional build:
 %bcond_without	audit		# don't build audit log plugin
@@ -12,7 +10,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.3
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -31,10 +29,12 @@ Patch0:		%{name}-f-option.patch
 Patch1:		%{name}-no_bash.patch
 Patch2:		%{name}-silent_crontab.patch
 Patch3:		%{name}-pl.po-update.patch
+Patch4:		%{name}-crypt.patch
+Patch5:		%{name}-lt.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
-BuildRequires:	automake >= 1:1.7
+BuildRequires:	automake >= 1:1.8
 %{?with_bioapi:BuildRequires:	bioapi-devel}
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
@@ -157,6 +157,8 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 sed -i -e 's/-Werror //' configure.in
 
@@ -164,6 +166,7 @@ rm -f po/stamp-po
 
 %build
 %{__gettextize}
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -202,6 +205,7 @@ install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 install %{SOURCE10} $RPM_BUILD_ROOT/etc/pam.d/rpasswd
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
+rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_*.la
 rm -f $RPM_BUILD_ROOT/etc/init.d/rpasswdd
 
 :> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
@@ -272,11 +276,30 @@ fi
 %attr(755,root,root) %{_sbindir}/vipw
 %dir %{_libdir}/pwdutils
 %attr(755,root,root) %{_libdir}/pwdutils/liblog_syslog.so*
-%{_mandir}/man?/*
-%exclude %{_mandir}/man1/rpasswd.1*
-%exclude %{_mandir}/man5/rpasswd.conf.5*
-%exclude %{_mandir}/man8/rpasswdd.8*
-%exclude %{_mandir}/man8/pam_rpasswd.8*
+%{_mandir}/man1/chage.1*
+%{_mandir}/man1/chfn.1*
+%{_mandir}/man1/chsh.1*
+%{_mandir}/man1/expiry.1*
+%{_mandir}/man1/gpasswd.1*
+%{_mandir}/man1/newgrp.1*
+%{_mandir}/man1/passwd.1*
+%{_mandir}/man1/sg.1*
+%{_mandir}/man5/login.defs.5*
+%{_mandir}/man8/chpasswd.8*
+%{_mandir}/man8/groupadd.8*
+%{_mandir}/man8/groupdel.8*
+%{_mandir}/man8/groupmod.8*
+%{_mandir}/man8/grpck.8*
+%{_mandir}/man8/grpconv.8*
+%{_mandir}/man8/grpunconv.8*
+%{_mandir}/man8/pwck.8*
+%{_mandir}/man8/pwconv.8*
+%{_mandir}/man8/pwunconv.8*
+%{_mandir}/man8/useradd.8*
+%{_mandir}/man8/userdel.8*
+%{_mandir}/man8/usermod.8*
+%{_mandir}/man8/vigr.8*
+%{_mandir}/man8/vipw.8*
 
 %if %{with audit}
 %files log-audit
