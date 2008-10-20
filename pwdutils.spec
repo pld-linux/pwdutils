@@ -186,7 +186,7 @@ rm -f po/stamp-po
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/tmp}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/{etc,tmp}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -250,6 +250,7 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
+%dir /etc/skel/etc
 %dir /etc/skel/tmp
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
