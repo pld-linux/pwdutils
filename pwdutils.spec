@@ -9,12 +9,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	3.1.3
-Release:	5
+Version:	3.2.2
+Release:	0.1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	b18c601e282d8695cbb5ddd87eaa473c
+# Source0-md5:	8782ecbd592babe32186d4fa966f7f23
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -29,8 +29,6 @@ Patch0:		%{name}-f-option.patch
 Patch1:		%{name}-no_bash.patch
 Patch2:		%{name}-silent_crontab.patch
 Patch3:		%{name}-pl.po-update.patch
-Patch4:		%{name}-crypt.patch
-Patch5:		%{name}-lt.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
@@ -45,6 +43,7 @@ BuildRequires:	libtool
 %{?with_ldap:BuildRequires:	openldap-devel >= 2.4.6}
 BuildRequires:	openslp-devel
 %{!?with_gnutls:BuildRequires:	openssl-devel >= 0.9.7d}
+BuildRequires:	libxcrypt-devel
 BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
@@ -157,8 +156,6 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
 
 sed -i -e 's/-Werror //' configure.in
 
@@ -167,7 +164,7 @@ rm -f po/stamp-po
 %build
 %{__gettextize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
