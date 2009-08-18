@@ -9,12 +9,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	3.2.2
-Release:	0.1
+Version:	3.2.5
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	8782ecbd592babe32186d4fa966f7f23
+# Source0-md5:	1d583e2d1ce1ab6add51b59b64d81f7e
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -155,7 +155,7 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
+#%patch3 -p1
 
 sed -i -e 's/-Werror //' configure.in
 
