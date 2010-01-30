@@ -10,7 +10,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.2.5
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -247,8 +247,8 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
-%dir /etc/skel/etc
-%dir /etc/skel/tmp
+%dir %attr(750,root,root) /etc/skel/etc
+%dir %attr(700,root,root) /etc/skel/tmp
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
 %attr(4755,root,root) %{_bindir}/chsh
