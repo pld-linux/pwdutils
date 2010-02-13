@@ -10,7 +10,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.2
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -45,6 +45,7 @@ BuildRequires:	openslp-devel
 BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
+Requires:	filesystem >= 3.0-19
 Provides:	shadow = 2:%{version}-%{release}
 Provides:	shadow-extras = 2:%{version}-%{release}
 Obsoletes:	shadow
@@ -97,9 +98,9 @@ Group:		Applications/System
 rpasswd changes passwords for user accounts on a remote server over a
 secure SSL connection. A normal user may only change the password for
 their own account, if the user knows the password of the administrator
-account (in the moment this is the root password on the server), he may
-change the password for any account if he calls rpasswd with the -a
-option.
+account (in the moment this is the root password on the server), he
+may change the password for any account if he calls rpasswd with the
+-a option.
 
 %description -n rpasswd -l pl.UTF-8
 rpasswd pozwala zmieniać hasła użytkowników na zdalnym serwerze przy
