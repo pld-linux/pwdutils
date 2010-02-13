@@ -1,5 +1,3 @@
-# TODO:
-# - review default login.defs
 #
 # Conditional build:
 %bcond_without	audit		# don't build audit log plugin
@@ -12,7 +10,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.1.2
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -181,7 +179,7 @@ rm -f po/stamp-po
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/tmp}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/{etc,tmp}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -199,6 +197,7 @@ install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
+rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_*.la
 rm -f $RPM_BUILD_ROOT/etc/init.d/rpasswdd
 
 :> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
@@ -229,7 +228,6 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS TODO
 %attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) %ghost %{_sysconfdir}/shadow
-%attr(750,root,root) %dir %{_sysconfdir}/default
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/default/*
 %attr(750,root,root) %dir %{_sysconfdir}/%{name}
 %attr(750,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/*.local
@@ -244,7 +242,8 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
-%dir /etc/skel/tmp
+%dir %attr(750,root,root) /etc/skel/etc
+%dir %attr(700,root,root) /etc/skel/tmp
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
 %attr(4755,root,root) %{_bindir}/chsh
@@ -270,11 +269,30 @@ fi
 %attr(755,root,root) %{_sbindir}/vipw
 %dir %{_libdir}/pwdutils
 %attr(755,root,root) %{_libdir}/pwdutils/liblog_syslog.so*
-%{_mandir}/man?/*
-%exclude %{_mandir}/man1/rpasswd.1*
-%exclude %{_mandir}/man5/rpasswd.conf.5*
-%exclude %{_mandir}/man8/rpasswdd.8*
-%exclude %{_mandir}/man8/pam_rpasswd.8*
+%{_mandir}/man1/chage.1*
+%{_mandir}/man1/chfn.1*
+%{_mandir}/man1/chsh.1*
+%{_mandir}/man1/expiry.1*
+%{_mandir}/man1/gpasswd.1*
+%{_mandir}/man1/newgrp.1*
+%{_mandir}/man1/passwd.1*
+%{_mandir}/man1/sg.1*
+%{_mandir}/man5/login.defs.5*
+%{_mandir}/man8/chpasswd.8*
+%{_mandir}/man8/groupadd.8*
+%{_mandir}/man8/groupdel.8*
+%{_mandir}/man8/groupmod.8*
+%{_mandir}/man8/grpck.8*
+%{_mandir}/man8/grpconv.8*
+%{_mandir}/man8/grpunconv.8*
+%{_mandir}/man8/pwck.8*
+%{_mandir}/man8/pwconv.8*
+%{_mandir}/man8/pwunconv.8*
+%{_mandir}/man8/useradd.8*
+%{_mandir}/man8/userdel.8*
+%{_mandir}/man8/usermod.8*
+%{_mandir}/man8/vigr.8*
+%{_mandir}/man8/vipw.8*
 
 %if %{with audit}
 %files log-audit
