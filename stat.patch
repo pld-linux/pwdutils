@@ -1,0 +1,32 @@
+--- pwdutils-3.2.8/src/userdel.c.wiget	2010-06-06 12:42:48.181634579 +0200
++++ pwdutils-3.2.8/src/userdel.c	2010-06-06 12:43:00.651630466 +0200
+@@ -31,6 +31,7 @@
+ #include <signal.h>
+ #include <libgen.h>
+ #include <sys/resource.h>
++#include <sys/stat.h>
+ #ifdef HAVE_LIBNSCD_H
+ #include <libnscd.h>
+ #endif
+--- pwdutils-3.2.8/src/useradd.c.wiget	2010-06-06 12:40:56.891644923 +0200
++++ pwdutils-3.2.8/src/useradd.c	2010-06-06 12:41:16.104141412 +0200
+@@ -31,6 +31,7 @@
+ #include <signal.h>
+ #include <libgen.h>
+ #include <sys/resource.h>
++#include <sys/stat.h>
+ #ifdef HAVE_LIBNSCD_H
+ #include <libnscd.h>
+ #endif
+--- pwdutils-3.2.8/src/usermod.c.wiget	2010-06-06 12:36:27.661670996 +0200
++++ pwdutils-3.2.8/src/usermod.c	2010-06-06 12:37:37.751015346 +0200
+@@ -31,6 +31,9 @@
+ #include <signal.h>
+ #include <libgen.h>
+ #include <sys/resource.h>
++#include <sys/types.h>
++#include <sys/stat.h>
++#include <unistd.h>
+ #ifdef HAVE_LIBNSCD_H
+ #include <libnscd.h>
+ #endif
