@@ -10,7 +10,7 @@ Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.2.8
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -41,10 +41,10 @@ BuildRequires:	gettext-devel
 BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
 BuildRequires:	libtool
+BuildRequires:	libxcrypt-devel
 %{?with_ldap:BuildRequires:	openldap-devel >= 2.4.6}
 BuildRequires:	openslp-devel
 %{!?with_gnutls:BuildRequires:	openssl-devel >= 0.9.7d}
-BuildRequires:	libxcrypt-devel
 BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
@@ -101,9 +101,9 @@ Group:		Applications/System
 rpasswd changes passwords for user accounts on a remote server over a
 secure SSL connection. A normal user may only change the password for
 their own account, if the user knows the password of the administrator
-account (in the moment this is the root password on the server), he may
-change the password for any account if he calls rpasswd with the -a
-option.
+account (in the moment this is the root password on the server), he
+may change the password for any account if he calls rpasswd with the
+-a option.
 
 %description -n rpasswd -l pl.UTF-8
 rpasswd pozwala zmieniać hasła użytkowników na zdalnym serwerze przy
@@ -162,6 +162,14 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 sed -i -e 's/-Werror //' configure.in
 
 rm -f po/stamp-po
+
+# pl.po has been recoded incorrectly
+iconv -f UTF-8 -t ISO-8859-1 po/pl.po | iconv -f ISO-8859-2 -t UTF-8 > pl.tmp
+sed '/Content-Type/s/ISO-8859-2/UTF-8/' pl.tmp > po/pl.po
+rm pl.tmp
+
+# make sure it is correct now
+grep -q "Hasło" po/pl.po
 
 %build
 %{__gettextize}
