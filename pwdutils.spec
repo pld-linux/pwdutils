@@ -9,12 +9,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	3.2.8
-Release:	4
+Version:	3.2.10
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	e8b88e57838c4601275eaa1d67f92cf2
+# Source0-md5:	046909ba87955067c8742ccdf24e1ced
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -28,12 +28,10 @@ Source10:	rpasswd.pamd
 Patch0:		%{name}-f-option.patch
 Patch1:		%{name}-no_bash.patch
 Patch2:		%{name}-silent_crontab.patch
-Patch3:		%{name}-pl.po-update.patch
-Patch4:		stat.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
-BuildRequires:	automake >= 1:1.8
+BuildRequires:	automake >= 1:1.9
 %{?with_bioapi:BuildRequires:	bioapi-devel}
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	gettext-devel
@@ -156,20 +154,6 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#patch3 -p1
-%patch4 -p1
-
-sed -i -e 's/-Werror //' configure.in
-
-rm -f po/stamp-po
-
-# pl.po has been recoded incorrectly
-iconv -f UTF-8 -t ISO-8859-1 po/pl.po | iconv -f ISO-8859-2 -t UTF-8 > pl.tmp
-sed '/Content-Type/s/ISO-8859-2/UTF-8/' pl.tmp > po/pl.po
-rm pl.tmp
-
-# make sure it is correct now
-grep -q "Hasło" po/pl.po
 
 %build
 %{__gettextize}
