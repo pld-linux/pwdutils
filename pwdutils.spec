@@ -12,7 +12,7 @@ Name:		pwdutils
 Version:	3.2.11
 Release:	1
 License:	GPL v2
-Group:		Applications/System
+Group:		Base
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
 # Source0-md5:	bb39596ccd7f80e698ea690de142a4a1
 Source1:	%{name}.useradd
@@ -241,8 +241,8 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
-%dir %attr(750,root,root) /etc/skel/etc
-%dir %attr(700,root,root) /etc/skel/tmp
+%dir %config(missingok) %attr(750,root,root) /etc/skel/etc
+%dir %config(missingok) %attr(700,root,root) /etc/skel/tmp
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
 %attr(4755,root,root) %{_bindir}/chsh
