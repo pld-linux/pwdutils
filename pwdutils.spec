@@ -248,9 +248,9 @@ fi
 %attr(4755,root,root) %{_bindir}/chsh
 %attr(4755,root,root) %{_bindir}/expiry
 %attr(4755,root,root) %{_bindir}/gpasswd
-%attr(755,root,root) %{_bindir}/newgrp
+%attr(4755,root,root) %{_bindir}/newgrp
 %attr(4755,root,root) %{_bindir}/passwd
-%attr(755,root,root) %{_bindir}/sg
+%attr(4755,root,root) %{_bindir}/sg
 %attr(755,root,root) %{_sbindir}/chpasswd
 %attr(755,root,root) %{_sbindir}/groupadd
 %attr(755,root,root) %{_sbindir}/groupdel
