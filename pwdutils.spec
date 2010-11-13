@@ -9,12 +9,12 @@
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
-Version:	3.2.11
+Version:	3.2.13
 Release:	1
 License:	GPL v2
 Group:		Base
 Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-# Source0-md5:	bb39596ccd7f80e698ea690de142a4a1
+# Source0-md5:	e247bf8af65393e369735d83faecdb26
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
 Source3:	%{name}.login.defs
@@ -196,8 +196,8 @@ install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 install %{SOURCE10} $RPM_BUILD_ROOT/etc/pam.d/rpasswd
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
-rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_*.la
-rm -f $RPM_BUILD_ROOT/etc/init.d/rpasswdd
+rm -f $RPM_BUILD_ROOT%{_libdir}/security/pam_*.la
+rm -f $RPM_BUILD_ROOT%{_sysconfdir}/init.d/rpasswdd
 
 :> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
 :> $RPM_BUILD_ROOT/etc/security/chfn.allow
@@ -209,7 +209,7 @@ rm -f $RPM_BUILD_ROOT/etc/init.d/rpasswdd
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ ! -f /etc/shadow ]; then
+if [ ! -f %{_sysconfdir}/shadow ]; then
 	%{_sbindir}/pwconv
 fi
 
@@ -302,7 +302,7 @@ fi
 %files -n rpasswd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/rpasswd
-%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/rpasswd.conf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/rpasswd.conf
 %{_mandir}/man1/rpasswd.1*
 %{_mandir}/man5/rpasswd.conf.5*
 
@@ -315,5 +315,5 @@ fi
 
 %files -n pam-pam_rpasswd
 %defattr(644,root,root,755)
-%attr(755,root,root) /%{_lib}/security/pam_rpasswd.so
+%attr(755,root,root) %{_libdir}/security/pam_rpasswd.so
 %{_mandir}/man8/pam_rpasswd.8*
