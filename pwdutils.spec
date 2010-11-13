@@ -28,6 +28,7 @@ Source10:	rpasswd.pamd
 Patch0:		%{name}-f-option.patch
 Patch1:		%{name}-no_bash.patch
 Patch2:		%{name}-silent_crontab.patch
+Patch3:		%{name}-pl.po-update.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
@@ -154,6 +155,9 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+
+%{__rm} po/stamp-po
 
 %build
 %{__gettextize}
@@ -196,7 +200,7 @@ install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 install %{SOURCE10} $RPM_BUILD_ROOT/etc/pam.d/rpasswd
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
-rm -f $RPM_BUILD_ROOT%{_libdir}/security/pam_*.la
+rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_*.la
 rm -f $RPM_BUILD_ROOT%{_sysconfdir}/init.d/rpasswdd
 
 :> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
@@ -315,5 +319,5 @@ fi
 
 %files -n pam-pam_rpasswd
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/security/pam_rpasswd.so
+%attr(755,root,root) /%{_lib}/security/pam_rpasswd.so
 %{_mandir}/man8/pam_rpasswd.8*

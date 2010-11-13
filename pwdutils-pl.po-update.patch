@@ -1,0 +1,11 @@
+--- pwdutils-3.2.13/po/pl.po.orig	2010-10-11 12:00:27.000000000 +0200
++++ pwdutils-3.2.13/po/pl.po	2010-11-13 21:42:51.947101613 +0100
+@@ -82,7 +82,7 @@
+ #: lib/copy_dir_rec.c:215
+ #, c-format
+ msgid "Warning: ignoring `%s', not a regular file\n"
+-msgstr ""
++msgstr "Uwaga: zignorowano `%s' - nie jest zwyk³ym plikiem\n"
+ 
+ #: lib/copy_xattr.c:51 lib/copy_xattr.c:69
+ #, c-format
