@@ -200,9 +200,9 @@ install %{SOURCE8} $RPM_BUILD_ROOT/etc/pam.d/useradd
 install %{SOURCE9} $RPM_BUILD_ROOT/etc/pam.d/shadow
 install %{SOURCE10} $RPM_BUILD_ROOT/etc/pam.d/rpasswd
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
-rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_*.la
-rm -f $RPM_BUILD_ROOT%{_sysconfdir}/init.d/rpasswdd
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/pwdutils/*.{la,a}
+%{__rm} $RPM_BUILD_ROOT/%{_lib}/security/pam_*.la
+%{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/init.d/rpasswdd
 
 :> $RPM_BUILD_ROOT%{_sysconfdir}/shadow
 :> $RPM_BUILD_ROOT/etc/security/chfn.allow

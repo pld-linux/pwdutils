@@ -9,3 +9,14 @@
  
  #: lib/copy_xattr.c:51 lib/copy_xattr.c:69
  #, c-format
+@@ -2429,9 +2429,8 @@
+ msgstr "b³±d podczas ustawiania domy¶lnej ¶cie¿ki weryfikacji: %s\n"
+ 
+ #: src/rpasswd-client.c:1003
+-#, fuzzy
+ msgid "Unable to get certificate from peer.\n"
+-msgstr "Nie mo¿na uzyskaæ entropii z %s\n"
++msgstr "Nie mo¿na uzyskaæ certyfikatu od drugiej strony.\n"
+ 
+ #: src/rpasswd-client.c:1017
+ #, c-format
