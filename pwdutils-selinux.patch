@@ -1,0 +1,55 @@
+--- pwdutils-3.2.19.orig/lib/public.h	2005-06-22 11:05:53.000000000 +0200
++++ pwdutils-3.2.19/lib/public.h	2012-05-26 07:35:09.397451177 +0200
+@@ -115,7 +115,7 @@
+ 
+ 
+ #ifdef WITH_SELINUX
+-extern int selinux_check_access (const char *__chuser,
++extern int pwdu_selinux_check_access (const char *__chuser,
+ 				 unsigned int __selaccess) __attribute_warn_unused_result__;
+ extern int set_default_context (const char *filename,
+ 				char **prev_context) __attribute_warn_unused_result__;
+--- pwdutils-3.2.19.orig/lib/selinux_utils.c	2006-11-29 14:19:06.000000000 +0100
++++ pwdutils-3.2.19/lib/selinux_utils.c	2012-05-26 07:35:09.397451177 +0200
+@@ -33,7 +33,7 @@
+ #include "public.h"
+ 
+ int
+-selinux_check_access (const char *chuser, unsigned int selaccess)
++pwdu_selinux_check_access (const char *chuser, unsigned int selaccess)
+ {
+   int status = -1;
+   security_context_t user_context;
+--- pwdutils-3.2.19.orig/src/chfn.c	2006-11-29 14:19:39.000000000 +0100
++++ pwdutils-3.2.19/src/chfn.c	2012-05-26 07:35:09.394117844 +0200
+@@ -578,7 +578,7 @@
+   if (is_selinux_enabled () > 0)
+     {
+       if ((uid == 0) &&
+-          (selinux_check_access (pw_data->pw.pw_name, PASSWD__CHFN) != 0))
++          (pwdu_selinux_check_access (pw_data->pw.pw_name, PASSWD__CHFN) != 0))
+         {
+           security_context_t user_context;
+           if (getprevcon (&user_context) < 0)
+--- pwdutils-3.2.19.orig/src/chsh.c	2006-11-29 14:19:43.000000000 +0100
++++ pwdutils-3.2.19/src/chsh.c	2012-05-26 07:35:09.397451177 +0200
+@@ -443,7 +443,7 @@
+   if (is_selinux_enabled () > 0)
+     {
+       if ((uid == 0) &&
+-          (selinux_check_access (pw_data->pw.pw_name, PASSWD__CHSH) != 0))
++          (pwdu_selinux_check_access (pw_data->pw.pw_name, PASSWD__CHSH) != 0))
+         {
+           security_context_t user_context;
+           if (getprevcon (&user_context) < 0)
+--- pwdutils-3.2.19.orig/src/passwd.c	2012-05-08 14:12:35.000000000 +0200
++++ pwdutils-3.2.19/src/passwd.c	2012-05-26 07:35:09.390784511 +0200
+@@ -704,7 +704,7 @@
+   if (is_selinux_enabled () > 0)
+     {
+       if ((uid == 0) &&
+-	  (selinux_check_access (pw->pw_name, PASSWD__PASSWD) != 0))
++	  (pwdu_selinux_check_access (pw->pw_name, PASSWD__PASSWD) != 0))
+ 	{
+ 	  security_context_t user_context;
+ 	  if (getprevcon (&user_context) < 0)
