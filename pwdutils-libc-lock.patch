@@ -1,0 +1,217 @@
+diff -urN pwdutils-3.2.19/lib/read-files.c pwdutils-3.2.19.new/lib/read-files.c
+--- pwdutils-3.2.19/lib/read-files.c	2006-11-29 14:18:52.000000000 +0100
++++ pwdutils-3.2.19.new/lib/read-files.c	2013-02-04 20:09:27.318544396 +0100
+@@ -30,8 +30,7 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <nss.h>
+-#include <bits/libc-lock.h>
+-#define __libc_lock_t pthread_mutex_t
++#include <pthread.h>
+ 
+ #include "read-files.h"
+ 
+@@ -174,11 +173,11 @@
+ 		  char *buffer, size_t buflen, int *errnop)
+ {
+   /* Locks the static variables in this file.  */
+-  __libc_lock_define_initialized (static, lock)
++  static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+   enum nss_status status;
+   FILE *stream = NULL;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   status = internal_setent (&stream, "/shadow");
+   if (status == NSS_STATUS_SUCCESS)
+@@ -194,7 +193,7 @@
+       internal_endent (&stream);
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
+@@ -204,11 +203,11 @@
+ 		  char *buffer, size_t buflen, int *errnop)
+ {
+   /* Locks the static variables in this file.  */
+-  __libc_lock_define_initialized (static, lock)
++  static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+   enum nss_status status;
+   FILE *stream = NULL;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   status = internal_setent (&stream, "/passwd");
+   if (status == NSS_STATUS_SUCCESS)
+@@ -224,7 +223,7 @@
+       internal_endent (&stream);
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
+@@ -234,11 +233,11 @@
+ 		  size_t buflen, int *errnop)
+ {
+   /* Locks the static variables in this file.  */
+-  __libc_lock_define_initialized (static, lock)
++  static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+   enum nss_status status;
+   FILE *stream = NULL;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   status = internal_setent (&stream, "/passwd");
+   if (status == NSS_STATUS_SUCCESS)
+@@ -254,7 +253,7 @@
+       internal_endent (&stream);
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
+@@ -265,14 +264,14 @@
+ 		  size_t buflen, int *errnop)
+ {
+   /* Some static variables */
+-  __libc_lock_define_initialized (static, lock)
++  static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+   static FILE *stream;
+   static fpos_t position;
+ 
+   /* Return next entry in host file.  */
+   enum nss_status status = NSS_STATUS_SUCCESS;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   /* Be prepared that the set*ent function was not called before.  */
+   if (stream == NULL)
+@@ -314,7 +313,7 @@
+         }
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
+@@ -325,14 +324,14 @@
+ 		  size_t buflen, int *errnop)
+ {
+   /* Some static variables */
+-  __libc_lock_define_initialized (static, lock)
++  static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+   static FILE *stream;
+   static fpos_t position;
+ 
+   /* Return next entry in host file.  */
+   enum nss_status status = NSS_STATUS_SUCCESS;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   /* Be prepared that the set*ent function was not called before.  */
+   if (stream == NULL)
+@@ -374,7 +373,7 @@
+         }
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
+diff -urN pwdutils-3.2.19/lib/read-files-group.c pwdutils-3.2.19.new/lib/read-files-group.c
+--- pwdutils-3.2.19/lib/read-files-group.c	2006-11-29 14:18:54.000000000 +0100
++++ pwdutils-3.2.19.new/lib/read-files-group.c	2013-02-04 20:12:50.297444765 +0100
+@@ -32,8 +32,7 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <nss.h>
+-#include <bits/libc-lock.h>
+-#define __libc_lock_t pthread_mutex_t
++#include <pthread.h>
+ 
+ #include "read-files.h"
+ 
+@@ -138,11 +137,11 @@
+ 		  char *buffer, size_t buflen, int *errnop)
+ {
+   /* Locks the static variables in this file.  */
+-  __libc_lock_define_initialized (static, lock)
++  static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+   enum nss_status status;
+   FILE *stream = NULL;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   status = internal_setent (&stream, "/group");
+   if (status == NSS_STATUS_SUCCESS)
+@@ -158,7 +157,7 @@
+       internal_endent (&stream);
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
+@@ -168,11 +167,11 @@
+ 		  size_t buflen, int *errnop)
+ {
+   /* Locks the static variables in this file.  */
+-  __libc_lock_define_initialized (static, lock)
++  static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+   enum nss_status status;
+   FILE *stream = NULL;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   status = internal_setent (&stream, "/group");
+   if (status == NSS_STATUS_SUCCESS)
+@@ -188,12 +187,12 @@
+       internal_endent (&stream);
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
+ 
+-__libc_lock_define_initialized (static, lock);
++static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+ static FILE *stream;
+ static fpos_t position;
+ 
+@@ -205,7 +204,7 @@
+   /* Return next entry in host file.  */
+   enum nss_status status = NSS_STATUS_SUCCESS;
+ 
+-  __libc_lock_lock (lock);
++  pthread_mutex_lock (&lock);
+ 
+   /* Be prepared that the set*ent function was not called before.  */
+   if (stream == NULL)
+@@ -247,7 +246,7 @@
+         }
+     }
+ 
+-  __libc_lock_unlock (lock);
++  pthread_mutex_unlock (&lock);
+ 
+   return status;
+ }
