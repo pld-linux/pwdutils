@@ -1,0 +1,90 @@
+diff -urN pwdutils-3.2.19/lib/logging.c pwdutils-3.2.19.new/lib/logging.c
+--- pwdutils-3.2.19/lib/logging.c	2006-11-29 14:18:21.000000000 +0100
++++ pwdutils-3.2.19.new/lib/logging.c	2013-02-04 20:18:24.415634693 +0100
+@@ -61,7 +61,7 @@
+   if (!handle)
+     {
+       err_msg = dlerror ();
+-      syslog (LOG_ERR, err_msg);
++      syslog (LOG_ERR, "%s", err_msg);
+       fprintf (stderr, _("Cannot open logging plugin:\n%s\n"),
+ 	       err_msg);
+       return -1;
+@@ -77,7 +77,7 @@
+   new->sec_log_fnc = dlsym (handle, buf);
+   if ((err_msg = dlerror ()) != NULL)
+     {
+-      syslog (LOG_ERR, err_msg);
++      syslog (LOG_ERR, "%s", err_msg);
+       fprintf (stderr, _("Cannot find symbol `%s':\n%s\n"),
+ 	       buf, err_msg);
+       dlclose (handle);
+@@ -95,7 +95,7 @@
+   new->open_sec_log_fnc = dlsym (handle, buf);
+   if ((err_msg = dlerror ()) != NULL)
+     {
+-      syslog (LOG_ERR, err_msg);
++      syslog (LOG_ERR, "%s", err_msg);
+       fprintf (stderr, _("Cannot find symbol `%s':\n%s\n"),
+ 	       buf, err_msg);
+       dlclose (handle);
+diff -urN pwdutils-3.2.19/src/rpasswd-client.c pwdutils-3.2.19.new/src/rpasswd-client.c
+--- pwdutils-3.2.19/src/rpasswd-client.c	2011-02-01 16:22:44.000000000 +0100
++++ pwdutils-3.2.19.new/src/rpasswd-client.c	2013-02-04 20:44:12.560581004 +0100
+@@ -948,7 +948,7 @@
+   *ctx = SSL_CTX_new (meth);
+   if (*ctx == NULL)
+     {
+-      PRINTF (ERR_HANDLE, ERR_error_string (ERR_get_error (), NULL));
++      PRINTF (ERR_HANDLE, "%s", ERR_error_string (ERR_get_error (), NULL));
+       return E_SSL_FAILURE;
+     }
+ 
+@@ -975,7 +975,7 @@
+   *ssl = SSL_new (*ctx);
+   if (*ssl == NULL)
+     {
+-      PRINTF (ERR_HANDLE, ERR_error_string (ERR_get_error (), NULL));
++      PRINTF (ERR_HANDLE, "%s", ERR_error_string (ERR_get_error (), NULL));
+       return E_SSL_FAILURE;
+     }
+   SSL_set_fd (*ssl, sock);
+diff -urN pwdutils-3.2.19/src/rpasswdd.c pwdutils-3.2.19.new/src/rpasswdd.c
+--- pwdutils-3.2.19/src/rpasswdd.c	2010-07-08 10:32:11.000000000 +0200
++++ pwdutils-3.2.19.new/src/rpasswdd.c	2013-02-04 21:01:18.326860645 +0100
+@@ -770,7 +770,7 @@
+ 	  if (asprintf (&cp, _("setresuid failed on server: %s"),
+ 			strerror (errno)) > 0)
+ 	    {
+-	      dbg_log (cp);
++	      dbg_log ("%s", cp);
+ 	      send_string (ssl, ERROR_MSG, cp);
+ 	      free (cp);
+ 	    }
+@@ -1143,7 +1143,7 @@
+ 
+ 		    if (asprintf (&cp, "fork: %s", strerror (errno)) > 0)
+ 		      {
+-			dbg_log (cp);
++			dbg_log ("%s", cp);
+ 			send_string (ssl, ERROR_MSG, cp);
+ 			free (cp);
+ #ifdef USE_GNUTLS
+@@ -1362,7 +1362,7 @@
+   ctx = SSL_CTX_new (meth);
+   if (!ctx)
+     {
+-      dbg_log (ERR_error_string (ERR_get_error (), NULL));
++      dbg_log ("%s", ERR_error_string (ERR_get_error (), NULL));
+       return E_SSL_FAILURE;
+     }
+ 
+@@ -1381,7 +1381,7 @@
+ 
+   if (!SSL_CTX_check_private_key (ctx))
+     {
+-      dbg_log (ERR_error_string (ERR_get_error (), NULL));
++      dbg_log ("%s", ERR_error_string (ERR_get_error (), NULL));
+       return E_SSL_FAILURE;
+     }
+ #endif
