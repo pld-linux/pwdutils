@@ -1,0 +1,12 @@
+diff -urN pwdutils-3.2.19/configure.in pwdutils-3.2.19.new/configure.in
+--- pwdutils-3.2.19/configure.in	2012-05-08 14:14:25.000000000 +0200
++++ pwdutils-3.2.19.new/configure.in	2013-02-03 22:03:19.141740276 +0100
+@@ -5,7 +5,7 @@
+ dnl
+ AC_INIT(src/passwd.c)
+ AM_INIT_AUTOMAKE("pwdutils", 3.2.19)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS(config.h)
+ AC_PREFIX_DEFAULT(/usr)
+ AC_CANONICAL_HOST
+ 

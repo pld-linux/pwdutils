@@ -31,6 +31,7 @@ Patch1:		%{name}-no_bash.patch
 Patch2:		%{name}-silent_crontab.patch
 Patch3:		%{name}-pl.po-update.patch
 Patch4:		%{name}-selinux.patch
+Patch5:		%{name}-am.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
@@ -159,6 +160,7 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %{__rm} po/stamp-po
 
