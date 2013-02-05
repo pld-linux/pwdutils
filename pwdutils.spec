@@ -254,7 +254,6 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
 %dir /etc/skel
-%dir %config(missingok) %attr(750,root,root) /etc/skel/etc
 %dir %config(missingok) %attr(700,root,root) /etc/skel/tmp
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
