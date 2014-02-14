@@ -5,12 +5,12 @@
 %bcond_without	selinux		# build without SELinux support
 %bcond_with	bioapi		# with BioAPI support in passwd
 %bcond_with	gnutls		# use GnuTLS instead of OpenSSL
-#
+
 Summary:	Utilities to manage the passwd and shadow user information
 Summary(pl.UTF-8):	Narzędzia do zarządzania informacjami o użytkownikach z passwd i shadow
 Name:		pwdutils
 Version:	3.2.19
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Base
 #Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
@@ -53,6 +53,7 @@ BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
 Requires:	pam >= 0.99.7.1
+Suggests:	make
 Provides:	shadow = 2:%{version}-%{release}
 Provides:	shadow-extras = 2:%{version}-%{release}
 Obsoletes:	shadow
