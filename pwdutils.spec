@@ -34,6 +34,7 @@ Patch4:		%{name}-selinux.patch
 Patch5:		%{name}-am.patch
 Patch6:		%{name}-libc-lock.patch
 Patch7:		%{name}-format-security.patch
+Patch8:		dlsym.patch
 URL:		http://www.thkukuk.de/pam/pwdutils/
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
@@ -166,6 +167,7 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %{__rm} po/stamp-po
 
