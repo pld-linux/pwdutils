@@ -3,6 +3,7 @@
 %bcond_without	audit		# don't build audit log plugin
 %bcond_without	ldap		# build without LDAP support
 %bcond_without	selinux		# build without SELinux support
+%bcond_without	xcrypt		# crypt() from libxcrypt
 %bcond_with	bioapi		# with BioAPI support in passwd
 %bcond_with	gnutls		# use GnuTLS instead of OpenSSL
 
@@ -46,7 +47,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
 BuildRequires:	libtool
-BuildRequires:	libxcrypt-devel
+%{?with_xcrypt:BuildRequires:	libxcrypt-devel}
 %{?with_ldap:BuildRequires:	openldap-devel >= 2.3.0}
 BuildRequires:	openslp-devel
 %{!?with_gnutls:BuildRequires:	openssl-devel >= 0.9.7d}
