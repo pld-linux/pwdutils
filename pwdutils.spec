@@ -47,7 +47,7 @@ BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
 BuildRequires:	libtool
 BuildRequires:	libxcrypt-devel
-%{?with_ldap:BuildRequires:	openldap-devel >= 2.4.6}
+%{?with_ldap:BuildRequires:	openldap-devel >= 2.3.0}
 BuildRequires:	openslp-devel
 %{!?with_gnutls:BuildRequires:	openssl-devel >= 0.9.7d}
 BuildRequires:	pam-devel
