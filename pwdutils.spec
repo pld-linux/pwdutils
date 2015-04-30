@@ -42,7 +42,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
 %{?with_bioapi:BuildRequires:	bioapi-devel}
 BuildRequires:	gcc >= 5:3.2
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 %{?with_gnutls:BuildRequires:	gnutls-devel >= 1.0.0}
 BuildRequires:	libnscd-devel
 %{?with_selinux:BuildRequires:	libselinux-devel}
