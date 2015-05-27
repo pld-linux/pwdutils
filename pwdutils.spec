@@ -194,8 +194,7 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/{etc,tmp}}
-
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/tmp}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -257,7 +256,6 @@ fi
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/login.defs
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chfn.allow
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/security/chsh.allow
-%dir /etc/skel
 %dir %config(missingok) %attr(700,root,root) /etc/skel/tmp
 %attr(755,root,root) %{_bindir}/chage
 %attr(4755,root,root) %{_bindir}/chfn
