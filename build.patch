@@ -1,0 +1,139 @@
+diff -urN pwdutils-3.2.19.org/lib/Makefile.am pwdutils-3.2.19/lib/Makefile.am
+--- pwdutils-3.2.19.org/lib/Makefile.am	2005-08-17 16:43:31.000000000 +0200
++++ pwdutils-3.2.19/lib/Makefile.am	2018-09-20 14:22:11.787750323 +0200
+@@ -26,9 +24,10 @@
+ 			parse_pwent.c yesno.c parse_grent.c strtoid.c \
+ 			parse_crypt_arg.c utf8conv.c get_ldap_password.c \
+ 			get_caller_dn.c logging.c remove_gr_mem.c
++
+ 
+ localedir = $(datadir)/locale
+ plugindir = $(libdir)/pwdutils
+-INCLUDES = -DLOCALEDIR=\"$(localedir)\" -DPLUGINDIR=\"$(plugindir)\"
++INCLUDES = -DLOCALEDIR=\"$(localedir)\" -DPLUGINDIR=\"$(plugindir)\" -I/usr/include/tirpc
+ 
+ CLEANFILES = *~
+diff -urN pwdutils-3.2.19.org/lib/public.h pwdutils-3.2.19/lib/public.h
+--- pwdutils-3.2.19.org/lib/public.h	2018-09-20 14:28:53.953167070 +0200
++++ pwdutils-3.2.19/lib/public.h	2018-09-20 14:14:15.923903628 +0200
+@@ -84,7 +84,7 @@
+ extern char *date2str (time_t date);
+ extern long int str2date (const char *str);
+ 
+-extern int strtoid (const char *arg, uint32_t *idptr) __attribute_warn_unused_result__;
++extern int strtoid (const char *arg, u_int32_t *idptr) __attribute_warn_unused_result__;
+ 
+ extern int check_name (const char *name) __attribute_warn_unused_result__;
+ extern int check_home (const char *home) __attribute_warn_unused_result__;
+diff -urN pwdutils-3.2.19.org/lib/strtoid.c pwdutils-3.2.19/lib/strtoid.c
+--- pwdutils-3.2.19.org/lib/strtoid.c	2006-11-29 14:19:11.000000000 +0100
++++ pwdutils-3.2.19/lib/strtoid.c	2018-09-20 14:14:52.878370859 +0200
+@@ -26,7 +26,7 @@
+ 
+ /* convert string into a UID/GID.  */
+ int
+-strtoid (const char *arg, uint32_t *idptr)
++strtoid (const char *arg, u_int32_t *idptr)
+ {
+   long long val;
+   char *cp;
+diff -urN pwdutils-3.2.19.org/src/Makefile.am pwdutils-3.2.19/src/Makefile.am
+--- pwdutils-3.2.19.org/src/Makefile.am	2018-09-20 14:28:53.959833937 +0200
++++ pwdutils-3.2.19/src/Makefile.am	2018-09-20 14:26:59.779741975 +0200
+@@ -60,25 +60,25 @@
+ 
+ chage_SOURCES = chage.c
+ chage_CFLAGS = @PIE_CFLAGS@
+-chage_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++chage_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ chage_LDFLAGS = @PIE_LDFLAGS@
+ 
+ chfn_SOURCES = chfn.c
+ chfn_CFLAGS = @PIE_CFLAGS@
+-chfn_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ @NSCD_LIB@
++chfn_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ @NSCD_LIB@ -ltirpc
+ chfn_LDFLAGS = @PIE_LDFLAGS@
+ 
+ chsh_SOURCES = chsh.c
+ chsh_CFLAGS = @PIE_CFLAGS@
+-chsh_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++chsh_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ chsh_LDFLAGS = @PIE_LDFLAGS@
+ 
+ chpasswd_SOURCES = chpasswd.c
+-chpasswd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @CRYPT_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++chpasswd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @CRYPT_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ passwd_SOURCES = passwd.c
+ passwd_CFLAGS = @PIE_CFLAGS@
+-passwd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ @BIOAPI_LIB@
++passwd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ @BIOAPI_LIB@ -ltirpc
+ passwd_LDFLAGS = @PIE_LDFLAGS@
+ 
+ rpasswd_SOURCES = rpasswd.c
+@@ -97,17 +97,17 @@
+ 
+ gpasswd_SOURCES = gpasswd.c
+ gpasswd_CFLAGS = @PIE_CFLAGS@
+-gpasswd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @CRYPT_LIB@ @NSL_LIB@ @LDAP_LIBS@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++gpasswd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @CRYPT_LIB@ @NSL_LIB@ @LDAP_LIBS@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ gpasswd_LDFLAGS = @PIE_LDFLAGS@
+ 
+ groupadd_SOURCES = groupadd.c
+-groupadd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++groupadd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ groupdel_SOURCES = groupdel.c
+-groupdel_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++groupdel_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ groupmod_SOURCES = groupmod.c
+-groupmod_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++groupmod_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ grpck_SOURCES = grpck.c
+ grpck_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @SELINUX_LIB@ @ATTR_LIB@
+@@ -116,25 +116,25 @@
+ grpconv_LDADD = ../lib/libpwdutils.a
+ 
+ grpunconv_SOURCES = grpunconv.c
+-grpunconv_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++grpunconv_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ pwck_SOURCES = pwck.c
+ pwck_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @SELINUX_LIB@ @ATTR_LIB@
+ 
+ pwconv_SOURCES = pwconv.c
+-pwconv_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++pwconv_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ pwunconv_SOURCES = pwunconv.c
+-pwunconv_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++pwunconv_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ useradd_SOURCES = useradd.c
+-useradd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++useradd_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ userdel_SOURCES = userdel.c
+-userdel_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++userdel_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ usermod_SOURCES = usermod.c
+-usermod_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@
++usermod_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @PAM_LIBS@ @LDAP_LIBS@ @NSL_LIB@ @SELINUX_LIB@ @ATTR_LIB@ @NSCD_LIB@ -ltirpc
+ 
+ vipw_SOURCES = vipw.c
+ vipw_LDADD = ../lib/libpwdutils.a @DL_LIBS@ @SELINUX_LIB@ @ATTR_LIB@
+diff -urN pwdutils-3.2.19.org/src/rpasswd-client.c pwdutils-3.2.19/src/rpasswd-client.c
+--- pwdutils-3.2.19.org/src/rpasswd-client.c	2018-09-20 14:28:53.959833937 +0200
++++ pwdutils-3.2.19/src/rpasswd-client.c	2018-09-20 14:23:47.100626914 +0200
+@@ -943,7 +943,7 @@
+   int err;
+ 
+   SSLeay_add_ssl_algorithms ();
+-  meth = SSLv3_client_method ();
++  meth = SSLv23_client_method ();
+   SSL_load_error_strings ();
+   *ctx = SSL_CTX_new (meth);
+   if (*ctx == NULL)
