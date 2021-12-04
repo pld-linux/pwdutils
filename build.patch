@@ -40,6 +40,15 @@ diff -urN pwdutils-3.2.19.org/lib/strtoid.c pwdutils-3.2.19/lib/strtoid.c
 diff -urN pwdutils-3.2.19.org/src/Makefile.am pwdutils-3.2.19/src/Makefile.am
 --- pwdutils-3.2.19.org/src/Makefile.am	2018-09-20 14:28:53.959833937 +0200
 +++ pwdutils-3.2.19/src/Makefile.am	2018-09-20 14:26:59.779741975 +0200
+@@ -16,7 +16,7 @@ LDADD = @LIBINTL@
+ localedir = $(datadir)/locale
+ pamdir = $(libdir)/security
+ 
+-INCLUDES = -I$(srcdir) -I$(top_srcdir)/lib -I$(top_srcdir) \
++INCLUDES = -I$(srcdir) -I$(top_srcdir)/lib -I$(top_srcdir) -I/usr/include/tirpc \
+ 		-DLOCALEDIR=\"$(localedir)\"
+ 
+ CLEANFILES = *~ tst-chage.* tst-passwd.* tst-group.* tst-groupadd.* \
 @@ -60,25 +60,25 @@
  
  chage_SOURCES = chage.c
