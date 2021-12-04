@@ -11,7 +11,15 @@
  				char **prev_context) __attribute_warn_unused_result__;
 --- pwdutils-3.2.19.orig/lib/selinux_utils.c	2006-11-29 14:19:06.000000000 +0100
 +++ pwdutils-3.2.19/lib/selinux_utils.c	2012-05-26 07:35:09.397451177 +0200
-@@ -33,7 +33,7 @@
+@@ -25,7 +25,6 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <sys/types.h>
+-#include <selinux/flask.h>
+ #include <selinux/selinux.h>
+ #include <selinux/context.h>
+ 
+@@ -33,10 +32,10 @@
  #include "public.h"
  
  int
@@ -19,37 +27,113 @@
 +pwdu_selinux_check_access (const char *chuser, unsigned int selaccess)
  {
    int status = -1;
-   security_context_t user_context;
+-  security_context_t user_context;
++  char *user_context;
+ 
+   if (getprevcon (&user_context) == 0)
+     {
+@@ -50,7 +49,7 @@ pwdu_selinux_check_access (const char *c
+ 	  struct av_decision avd;
+ 	  int retval = security_compute_av (user_context,
+ 					    user_context,
+-					    SECCLASS_PASSWD,
++					    string_to_security_class("passwd"),
+ 					    selaccess,
+ 					    &avd);
+ 
+@@ -67,7 +66,7 @@ pwdu_selinux_check_access (const char *c
+ int
+ set_default_context (const char *filename, char **prev_context)
+ {
+-  security_context_t scontext = NULL;
++  char *scontext = NULL;
+ 
+   if (is_selinux_enabled () <= 0)
+     return 0;
+@@ -105,7 +104,7 @@ set_default_context (const char *filenam
+ }
+ 
+ int
+-restore_default_context (security_context_t prev_context)
++restore_default_context (char *prev_context)
+ {
+   int retval = 0;
+ 
 --- pwdutils-3.2.19.orig/src/chfn.c	2006-11-29 14:19:39.000000000 +0100
 +++ pwdutils-3.2.19/src/chfn.c	2012-05-26 07:35:09.394117844 +0200
-@@ -578,7 +578,7 @@
+@@ -33,7 +33,6 @@
+ #include <shadow.h>
+ #ifdef WITH_SELINUX
+ #include <selinux/selinux.h>
+-#include <selinux/av_permissions.h>
+ #endif
+ #ifdef HAVE_LIBNSCD_H
+ #include <libnscd.h>
+@@ -578,12 +577,12 @@ main (int argc, char *argv[])
    if (is_selinux_enabled () > 0)
      {
        if ((uid == 0) &&
 -          (selinux_check_access (pw_data->pw.pw_name, PASSWD__CHFN) != 0))
-+          (pwdu_selinux_check_access (pw_data->pw.pw_name, PASSWD__CHFN) != 0))
++          (pwdu_selinux_check_access (pw_data->pw.pw_name, string_to_av_perm(string_to_security_class("passwd"), "chfn")) != 0))
          {
-           security_context_t user_context;
+-          security_context_t user_context;
++          char *user_context;
            if (getprevcon (&user_context) < 0)
+             user_context =
+-              (security_context_t) strdup (_("Unknown user context"));
++              strdup (_("Unknown user context"));
+ 	  fprintf (stderr,
+ 		   _("%s: %s is not authorized to change the finger information for %s.\n"),
+ 		   program, user_context, locale_name);
 --- pwdutils-3.2.19.orig/src/chsh.c	2006-11-29 14:19:43.000000000 +0100
 +++ pwdutils-3.2.19/src/chsh.c	2012-05-26 07:35:09.397451177 +0200
-@@ -443,7 +443,7 @@
+@@ -31,7 +31,6 @@
+ #include <shadow.h>
+ #ifdef WITH_SELINUX
+ #include <selinux/selinux.h>
+-#include <selinux/av_permissions.h>
+ #endif
+ #ifdef HAVE_LIBNSCD_H
+ #include <libnscd.h>
+@@ -443,12 +442,12 @@ main (int argc, char *argv[])
    if (is_selinux_enabled () > 0)
      {
        if ((uid == 0) &&
 -          (selinux_check_access (pw_data->pw.pw_name, PASSWD__CHSH) != 0))
-+          (pwdu_selinux_check_access (pw_data->pw.pw_name, PASSWD__CHSH) != 0))
++          (pwdu_selinux_check_access (pw_data->pw.pw_name, string_to_av_perm(string_to_security_class("passwd"), "chsh")) != 0))
          {
-           security_context_t user_context;
+-          security_context_t user_context;
++          char *user_context;
            if (getprevcon (&user_context) < 0)
+             user_context =
+-              (security_context_t) strdup (_("Unknown user context"));
++              strdup (_("Unknown user context"));
+ 	  fprintf (stderr,
+ 		  _("%s: %s is not authorized to change the shell of `%s'.\n"),
+ 		   program, user_context, locale_name);
 --- pwdutils-3.2.19.orig/src/passwd.c	2012-05-08 14:12:35.000000000 +0200
 +++ pwdutils-3.2.19/src/passwd.c	2012-05-26 07:35:09.390784511 +0200
-@@ -704,7 +704,7 @@
+@@ -34,7 +34,6 @@
+ #include <security/pam_misc.h>
+ #ifdef WITH_SELINUX
+ #include <selinux/selinux.h>
+-#include <selinux/av_permissions.h>
+ #endif
+ #ifdef HAVE_LIBNSCD_H
+ #include <libnscd.h>
+@@ -704,12 +703,12 @@ passwd_main (const char *program, int ar
    if (is_selinux_enabled () > 0)
      {
        if ((uid == 0) &&
 -	  (selinux_check_access (pw->pw_name, PASSWD__PASSWD) != 0))
-+	  (pwdu_selinux_check_access (pw->pw_name, PASSWD__PASSWD) != 0))
++	  (pwdu_selinux_check_access (pw->pw_name, string_to_av_perm(string_to_security_class("passwd"), "passwd")) != 0))
  	{
- 	  security_context_t user_context;
+-	  security_context_t user_context;
++	  char *user_context;
  	  if (getprevcon (&user_context) < 0)
+ 	    user_context =
+-	      (security_context_t) strdup (_("Unknown user context"));
++	      strdup (_("Unknown user context"));
+ 
+ 	  fprintf (stderr,
+ 		  _("%s: %s is not authorized to change the password of %s\n"),
