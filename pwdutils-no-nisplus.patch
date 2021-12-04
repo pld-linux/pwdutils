@@ -1,0 +1,35 @@
+--- pwdutils-3.2.19/lib/passwd_nisplus.c.orig	2021-12-04 16:36:18.968083529 +0100
++++ pwdutils-3.2.19/lib/passwd_nisplus.c	2021-12-04 16:36:21.648069010 +0100
+@@ -19,6 +19,8 @@
+ #include <config.h>
+ #endif
+ 
++#ifdef USE_NISPLUS
++
+ #include <pwd.h>
+ #include <time.h>
+ #include <ctype.h>
+@@ -615,3 +617,5 @@ npd_upd_pwd (const char *domainname, use
+   else
+     return update_npd (obj, data);
+ }
++
++#endif
+--- pwdutils-3.2.19/lib/user.c.orig	2011-05-23 10:13:39.000000000 +0200
++++ pwdutils-3.2.19/lib/user.c	2021-12-04 16:35:44.674935978 +0100
+@@ -983,6 +983,7 @@ write_user_data (user_t *data, int is_lo
+ 	  retval = -1;
+ 	}
+     }
++#ifdef USE_NISPLUS
+   else if (data->service == S_NISPLUS)
+     {
+       retval = npd_upd_pwd ("", data);
+@@ -992,6 +993,7 @@ write_user_data (user_t *data, int is_lo
+ 	  retval = -1;
+ 	}
+     }
++#endif
+ #ifdef USE_LDAP
+   else if (data->service == S_LDAP)
+     {

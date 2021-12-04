@@ -14,8 +14,9 @@ Version:	3.2.19
 Release:	7
 License:	GPL v2
 Group:		Base
-#Source0:	ftp://ftp.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
-Source0:	http://www.linux-nis.org/download/pwdutils/%{name}-%{version}.tar.bz2
+#Source0:	https://www.kernel.org/pub/linux/utils/net/NIS/%{name}-%{version}.tar.bz2
+#Source0:	http://www.linux-nis.org/download/pwdutils/%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	25a77a0ab376eacf24ad5eab7af4cdce
 Source1:	%{name}.useradd
 Source2:	%{name}.rpasswdd.init
@@ -37,7 +38,7 @@ Patch6:		%{name}-libc-lock.patch
 Patch7:		%{name}-format-security.patch
 Patch8:		dlsym.patch
 Patch9:		build.patch
-URL:		http://www.thkukuk.de/pam/pwdutils/
+Patch10:	%{name}-no-nisplus.patch
 %{?with_audit:BuildRequires:	audit-libs-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -172,6 +173,7 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %{__rm} po/stamp-po
 
@@ -183,14 +185,14 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %{__autoheader}
 %{__automake}
 %configure \
-	%{?with_bioapi:CPPFLAGS="-I/usr/include/bioapi"} \
+	CPPFLAGS="%{rpmcppflags} %{?with_bioapi:-I/usr/include/bioapi}" \
 	%{!?with_bioapi:ac_cv_header_bioapi_h=no ac_cv_lib_bioapi100_BioAPI_Init=no} \
 	%{?with_audit:--enable-audit-plugin} \
 	%{!?with_gnutls:--disable-gnutls} \
-	--%{?with_ldap:en}%{!?with_ldap:dis}able-ldap \
+	--enable-ldap%{!?with_ldap:=no} \
 	--enable-nls \
 	--enable-pam_rpasswd \
-	--%{?with_selinux:en}%{!?with_selinux:dis}able-selinux \
+	--enable-selinux%{!?with_selinux:=no} \
 	--enable-slp \
 	--disable-rpath
 %{__make}
@@ -198,10 +200,11 @@ funkcjonalność tylko dla jednej grupy zarządzania PAM: zmiany haseł.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,pwdutils,security,skel/tmp}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_sbindir}/*.local $RPM_BUILD_ROOT%{_sysconfdir}/pwdutils
+%{__mv} $RPM_BUILD_ROOT%{_sbindir}/*.local $RPM_BUILD_ROOT%{_sysconfdir}/pwdutils
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/default/useradd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/rpasswdd
 install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/login.defs
